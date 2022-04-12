@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="so1c"><title>so1c</title><meta name="description" content="Learning right now is always the best solution"><meta name="keywords" content="Blog,博客,so1c"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.webp"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.1.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="https://www.helloimg.com/images/2022/04/08/RsLwlM.jpg"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="https://www.helloimg.com/images/2022/04/08/RsLwlM.jpg" style="width:200px;" alt="favicon"><h3 title=""><a href="/">so1c</a></h3><div class="description"><p>Learning right now is always the best solution</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/so1c/notes"><i class="fa fa-github"></i></a></li><li><a href="mailto:811735602@qq.com"><i class="fa fa-envelope"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span> 全站CC-BY-SA-3.0 </span><i class="fa fa-star"></i><span> so1c</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2022/04/10/Git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Git学习笔记</a></h3></div><div class="post-content"><div class="card"><p><p><img src="https://user-images.githubusercontent.com/93063038/161943887-0d855334-36d8-43e0-a11c-1af252d2f1a5.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/93063038/161944097-2f6073fb-e205-47e5-a548-e2400cb085b3.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/93063038/161944157-eba89533-9328-4993-842e-926ec57bb7d0.png" alt="image"></p>
+<h4 id="git-init-——-初始化一个Git仓库"><a href="#git-init-——-初始化一个Git仓库" class="headerlink" title="git init —— 初始化一个Git仓库"></a>git init —— 初始化一个Git仓库</h4><p> 执行后会生成一个.git目录， 该目录包含了资源的所有元数据</p>
+<p><strong>使用指定目录作为git仓库</strong>  ——git init newrepo</p>
+<p>执行后会在newrepo目录下生成.git目录</p>
+<p><code>将文件纳入版本控制</code></p>
+<h4 id="git-add-——-添至暂存区"><a href="#git-add-——-添至暂存区" class="headerlink" title="git add —— 添至暂存区"></a>git add —— 添至暂存区</h4><p>git add . —— 将当前目录下所有未纳入的文件添加到暂存区</p>
+<p>git add {文件名} —— 将指定文件添加到暂存区</p>
+<h4 id="git-commit-——-提交"><a href="#git-commit-——-提交" class="headerlink" title="git commit —— 提交"></a>git commit —— 提交</h4><p>git commit -m ‘提交说明’ —— 对暂存区中的文件进行提交（添加到仓库中）</p>
+<h4 id="git-clone-——-从现有Git仓库中拷贝项目"><a href="#git-clone-——-从现有Git仓库中拷贝项目" class="headerlink" title="git clone —— 从现有Git仓库中拷贝项目"></a>git clone —— 从现有Git仓库中拷贝项目</h4><p><strong>git clone <repo></strong></p>
+<p>or</p>
+<p><strong>git clone <repo> <directory></strong> ——克隆到指定目录</p>
+<p>如果要自己定义要新建的项目目录名称，可以在上面的命令末尾指定新的名字</p>
+<p>git commit -a 跳过git add，直接添加至暂存区后提交</p>
+<h4 id="git-config-——-配置信息"><a href="#git-config-——-配置信息" class="headerlink" title="git config —— 配置信息"></a>git config —— 配置信息</h4><p><strong>git config –list</strong> —— 显示当前的git配置信息</p>
+<p><strong>git config -e</strong>  —— 针对当前仓库编辑git配置文件</p>
+<p><strong>git config -e –global</strong> —— 针对系统上所有仓库</p>
+<p>设置提交代码时的用户信息：</p>
+<p><strong>git config –global user.name {YOURGITHUBNAME}</strong><br><strong>git config –global user.email {YOUREMAIL}</strong></p>
+<h4 id="git-status-——-查看仓库当前的状态-显示有变更的文件"><a href="#git-status-——-查看仓库当前的状态-显示有变更的文件" class="headerlink" title="git status —— 查看仓库当前的状态    显示有变更的文件"></a>git status —— 查看仓库当前的状态    显示有变更的文件</h4><p>git status -s 获得更简短的输出结果</p>
+<h4 id="git-diff-——-比较文件的不同，即暂存区和工作区的差异"><a href="#git-diff-——-比较文件的不同，即暂存区和工作区的差异" class="headerlink" title="git diff  —— 比较文件的不同，即暂存区和工作区的差异"></a>git diff  —— 比较文件的不同，即暂存区和工作区的差异</h4><ul>
+<li>尚未缓存的改动：<strong>git diff</strong></li>
+<li>查看已缓存的改动： <strong>git diff –cached</strong></li>
+<li>查看已缓存的与未缓存的所有改动：<strong>git diff HEAD</strong></li>
+<li>显示摘要而非整个 diff：<strong>git diff –stat</strong></li>
+</ul>
+<h4 id="git-reset-——-用于回退版本，-可以制定退回某一次提交的版本"><a href="#git-reset-——-用于回退版本，-可以制定退回某一次提交的版本" class="headerlink" title="git reset —— 用于回退版本， 可以制定退回某一次提交的版本"></a>git reset —— 用于回退版本， 可以制定退回某一次提交的版本</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset [--soft | --mixed | --hard] [HEAD]</span><br></pre></td></tr></table></figure>
+
+<p><strong>git reset HEAD^</strong> - 回退所有内容到上一个版本</p>
+<p><strong>git reset HEAD^ {filename}</strong> - 回退指定文件到上一个版本</p>
+<p><strong>git reset {版本号}</strong> - 回退到指定版本</p>
+<p><strong>git reset –soft HEAD</strong> – soft参数用于回退到某个版本</p>
+<p>例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --soft HEAD~3 # 回退上上上一个版本</span><br></pre></td></tr></table></figure>
+
+<p><strong>git reset –hard HEAD</strong></p>
+<p><strong>–hard</strong> 参数撤销工作区中所有未提交的修改内容，将暂存区与工作区都回到上一次版本，并删除之前的所有信息提交（慎重使用）</p>
+<p><strong>HEAD 说明：</strong></p>
+<ul>
+<li><p>HEAD 表示当前版本</p>
+</li>
+<li><p>HEAD^ 上一个版本</p>
+</li>
+<li><p>HEAD^^ 上上一个版本</p>
+</li>
+<li><p>HEAD^^^ 上上上一个版本</p>
+</li>
+<li><p>以此类推…</p>
+</li>
+</ul>
+<p>可以使用 ～数字表示</p>
+<ul>
+<li>HEAD~0 表示当前版本</li>
+<li>HEAD~1 上一个版本</li>
+<li>HEAD^2 上上一个版本</li>
+<li>HEAD^3 上上上一个版本</li>
+<li>以此类推…</li>
+</ul>
+<p><strong>git reset HEAD</strong> 命令用于取消已缓存的内容。</p>
+<h4 id="git-rm-——-将文件从暂存区和工作区中删除"><a href="#git-rm-——-将文件从暂存区和工作区中删除" class="headerlink" title="git rm  —— 将文件从暂存区和工作区中删除"></a>git rm <file> —— 将文件从暂存区和工作区中删除</h4><p>如果删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项 <strong>-f</strong></p>
+<p>git rm -f <file></p>
+<p>如果想把文件从暂存区域移除，但仍然希望保留在当前工作目录中，换句话说，仅是从跟踪清单中删除，使用 <strong>–cached</strong> 选项即可：</p>
+<p>git rm –cached <file></p>
+<h4 id="git-mv-——-用于移动或重命名一个文件-目录或软连接。"><a href="#git-mv-——-用于移动或重命名一个文件-目录或软连接。" class="headerlink" title="git mv  —— 用于移动或重命名一个文件,目录或软连接。"></a>git mv  —— 用于移动或重命名一个文件,目录或软连接。</h4><p>git mv [file] [newfile]</p>
+<h4 id="git-log-——-查看历史提交记录"><a href="#git-log-——-查看历史提交记录" class="headerlink" title="git log —— 查看历史提交记录"></a>git log —— 查看历史提交记录</h4><p>用 –online 选项来查看历史记录的简洁版本。</p>
+<p><strong>git log –online</strong></p>
+<p><strong>git blame <file></strong> - 以列表形式查看指定文件的历史修改记录</p>
+<h4 id="git-remote-——-远程仓库操作"><a href="#git-remote-——-远程仓库操作" class="headerlink" title="git remote —— 远程仓库操作"></a>git remote —— 远程仓库操作</h4><p><strong>git remote -v</strong> —— 显示所有远程仓库</p>
+<p><strong>git remote show [remote]</strong> —— 显示某个远程仓库的信息</p>
+<p><code>remote为远程仓库地址</code></p>
+<p>git remote set-url [shortname] [url]</p>
+<p>shortname 为本地的版本库</p>
+<p>添加远程版本库：</p>
+<p><strong>git remote add [shortname] [url]</strong></p>
+<p>shortname 为本地的版本库</p>
+<p><strong>git remote rm name  # 删除远程仓库</strong><br><strong>git remote rename old_name new_name  # 修改仓库名</strong></p>
+<h4 id="git-branch-branchname-——-创建新分支"><a href="#git-branch-branchname-——-创建新分支" class="headerlink" title="git branch (branchname) —— 创建新分支"></a>git branch (branchname) —— 创建新分支</h4><p><strong>git branch</strong> —— 列出本地的分支</p>
+<h4 id="git-checkout-branchname-——-切换分支命令"><a href="#git-checkout-branchname-——-切换分支命令" class="headerlink" title="git checkout (branchname) —— 切换分支命令"></a>git checkout (branchname) —— 切换分支命令</h4><p>当切换分支的时候，Git 会用该分支的最后提交的快照替换你的工作目录的内容， 所以多个分支不需要多个目录。</p>
+<p>也可以使用 <strong>git checkout -b (branchname)</strong> —— <strong>创建新分支并立即切换到该分支下</strong>，从而在该分支中操作。</p>
+<h4 id="git-merge-——-合并分支命令"><a href="#git-merge-——-合并分支命令" class="headerlink" title="git merge —— 合并分支命令"></a>git merge —— 合并分支命令</h4><p><strong>git merge [branchname]</strong> —— 将指定分支与当前所在分支合并 </p>
+<h4 id="git-fetch-——-从远程获取代码库"><a href="#git-fetch-——-从远程获取代码库" class="headerlink" title="git fetch —— 从远程获取代码库"></a>git fetch —— 从远程获取代码库</h4><p>执行完后执行<strong>git merge</strong>合并远程分支到你所在的分支</p>
+<p><img src="https://user-images.githubusercontent.com/93063038/161936610-0ae3d485-71f2-45bb-ad8a-7120f28d8b55.png" alt="image"></p>
+<h4 id="git-tag-tagname-——-为提交快照打上标签"><a href="#git-tag-tagname-——-为提交快照打上标签" class="headerlink" title="git tag [tagname]—— 为提交快照打上标签"></a>git tag [tagname]—— 为提交快照打上标签</h4><p>例：</p>
+<p>我们可以用 <strong>git tag -a v1.0</strong> 命令给最新一次提交打上（HEAD）”v1.0”的标签</p>
+<p><strong>git tag</strong> <strong>—— 查看所有标签</strong></p>
+<p>-a 选项意为”创建一个带注解的标签”。 不用 -a 选项也可以执行的，但它不会记录这标签是啥时候打的，谁打的，也不会让你添加个标签的注解。</p>
+<p><strong>git log –decorate —— 查看标签</strong></p>
+<p><img src="https://user-images.githubusercontent.com/93063038/161943622-a1ef7d03-42da-448f-95be-6999dc6b773c.png" alt="image"></p>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2022-04-10</span><i class="fa fa-tag"></i><span class="leancloud_visitors"></span><span>About 1317 words, 4 min 23 sec  read</span></div></div></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/">Previous</a></li></ul></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script>(function(window){var INSIGHT_CONFIG={TRANSLATION:{POSTS:"Posts",PAGES:"Pages",CATEGORIES:"Categories",TAGS:"Tags",UNTITLED:"(Untitled)",},CONTENT_URL:"/content.json",};window.INSIGHT_CONFIG=INSIGHT_CONFIG})(window);</script><script src="/js/insight.js" defer></script><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="Search..."><span class="searchbox-close"><a class="fa fa-times-circle" onclick="closeWindow();"></a></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"><p>Seraching...</p></div></div></div></div></body></html>
