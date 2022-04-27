@@ -1,144 +1,170 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="LAzy"><title>LAzy</title><meta name="description" content="Learning right now is always the best solution"><meta name="keywords" content="Blog,博客,LAzy"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.webp"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.1.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a href="/archives">Archives</a></li><li> <a href="/">Home</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="https://www.helloimg.com/images/2022/04/08/RsLwlM.jpg"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="https://www.helloimg.com/images/2022/04/08/RsLwlM.jpg" style="width:200px;" alt="favicon"><h3 title=""><a href="/">LAzy</a></h3><div class="description"><p>Learning right now is always the best solution</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/so1c/notes"><i class="fa fa-github"></i></a></li><li><a href="mailto:811735602@qq.com"><i class="fa fa-envelope"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span> 全站CC-BY-SA-3.0 </span><i class="fa fa-star"></i><span> LAzy</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2022/04/10/Git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Git学习笔记</a></h3></div><div class="post-content"><div class="card"><p><!-- toc -->
-
-<ul>
-<li><a href="#git-init-%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%80%E4%B8%AAgit%E4%BB%93%E5%BA%93">git init —— 初始化一个Git仓库</a></li>
-<li><a href="#git-add-%E6%B7%BB%E8%87%B3%E6%9A%82%E5%AD%98%E5%8C%BA">git add —— 添至暂存区</a></li>
-<li><a href="#git-commit-%E6%8F%90%E4%BA%A4">git commit —— 提交</a></li>
-<li><a href="#git-push-%E4%B8%8A%E4%BC%A0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%B9%B6%E5%90%88%E5%B9%B6">git push —— 上传远程代码并合并</a></li>
-<li><a href="#git-pull-%E4%B8%8B%E8%BD%BD%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%B9%B6%E5%90%88%E5%B9%B6">git pull —— 下载远程代码并合并</a></li>
-<li><a href="#git-clone-%E4%BB%8E%E7%8E%B0%E6%9C%89git%E4%BB%93%E5%BA%93%E4%B8%AD%E6%8B%B7%E8%B4%9D%E9%A1%B9%E7%9B%AE">git clone —— 从现有Git仓库中拷贝项目</a></li>
-<li><a href="#git-config-%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF">git config —— 配置信息</a></li>
-<li><a href="#git-status-%E6%9F%A5%E7%9C%8B%E4%BB%93%E5%BA%93%E5%BD%93%E5%89%8D%E7%9A%84%E7%8A%B6%E6%80%81-%E6%98%BE%E7%A4%BA%E6%9C%89%E5%8F%98%E6%9B%B4%E7%9A%84%E6%96%87%E4%BB%B6">git status —— 查看仓库当前的状态    显示有变更的文件</a></li>
-<li><a href="#git-diff-%E6%AF%94%E8%BE%83%E6%96%87%E4%BB%B6%E7%9A%84%E4%B8%8D%E5%90%8C%E5%8D%B3%E6%9A%82%E5%AD%98%E5%8C%BA%E5%92%8C%E5%B7%A5%E4%BD%9C%E5%8C%BA%E7%9A%84%E5%B7%AE%E5%BC%82">git diff  —— 比较文件的不同，即暂存区和工作区的差异</a></li>
-<li><a href="#git-reset-%E7%94%A8%E4%BA%8E%E5%9B%9E%E9%80%80%E7%89%88%E6%9C%AC-%E5%8F%AF%E4%BB%A5%E5%88%B6%E5%AE%9A%E9%80%80%E5%9B%9E%E6%9F%90%E4%B8%80%E6%AC%A1%E6%8F%90%E4%BA%A4%E7%9A%84%E7%89%88%E6%9C%AC">git reset —— 用于回退版本， 可以制定退回某一次提交的版本</a></li>
-<li><a href="#git-rm-file-%E5%B0%86%E6%96%87%E4%BB%B6%E4%BB%8E%E6%9A%82%E5%AD%98%E5%8C%BA%E5%92%8C%E5%B7%A5%E4%BD%9C%E5%8C%BA%E4%B8%AD%E5%88%A0%E9%99%A4">git rm <file> —— 将文件从暂存区和工作区中删除</file></a></li>
-<li><a href="#git-mv-%E7%94%A8%E4%BA%8E%E7%A7%BB%E5%8A%A8%E6%88%96%E9%87%8D%E5%91%BD%E5%90%8D%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E6%88%96%E8%BD%AF%E8%BF%9E%E6%8E%A5">git mv  —— 用于移动或重命名一个文件,目录或软连接。</a></li>
-<li><a href="#git-log-%E6%9F%A5%E7%9C%8B%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4%E8%AE%B0%E5%BD%95">git log —— 查看历史提交记录</a></li>
-<li><a href="#git-remote-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E6%93%8D%E4%BD%9C">git remote —— 远程仓库操作</a></li>
-<li><a href="#git-branch-branchname-%E5%88%9B%E5%BB%BA%E6%96%B0%E5%88%86%E6%94%AF">git branch (branchname) —— 创建新分支</a></li>
-<li><a href="#git-checkout-branchname-%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF%E5%91%BD%E4%BB%A4">git checkout (branchname) —— 切换分支命令</a></li>
-<li><a href="#git-merge-%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF%E5%91%BD%E4%BB%A4">git merge —— 合并分支命令</a></li>
-<li><a href="#git-fetch-%E4%BB%8E%E8%BF%9C%E7%A8%8B%E8%8E%B7%E5%8F%96%E4%BB%A3%E7%A0%81%E5%BA%93">git fetch —— 从远程获取代码库</a></li>
-<li><a href="#git-tag-tagname-%E4%B8%BA%E6%8F%90%E4%BA%A4%E5%BF%AB%E7%85%A7%E6%89%93%E4%B8%8A%E6%A0%87%E7%AD%BE">git tag [tagname]—— 为提交快照打上标签</a></li>
-<li><a href="#%E7%94%9F%E6%88%90ssh%E5%AF%86%E9%92%A5">生成ssh密钥</a></li>
-</ul>
-<!-- tocstop -->
-
-<p><img src="https://user-images.githubusercontent.com/93063038/161943887-0d855334-36d8-43e0-a11c-1af252d2f1a5.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/93063038/161944097-2f6073fb-e205-47e5-a548-e2400cb085b3.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/93063038/161944157-eba89533-9328-4993-842e-926ec57bb7d0.png" alt="image"></p>
-<h4><span id="git-init-初始化一个git仓库">git init —— 初始化一个Git仓库</span></h4><p> 执行后会生成一个.git目录， 该目录包含了资源的所有元数据</p>
-<p><strong>使用指定目录作为git仓库</strong>  ——git init newrepo</p>
-<p>执行后会在newrepo目录下生成.git目录</p>
-<p><code>将文件纳入版本控制</code></p>
-<h4><span id="git-add-添至暂存区">git add —— 添至暂存区</span></h4><p>git add . —— 将当前目录下所有未纳入的文件添加到暂存区</p>
-<p>git add {文件名} —— 将指定文件添加到暂存区</p>
-<h4><span id="git-commit-提交">git commit —— 提交</span></h4><p>git commit -m ‘提交说明’ —— 对暂存区中的文件进行提交（添加到仓库中）</p>
-<h4><span id="git-push-上传远程代码并合并">git push —— 上传远程代码并合并</span></h4><p><strong>git push</strong> 命用于从将本地的分支版本上传到远程并合并。</p>
-<p>命令格式如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</span><br></pre></td></tr></table></figure>
-
-<p>若远程分支名与本地分支名相同则可以省略：及之后部分</p>
-<p>若版本有差异，想要强制推送</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --force &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</span><br></pre></td></tr></table></figure>
-
-<p>若要删除主机的分支</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --delete master # 表示删除origin主机的master分支</span><br></pre></td></tr></table></figure>
-
-
-
-<h4><span id="git-pull-下载远程代码并合并">git pull —— 下载远程代码并合并</span></h4><p><strong>git pull</strong> 命令用于从远程获取代码并合并本地的版本。</p>
-<p><strong>git pull</strong> 其实就是 <strong>git fetch</strong> 和 <strong>git merge FETCH_HEAD</strong> 的简写。 命令格式如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</span><br></pre></td></tr></table></figure>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="LAzy"><title>LAzy</title><meta name="description" content="Learning right now is always the best solution"><meta name="keywords" content="Blog,博客,LAzy"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.webp"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.1.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a href="/archives">Archives</a></li><li> <a href="/">Home</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="https://www.helloimg.com/images/2022/04/08/RsLwlM.jpg"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="https://www.helloimg.com/images/2022/04/08/RsLwlM.jpg" style="width:200px;" alt="favicon"><h3 title=""><a href="/">LAzy</a></h3><div class="description"><p>Learning right now is always the best solution</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/so1c/notes"><i class="fa fa-github"></i></a></li><li><a href="mailto:811735602@qq.com"><i class="fa fa-envelope"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span> 全站CC-BY-SA-3.0 </span><i class="fa fa-star"></i><span> LAzy</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2022/04/24/pytorch%E7%AC%94%E8%AE%B0/">pytorch笔记</a></h3></div><div class="post-content"><div class="card"><p><!--TOC-->
 
 
 
 
 
-<h4><span id="git-clone-从现有git仓库中拷贝项目">git clone —— 从现有Git仓库中拷贝项目</span></h4><p><strong>git clone <repo></repo></strong></p>
-<p>or</p>
-<p><strong>git clone <repo> <directory></directory></repo></strong> ——克隆到指定目录</p>
-<p>如果要自己定义要新建的项目目录名称，可以在上面的命令末尾指定新的名字</p>
-<p>git commit -a 跳过git add，直接添加至暂存区后提交</p>
-<h4><span id="git-config-配置信息">git config —— 配置信息</span></h4><p><strong>git config –list</strong> —— 显示当前的git配置信息</p>
-<p><strong>git config -e</strong>  —— 针对当前仓库编辑git配置文件</p>
-<p><strong>git config -e –global</strong> —— 针对系统上所有仓库</p>
-<p>设置提交代码时的用户信息：</p>
-<p><strong>git config –global user.name {YOURGITHUBNAME}</strong><br><strong>git config –global user.email {YOUREMAIL}</strong></p>
-<h4><span id="git-status-查看仓库当前的状态-显示有变更的文件">git status —— 查看仓库当前的状态    显示有变更的文件</span></h4><p>git status -s 获得更简短的输出结果</p>
-<h4><span id="git-diff-比较文件的不同即暂存区和工作区的差异">git diff  —— 比较文件的不同，即暂存区和工作区的差异</span></h4><ul>
-<li>尚未缓存的改动：<strong>git diff</strong></li>
-<li>查看已缓存的改动： <strong>git diff –cached</strong></li>
-<li>查看已缓存的与未缓存的所有改动：<strong>git diff HEAD</strong></li>
-<li>显示摘要而非整个 diff：<strong>git diff –stat</strong></li>
-</ul>
-<h4><span id="git-reset-用于回退版本-可以制定退回某一次提交的版本">git reset —— 用于回退版本， 可以制定退回某一次提交的版本</span></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset [--soft | --mixed | --hard] [HEAD]</span><br></pre></td></tr></table></figure>
+<h3><span id="一张量">一.张量</span></h3><h4><span id="1张量的数据类型">1.张量的数据类型</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202201311115752.png" alt="image-20220131111457646"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202201311137743.png" alt="image-20220131113706683"></p>
+<p>默认数据类型为32位浮点型</p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202201311137323.png" alt="image-20220131113746252"></p>
+<p>**torch.set_default_tensor_type()**函数可设置默认的张量数据类型</p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202201311141394.png" alt="image-20220131114156317"></p>
+<p><strong>a.long()  a.int()  a.float()方法</strong></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202201311143047.png" alt="image-20220131114336959"></p>
+<h4><span id="2张量的生成">2.张量的生成</span></h4><p>(1)列表或序列可通过**torch.tensor()**函数构造张量</p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202011519786.png" alt="image-20220201151919676"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202201311204496.png" alt="image-20220131120443462"></p>
+<p>**.shape .size .numel()**方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a  = torch.randn((<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>),dtype = torch.float32)</span><br><span class="line"><span class="built_in">print</span>(a.shape)<span class="comment">#打印“torch.Size([2,3,5])”不需要加括号，直接访问成员属性，返回的是torch.Size类对象，</span></span><br><span class="line"><span class="built_in">print</span>(a.shape[<span class="number">1</span>])<span class="comment">#可以使用[]索引访问,所以size属性是一个迭代器</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(a.size())<span class="comment">#打印“torch.Size([2,3,5])”,与shape属性一致</span></span><br><span class="line"><span class="built_in">print</span>(a.size(<span class="number">1</span>))<span class="comment">#可传入参数，返回3，即第i维的个数</span></span><br><span class="line"><span class="built_in">print</span>(a.numel)<span class="comment">#返回30，计算张量中包含元素数量</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>git reset HEAD^</strong> - 回退所有内容到上一个版本</p>
-<p><strong>git reset HEAD^ {filename}</strong> - 回退指定文件到上一个版本</p>
-<p><strong>git reset {版本号}</strong> - 回退到指定版本</p>
-<p><strong>git reset –soft HEAD</strong> – soft参数用于回退到某个版本</p>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --soft HEAD~3 # 回退上上上一个版本</span><br></pre></td></tr></table></figure>
+<p>通过<strong>torch.tensor()<strong>函数构造张量可使用</strong>dtype</strong>参数指定数据类型，使用requires_grad来指定是否需要计算梯度</p>
+<p>(2)**torch.Tensor()**——————一个类</p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202011523056.png" alt="image-20220201152349906"></p>
+<p>可以生成指定形状的张量</p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202011543977.png" alt="image-20220201154329908"></p>
+<p>(3)<strong>torch.from_numpy(ndarray)</strong>  <strong>torch.as_tensor()</strong></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202011545516.png" alt="image-20220201154511394"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202011603578.png" alt="image-20220201160311505"></p>
+<p>(4)依据数值创建</p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202011548415.png" alt="image-20220201154817290"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202011549781.png" alt="image-20220201154949675"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202011552566.png" alt="image-20220201155232420"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202011553085.png" alt="image-20220201155307992"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202011554567.png" alt="image-20220201155410450"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202011554715.png" alt="image-20220201155438613"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202011555299.png" alt="image-20220201155534168"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202011555716.png" alt="image-20220201155557606"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202020945847.png" alt="image-20220202094539781"></p>
+<p>**torch.empty()**————返回填充有未初始化数据的张量，张量的形状由可变的参数大小定义</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>torch.empty(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">tensor(<span class="number">1.00000e-08</span> *</span><br><span class="line">       [[ <span class="number">6.3984</span>,  <span class="number">0.0000</span>,  <span class="number">0.0000</span>],</span><br><span class="line">        [ <span class="number">0.0000</span>,  <span class="number">0.0000</span>,  <span class="number">0.0000</span>]])</span><br></pre></td></tr></table></figure>
 
-<p><strong>git reset –hard HEAD</strong></p>
-<p><strong>–hard</strong> 参数撤销工作区中所有未提交的修改内容，将暂存区与工作区都回到上一次版本，并删除之前的所有信息提交（慎重使用）</p>
-<p><strong>HEAD 说明：</strong></p>
-<ul>
-<li><p>HEAD 表示当前版本</p>
-</li>
-<li><p>HEAD^ 上一个版本</p>
-</li>
-<li><p>HEAD^^ 上上一个版本</p>
-</li>
-<li><p>HEAD^^^ 上上上一个版本</p>
-</li>
-<li><p>以此类推…</p>
-</li>
-</ul>
-<p>可以使用 ～数字表示</p>
-<ul>
-<li>HEAD~0 表示当前版本</li>
-<li>HEAD~1 上一个版本</li>
-<li>HEAD^2 上上一个版本</li>
-<li>HEAD^3 上上上一个版本</li>
-<li>以此类推…</li>
-</ul>
-<p><strong>git reset HEAD</strong> 命令用于取消已缓存的内容。</p>
-<h4><span id="git-rm-将文件从暂存区和工作区中删除">git rm <file> —— 将文件从暂存区和工作区中删除</file></span></h4><p>如果删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项 <strong>-f</strong></p>
-<p>git rm -f <file></file></p>
-<p>如果想把文件从暂存区域移除，但仍然希望保留在当前工作目录中，换句话说，仅是从跟踪清单中删除，使用 <strong>–cached</strong> 选项即可：</p>
-<p>git rm –cached <file></file></p>
-<h4><span id="git-mv-用于移动或重命名一个文件目录或软连接">git mv  —— 用于移动或重命名一个文件,目录或软连接。</span></h4><p>git mv [file] [newfile]</p>
-<h4><span id="git-log-查看历史提交记录">git log —— 查看历史提交记录</span></h4><p>用 –online 选项来查看历史记录的简洁版本。</p>
-<p><strong>git log –online</strong></p>
-<p><strong>git blame <file></file></strong> - 以列表形式查看指定文件的历史修改记录</p>
-<h4><span id="git-remote-远程仓库操作">git remote —— 远程仓库操作</span></h4><p><strong>git remote -v</strong> —— 显示所有远程仓库</p>
-<p><strong>git remote show [remote]</strong> —— 显示某个远程仓库的信息</p>
-<p><code>remote为远程仓库地址</code></p>
-<p>git remote set-url [shortname] [url]</p>
-<p>shortname 为本地的版本库</p>
-<p>添加远程版本库：</p>
-<p><strong>git remote add [shortname] [url]</strong></p>
-<p>shortname 为本地的版本库</p>
-<p><strong>git remote rm name  # 删除远程仓库</strong><br><strong>git remote rename old_name new_name  # 修改仓库名</strong></p>
-<h4><span id="git-branch-branchname-创建新分支">git branch (branchname) —— 创建新分支</span></h4><p><strong>git branch</strong> —— 列出本地的分支</p>
-<h4><span id="git-checkout-branchname-切换分支命令">git checkout (branchname) —— 切换分支命令</span></h4><p>当切换分支的时候，Git 会用该分支的最后提交的快照替换你的工作目录的内容， 所以多个分支不需要多个目录。</p>
-<p>也可以使用 <strong>git checkout -b (branchname)</strong> —— <strong>创建新分支并立即切换到该分支下</strong>，从而在该分支中操作。</p>
-<h4><span id="git-merge-合并分支命令">git merge —— 合并分支命令</span></h4><p><strong>git merge [branchname]</strong> —— 将指定分支与当前所在分支合并 </p>
-<h4><span id="git-fetch-从远程获取代码库">git fetch —— 从远程获取代码库</span></h4><p>执行完后执行<strong>git merge</strong>合并远程分支到你所在的分支</p>
-<p><img src="https://user-images.githubusercontent.com/93063038/161936610-0ae3d485-71f2-45bb-ad8a-7120f28d8b55.png" alt="image"></p>
-<h4><span id="git-tag-tagname-为提交快照打上标签">git tag [tagname]—— 为提交快照打上标签</span></h4><p>例：</p>
-<p>我们可以用 <strong>git tag -a v1.0</strong> 命令给最新一次提交打上（HEAD）”v1.0”的标签</p>
-<p><strong>git tag</strong> <strong>—— 查看所有标签</strong></p>
-<p>-a 选项意为”创建一个带注解的标签”。 不用 -a 选项也可以执行的，但它不会记录这标签是啥时候打的，谁打的，也不会让你添加个标签的注解。</p>
-<p><strong>git log –decorate —— 查看标签</strong></p>
-<p><img src="https://user-images.githubusercontent.com/93063038/161943622-a1ef7d03-42da-448f-95be-6999dc6b773c.png" alt="image"></p>
-<h4><span id="生成ssh密钥">生成ssh密钥</span></h4><p>执行：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &lt;your email&gt;</span><br></pre></td></tr></table></figure>
+<p>(5)依据概率分布创建张量</p>
+<p>**torch.manual_seed()**——————指定生成随机数种子</p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202011604558.png" alt="image-20220201160448443"></p>
+<p> <img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202011614983.png" alt="image-20220201161451904"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202011615034.png" alt="image-20220201161514884"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202011616898.png" alt="image-20220201161608761"></p>
+<h4><span id="3张量的操作">3.张量的操作</span></h4><h5><span id="1张量的拼接与切分">（1）张量的拼接与切分</span></h5><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202021015601.png" alt="image-20220202101504497"></p>
+<p>**torch.stack()**会拓展张量维度</p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202021018613.png" alt="image-20220202101844509"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202021020023.png" alt="image-20220202102018924"></p>
+<h5><span id="2张量索引">（2）张量索引</span></h5><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202021023763.png" alt="image-20220202102350596"></p>
+<p>&#x3D;&#x3D;注意index参数的数据类型必须是torch.long&#x3D;&#x3D;</p>
+<p>例</p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202021030467.png" alt="image-20220202103022392"></p>
+<p>(对第0维度进行索引（相当于索引第一维度）)</p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202021032248.png" alt="image-20220202103238169"></p>
+<h5><span id="3张量变换">（3）张量变换</span></h5><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202021034687.png" alt="image-20220202103425616"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202041220593.png" alt="image-20220204122005493"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202041236220.png" alt="image-20220204123625169"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202041234792.png" alt="image-20220204123440698"></p>
+<p>&#x3D;&#x3D;注意reshape共享数据内存&#x3D;&#x3D;</p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202021037649.png" alt="image-20220202103706542"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202021038823.png" alt="image-20220202103810700"></p>
+<p>如图：</p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202021039152.png" alt="image-20220202103951071"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202041702785.png" alt="image-20220204170210714"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202041707930.png" alt="image-20220204170737883"></p>
+<p>沿着指定的维度重复tensor。不同与expand()，本函数复制的是tensor中的数据。扩展（expand）张量不会分配新的内存，只是在存在的张量上创建一个新的视图（view），一个大小（size）等于1的维度扩展到更大的尺寸。repeat沿着特定的维度重复这个张量，和expand()不同的是，这个函数拷贝张量的数据。</p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202041716152.png" alt="image-20220204171657106"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202041717585.png" alt="image-20220204171731493"></p>
+<h5><span id="4张量数学运算">（4）张量数学运算</span></h5><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202021045502.png" alt="image-20220202104524351"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202021044623.png" alt="image-20220202104455497"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202041733245.png" alt="image-20220204173330127"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202041913380.png" alt="image-20220204191336309"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202041914954.png" alt="image-20220204191459872"></p>
+<p>真多啊。。。用到再查叭。</p>
+<h3><span id="二pytorch中的自动求导">二.pytorch中的自动求导</span></h3><p>将张量的<strong>requires_grad参数</strong>设为Ture可自动求导得到其梯度</p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202042022817.png" alt="image-20220204202233657"></p>
+<p><strong>Tensor()类的重要属性：</strong></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202042036027.png" alt="image-20220204203646918"></p>
+<p>在Pytorch中，默认情况下，非叶节点的梯度值在反向传播过程中使用完后就会被清除，不会被保留。<strong>只有叶子节点的梯度值能够被保留下来</strong></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202042032787.png" alt="image-20220204203208599"></p>
+<h6><span id="retain_grad">retain_grad()</span></h6><p>可保存非叶子节点梯度</p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202042033410.png" alt="image-20220204203319272"></p>
+<p>grad_fn：记录创建该张量时所用的方法（函数）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;grad_fn:&quot;</span>, w.grad_fn, x.grad_fn, a.grad_fn, b.grad_fn, y.grad_fn)</span><br><span class="line"><span class="comment"># Out：grad_fn: None None &lt;AddBackward0 object at 0x000001C04BB24788&gt; &lt;AddBackward0 object at 0x000001C04605D188&gt; &lt;MulBackward0 object at 0x000001C04605D1C8&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>会生成一个.ssh文件</p>
-<p>找到其中的id_rsa.pub将其中内容复制</p>
-<p>进入github settings 点击SSH and GPG keys</p>
-<p>创建新密钥并将密钥内容粘贴入其中</p>
-</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2022-04-10</span><i class="fa fa-tag"></i><span class="leancloud_visitors"></span><span>About 1890 words, 6 min 18 sec  read</span></div></div></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/page/3/">Previous</a></li></ul></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script>(function(window){var INSIGHT_CONFIG={TRANSLATION:{POSTS:"Posts",PAGES:"Pages",CATEGORIES:"Categories",TAGS:"Tags",UNTITLED:"(Untitled)",},CONTENT_URL:"/content.json",};window.INSIGHT_CONFIG=INSIGHT_CONFIG})(window);</script><script src="/js/insight.js" defer></script><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="Search..."><span class="searchbox-close"><a class="fa fa-times-circle" onclick="closeWindow();"></a></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"><p>Seraching...</p></div></div></div></div></body></html>
+<h4><span id="autograd">autograd</span></h4><h5><span id="torchautogradbackward">torch.autograd.backward</span></h5><p>张量中的backward()方法直接调用了torch.autograd.backward()</p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202042048465.png" alt="image-20220204204833276"></p>
+<p><strong>retain_graph</strong>参数设置为True，得以进行两次反向传播</p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202051129435.png" alt="image-20220205112941344"></p>
+<p><strong>grad_tensors</strong>参数用于多梯度权重的设置</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">w = torch.tensor([<span class="number">1.</span>], requires_grad=<span class="literal">True</span>)</span><br><span class="line">    x = torch.tensor([<span class="number">2.</span>], requires_grad=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    a = torch.add(w, x)     <span class="comment"># retain_grad()</span></span><br><span class="line">    b = torch.add(w, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    y0 = torch.mul(a, b)    <span class="comment"># y0 = (x+w) * (w+1)</span></span><br><span class="line">    y1 = torch.add(a, b)    <span class="comment"># y1 = (x+w) + (w+1)    dy1/dw = 2</span></span><br><span class="line"></span><br><span class="line">    loss = torch.cat([y0, y1], dim=<span class="number">0</span>)       <span class="comment"># [y0, y1]</span></span><br><span class="line">    grad_tensors = torch.tensor([<span class="number">1.</span>, <span class="number">1.</span>])</span><br><span class="line">    <span class="comment"># grad_tensors = torch.tensor([1., 2.])</span></span><br><span class="line"></span><br><span class="line">    loss.backward(gradient=grad_tensors)    <span class="comment"># gradient 传入 torch.autograd.backward()中的grad_tensors</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(w.grad)</span><br><span class="line">    </span><br><span class="line">    out：<span class="number">7</span> <span class="comment"># 9</span></span><br></pre></td></tr></table></figure>
+
+<h5><span id="torchautogradgrad">torch.autograd.grad</span></h5><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202042059611.png" alt="image-20220204205947396"></p>
+<p><strong>create_graph</strong>   创建导数计算图，用于高阶求导</p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202051145014.png" alt="image-20220205114554928"></p>
+<h5><span id="autograd小贴士">autograd小贴士：</span></h5><p>1.梯度不自动清零</p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202051150324.png" alt="image-20220205115044251"></p>
+<p>使用<strong>grad.zero_()</strong>  对梯度清零</p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202051151087.png" alt="image-20220205115154019"></p>
+<p>2.依赖于叶子节点的节点， requires_grad默认为True</p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202051155322.png" alt="image-20220205115547253"></p>
+<p>3.叶子节点不可执行in-place操作</p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202051200092.png" alt="image-20220205120026028"></p>
+<p>可知+&#x3D;操作时不改变内存地址，为in-place操作，不可对叶子节点执行</p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202051202037.png" alt="image-20220205120213991"></p>
+<h3><span id="三torchnn模块">三.torch.nn模块</span></h3><h4><span id="容器">容器</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190444179.png" alt="image-20220219044440063"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190444944.png" alt="image-20220219044452816"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190448651.png" alt="image-20220219044809497"></p>
+<h4><span id="卷积层">卷积层</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202051346913.png" alt="image-20220205134635851"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以torch.nn.Conv2d()为例， 介绍卷积再图像上的使用方法，其调用方式为：</span></span><br><span class="line">torch.nn.Conv2d(in_channels,</span><br><span class="line">               out_channels,</span><br><span class="line">               kernel_size,</span><br><span class="line">               stride=<span class="number">1</span>,</span><br><span class="line">               padding=<span class="number">0</span>,</span><br><span class="line">               dilation=<span class="number">1</span>,</span><br><span class="line">               groups=<span class="number">1</span>,</span><br><span class="line">               bias=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202051349651.png" alt="image-20220205134953580"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line">myim = Image.<span class="built_in">open</span>(<span class="string">&quot;lenna.jpg&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">myimgray = np.array(myim.convert(<span class="string">&quot;L&quot;</span>), dtype=np.float32)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">imh, imw = myimgray.shape</span><br><span class="line">myimgray_t = torch.from_numpy(myimgray.reshape((<span class="number">1</span>, <span class="number">1</span>, imh, imw)))</span><br><span class="line"></span><br><span class="line">kersize = <span class="number">5</span></span><br><span class="line">ker = torch.ones(kersize, kersize, dtype=torch.float32)*-<span class="number">1</span></span><br><span class="line">ker[<span class="number">2</span>, <span class="number">2</span>] = <span class="number">24</span></span><br><span class="line">ker = ker.reshape((<span class="number">1</span>, <span class="number">1</span>, kersize, kersize))</span><br><span class="line"></span><br><span class="line">conv2d = nn.Conv2d(<span class="number">1</span>, <span class="number">2</span>, (kersize, kersize), bias = <span class="literal">False</span>)</span><br><span class="line">conv2d.weight.data[<span class="number">0</span>] = ker</span><br><span class="line">imconv2dout = conv2d(myimgray_t)</span><br><span class="line">imconv2dout_im = imconv2dout.data.squeeze()</span><br><span class="line">plt.figure(figsize=(<span class="number">12</span>, <span class="number">6</span>))</span><br><span class="line"></span><br><span class="line">plt.imshow(imconv2dout_im[<span class="number">0</span>], cmap=plt.cm.gray)</span><br><span class="line">plt.axis(<span class="string">&quot;off&quot;</span>)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202070301469.png" alt="image-20220207030119312"></p>
+<p><strong>可见使用边缘特征提取卷积核很好的提取出了图像的边缘信息</strong></p>
+<h4><span id="池化层">池化层</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202070317522.png" alt="image-20220207031712430"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202070317316.png" alt="image-20220207031744256"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202130929419.png" alt="image-20220213092921319"></p>
+<h4><span id="激活函数">激活函数</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202130930276.png" alt="image-20220213093044229"></p>
+<h4><span id="全连接层">全连接层</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202130950880.png" alt="image-20220213095021812"></p>
+<h3><span id="四pytorch中的数据操作与预处理">四.pytorch中的数据操作与预处理</span></h3><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202130951963.png" alt="image-20220213095134915"></p>
+<h4><span id="dataloader">Dataloader</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190325547.png" alt="image-20220219032522337"></p>
+<h4><span id="dataset">Dataset</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190326166.png" alt="image-20220219032624056"></p>
+<h4><span id="transforms">transforms</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190354368.png" alt="image-20220219035439267"></p>
+<h4><span id="crop">crop</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190357254.png" alt="image-20220219035758981"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190402535.png" alt="image-20220219040238390"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190407217.png" alt="image-20220219040747063"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190407901.png" alt="image-20220219040715776"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190409623.png" alt="image-20220219040934500"></p>
+<h4><span id="flip">flip</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190413544.png" alt="image-20220219041354431"></p>
+<h4><span id="rotation">rotation</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190417363.png" alt="image-20220219041707239"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190425111.png" alt="image-20220219042546974"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190426940.png" alt="image-20220219042619787"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190427628.png" alt="image-20220219042739525"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190428019.png" alt="image-20220219042807856"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190428461.png" alt="image-20220219042851339"></p>
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190430602.png" alt="image-20220219043053494"></p>
+<h4><span id="transforms的操作">transforms的操作</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190431831.png" alt="image-20220219043148686"></p>
+<h4><span id="自定义transforms">自定义transforms</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190434716.png" alt="image-20220219043402594"></p>
+<h2><span id="正态分布与平方损失">正态分布与平方损失</span></h2><p>接下来，我们通过对噪声分布的假设来解读平方损失目标函数。</p>
+<p>正态分布和线性回归之间的关系很密切。 正态分布（normal distribution），也称为<em>高斯分布</em>（Gaussian distribution）， 最早由德国数学家高斯（Gauss）应用于天文学研究。 简单的说，若随机变量xx具有均值μμ和方差σ2σ2（标准差σσ），其正态分布概率密度函数如下：</p>
+<p>(3.1.11)</p>
+<p>p(x)&#x3D;12πσ2−−−−√exp(−12σ2(x−μ)2).p(x)&#x3D;12πσ2exp⁡(−12σ2(x−μ)2).</p>
+<p>下面我们定义一个Python函数来计算正态分布。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def normal(x, mu, sigma):</span><br><span class="line">    p = 1 / math.sqrt(2 * math.pi * sigma**2)</span><br><span class="line">    return p * np.exp(-0.5 / sigma**2 * (x - mu)**2)</span><br></pre></td></tr></table></figure>
+
+<p>我们现在可视化正态分布。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 再次使用numpy进行可视化</span><br><span class="line">x = np.arange(-7, 7, 0.01)</span><br><span class="line"></span><br><span class="line"># 均值和标准差对</span><br><span class="line">params = [(0, 1), (0, 2), (3, 1)]</span><br><span class="line">d2l.plot(x, [normal(x, mu, sigma) for mu, sigma in params], xlabel=&#x27;x&#x27;,</span><br><span class="line">         ylabel=&#x27;p(x)&#x27;, figsize=(4.5, 2.5),</span><br><span class="line">         legend=[f&#x27;mean &#123;mu&#125;, std &#123;sigma&#125;&#x27; for mu, sigma in params])</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202231627780.png" alt="image-20220223162721741"></p>
+<p>就像我们所看到的，改变均值会产生沿xx轴的偏移，增加方差将会分散分布、降低其峰值。</p>
+<p>均方误差损失函数（简称均方损失）可以用于线性回归的一个原因是： 我们假设了观测中包含噪声，其中噪声服从正态分布。 噪声正态分布如下式:</p>
+<p>(3.1.12)</p>
+<p>y&#x3D;w⊤x+b+ϵ,y&#x3D;w⊤x+b+ϵ,</p>
+<p>其中，ϵ∼N(0,σ2)ϵ∼N(0,σ2)。</p>
+<p>因此，我们现在可以写出通过给定的xx观测到特定yy的<em>似然</em>（likelihood）：</p>
+<p>(3.1.13)</p>
+<p>P(y∣x)&#x3D;12πσ2−−−−√exp(−12σ2(y−w⊤x−b)2).P(y∣x)&#x3D;12πσ2exp⁡(−12σ2(y−w⊤x−b)2).</p>
+<p>现在，根据极大似然估计法，参数ww和bb的最优值是使整个数据集的<em>似然</em>最大的值：</p>
+<p>(3.1.14)</p>
+<p>P(y∣X)&#x3D;∏i&#x3D;1np(y(i)|x(i)).P(y∣X)&#x3D;∏i&#x3D;1np(y(i)|x(i)).</p>
+<p>根据极大似然估计法选择的估计量称为<em>极大似然估计量</em>。 虽然使许多指数函数的乘积最大化看起来很困难， 但是我们可以在不改变目标的前提下，通过最大化似然对数来简化。 由于历史原因，优化通常是说最小化而不是最大化。 我们可以改为<em>最小化负对数似然</em>−logP(y∣X)−log⁡P(y∣X)。 由此可以得到的数学公式是：</p>
+<p>(3.1.15)</p>
+<p>−logP(y∣X)&#x3D;∑i&#x3D;1n12log(2πσ2)+12σ2(y(i)−w⊤x(i)−b)2.−log⁡P(y∣X)&#x3D;∑i&#x3D;1n12log⁡(2πσ2)+12σ2(y(i)−w⊤x(i)−b)2.</p>
+<p>现在我们只需要假设σσ是某个固定常数就可以忽略第一项， 因为第一项不依赖于ww和bb。 现在第二项除了常数1σ21σ2外，其余部分和前面介绍的均方误差是一样的。 幸运的是，上面式子的解并不依赖于σσ。 因此，在高斯噪声的假设下，最小化均方误差等价于对线性模型的极大似然估计。</p>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2022-04-24</span><i class="fa fa-tag"></i><span class="leancloud_visitors"></span><span>About 2074 words, 6 min 54 sec  read</span></div></div></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/page/3/">Previous</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/page/5/">Next</a></li></ul></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script>(function(window){var INSIGHT_CONFIG={TRANSLATION:{POSTS:"Posts",PAGES:"Pages",CATEGORIES:"Categories",TAGS:"Tags",UNTITLED:"(Untitled)",},CONTENT_URL:"/content.json",};window.INSIGHT_CONFIG=INSIGHT_CONFIG})(window);</script><script src="/js/insight.js" defer></script><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="Search..."><span class="searchbox-close"><a class="fa fa-times-circle" onclick="closeWindow();"></a></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"><p>Seraching...</p></div></div></div></div></body></html>
