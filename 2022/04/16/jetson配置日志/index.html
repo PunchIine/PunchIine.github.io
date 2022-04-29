@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="keywords" content="Hexo Theme Keep">
     <meta name="description" content="Hexo Theme Keep">
-    <meta name="author" content="Keep Team">
+    <meta name="author" content="LAzy">
     
     <title>
         
             jetson配置日志 |
         
-        Keep Theme
+        LAzy&#39;s Blog
     </title>
     
 <link rel="stylesheet" href="/css/style.css">
@@ -23,7 +23,7 @@
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
     KEEP.hexo_config = {"hostname":"lazy.github.io","root":"/","language":"en","path":"search.json"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 6.1.0"></head>
@@ -31,6 +31,8 @@
 
 <body>
 <div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
     
 
     
@@ -50,7 +52,7 @@
         <div class="left">
             
             <a class="logo-title" href="/">
-                Keep Theme
+                LAzy&#39;s Blog
             </a>
         </div>
 
@@ -71,6 +73,14 @@
                                href="/archives"
                             >
                                 ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                CATEGORIES
                             </a>
                         </li>
                     
@@ -97,6 +107,11 @@
                 <li class="drawer-menu-item flex-center">
                     <a class=""
                        href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">CATEGORIES</a>
                 </li>
             
         </ul>
@@ -128,7 +143,7 @@
                 </div>
                 <div class="info">
                     <div class="author">
-                        <span class="name">Keep Team</span>
+                        <span class="name">LAzy</span>
                         
                             <span class="author-label">Lv1</span>
                         
@@ -327,7 +342,7 @@
               <span>2020</span>
               -
             
-            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Keep Team</a>
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">LAzy</a>
         </div>
         
         <div class="theme-info info-item">
@@ -346,6 +361,10 @@
             <div class="post-tools-container">
     <ul class="tools-list">
         <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
         
 
         <!-- go comment -->
@@ -379,10 +398,6 @@
         
 
         
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="fas fa-arrow-up"></i>
-            </li>
-        
 
         <li class="tools-item tool-scroll-to-bottom flex-center">
             <i class="fas fa-arrow-down"></i>
@@ -394,11 +409,24 @@
             <i class="fas fa-cog fa-spin"></i>
         </li>
         
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
     </ul>
 </div>
 
     </div>
 
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">jetson nano apt更换国内源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">jtop安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">zerotier安装使用（内网穿透）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">minifoege 安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">conda更换国内镜像源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">pip更换国内镜像源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">conda更改base环境下python版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">jetson nano 和 jetson nx 配置 cuda</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">cv2, torch等由于numpy问题报错illegal instruction(core dumped)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">在linux下使用opencv无法打开摄像头问题[ WARN:0] global &#x2F;io&#x2F;opencv&#x2F;modules&#x2F;videoio&#x2F;src&#x2F;cap_v4l.cpp (893) open VIDEOIO(V4L2:&#x2F;dev&#x2F;video0): can’t open camera by index</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">报错This plugin does not support propagateSizeHints()， 图形界面控件消失</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">pyside2的安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">dlib安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">torch和torchvision的安装</span></a></li></ol>
+    </div>
+</div>
+        </aside>
     
 
     <div class="image-viewer-container">
@@ -431,6 +459,14 @@
 
 
 <div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
     
 </div>
 
