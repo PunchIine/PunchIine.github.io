@@ -29,10 +29,7 @@
   </script>
 <meta name="generator" content="Hexo 6.1.0"></head>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
+
 <body>
 <div class="progress-bar-container">
     
@@ -181,32 +178,32 @@
             <blockquote>
 <p>    $data$→真实数据$（groundtruth）$<br>    $p_{data}$→真实数据的分布<br>    $z$→噪音（输入数据）<br>    $p_{z}$→原始噪音的分布<br>    $p_g$→经过生成器后的数据分布<br>    $G()$→生成映射函数<br>    $D()$→判别映射函数</p>
 </blockquote>
-<h3 id="信息量"><a href="#信息量" class="headerlink" title="信息量"></a><strong>信息量</strong></h3><p>在信息论当中，我们用一件事情发生的概率的负对数表示信息量。<br>$$<br>H&#x3D;-\log{p}<br>$$<br>如公式所示，也就是事情发生的概率越大，其包含的信息量就越小，反之亦然。</p>
-<h3 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a><strong>信息熵</strong></h3><p>信息熵，也是平均自信息量，如公式所示，表示的是自信息量(也就是上面提到的信息量)的数学期望，表示为概率与其自信息量的乘积然后再求和。<br>$$<br>H(X)&#x3D;-\sum_{x\in{X}}p(x)\log{p(x)}<br>$$</p>
+<h3 id="信息量"><a href="#信息量" class="headerlink" title="信息量"></a><strong>信息量</strong></h3><p>在信息论当中，我们用一件事情发生的概率的负对数表示信息量。<br>$$<br>H=-\log{p}<br>$$<br>如公式所示，也就是事情发生的概率越大，其包含的信息量就越小，反之亦然。</p>
+<h3 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a><strong>信息熵</strong></h3><p>信息熵，也是平均自信息量，如公式所示，表示的是自信息量(也就是上面提到的信息量)的数学期望，表示为概率与其自信息量的乘积然后再求和。<br>$$<br>H(X)=-\sum_{x\in{X}}p(x)\log{p(x)}<br>$$</p>
 <h3 id="交叉熵"><a href="#交叉熵" class="headerlink" title="交叉熵"></a><strong>交叉熵</strong></h3><blockquote>
 <p>交叉熵刻画的是实际输出（概率）与期望输出（概率）的距离，也就是交叉熵的值越小，两个概率分布就越接近，即拟合的更好。</p>
 </blockquote>
 <p>交叉熵其实就是对于一个分布<em>p</em>来说，我们用分布<em>q</em>来对分布<em>p</em>中的信息进行编码，所需要的信息量。</p>
-<p>如果交叉熵越小，说明用分布<em>q</em>来表示分布<em>p</em>所需要的信息量越小，这也就说明<em>q</em>分布越接近<em>p</em>分布。<br>$$<br>H(p,q)&#x3D;-\sum_xp(x)\log{q(x)}<br>$$</p>
+<p>如果交叉熵越小，说明用分布<em>q</em>来表示分布<em>p</em>所需要的信息量越小，这也就说明<em>q</em>分布越接近<em>p</em>分布。<br>$$<br>H(p,q)=-\sum_xp(x)\log{q(x)}<br>$$</p>
 <h3 id="KL散度（相对熵）"><a href="#KL散度（相对熵）" class="headerlink" title="KL散度（相对熵）"></a><strong>KL散度（相对熵）</strong></h3><blockquote>
 <p>描述两个概率分布之间差异的非对称量</p>
 <p>其定义就是<strong>用理论分布去拟合真实分布时产生的信息损耗</strong></p>
 </blockquote>
-<p>若有两个随机变量p, q，且其概率分布分别为p(x)、q(x)，则p相对q的相对熵为：<br>$$<br>D_{KL}(p||q)&#x3D;\sum^n_{i&#x3D;1}p(x)\log\frac{p(x)}{q(x)}<br>$$</p>
-<p>又由定义可知：<br>&#x3D;&#x3D;KL散度 &#x3D; 交叉熵 - 信息熵&#x3D;&#x3D;</p>
-<p>因此，KL散度可通过下式得出：<br>$$<br>\begin{aligned}D_{KL}(p||q)&amp;&#x3D;H(p,q)-H(p)\&amp;&#x3D;-\sum_xp(x)(\log{q(x)}-\log{p(x)})\&amp;&#x3D;-\sum{p(x)\log{\frac{q(x)}{p(x)}}}\end{aligned}<br>$$<br><em>正定性</em></p>
+<p>若有两个随机变量p, q，且其概率分布分别为p(x)、q(x)，则p相对q的相对熵为：<br>$$<br>D_{KL}(p||q)=\sum^n_{i=1}p(x)\log\frac{p(x)}{q(x)}<br>$$</p>
+<p>又由定义可知：<br>==KL散度 = 交叉熵 - 信息熵==</p>
+<p>因此，KL散度可通过下式得出：<br>$$<br>\begin{aligned}D_{KL}(p||q)&amp;=H(p,q)-H(p)\&amp;=-\sum_xp(x)(\log{q(x)}-\log{p(x)})\&amp;=-\sum{p(x)\log{\frac{q(x)}{p(x)}}}\end{aligned}<br>$$<br><em>正定性</em></p>
 <p><strong>相对熵的值是非负值，即D(P||Q)&gt;0。</strong></p>
 <p><em>不对称性</em></p>
-<p><strong>尽管KL散度从直观上是个度量或距离函数，但它并不是一个真正的度量或者距离，因为它不具有对称性，即D(P||Q)!&#x3D;D(Q||P)。</strong></p>
+<p><strong>尽管KL散度从直观上是个度量或距离函数，但它并不是一个真正的度量或者距离，因为它不具有对称性，即D(P||Q)!=D(Q||P)。</strong></p>
 <h3 id="JS散度"><a href="#JS散度" class="headerlink" title="JS散度"></a><strong>JS散度</strong></h3><blockquote>
 <p>由于<em>KL</em>散度的不对称性，所以这里引入了一个<em>JS</em>散度，也就是<em>Jensen-Shannon</em>散度，<em>JS</em>散度度量了两个概率分布的相似度，基于<em>KL</em>散度的变体，解决了<em>KL</em>散度非对称的问题，一般地，<em>JS</em>散度是对称的</p>
 </blockquote>
-<p>公式如下<br>$$<br>JS(p||q)&#x3D;\frac{1}{2}KL(p(x)||\frac{p(x)+q(x)}{2}+\frac{1}{2}KL(q(x)||\frac{p(x)+q(x)}{2})<br>$$</p>
+<p>公式如下<br>$$<br>JS(p||q)=\frac{1}{2}KL(p(x)||\frac{p(x)+q(x)}{2}+\frac{1}{2}KL(q(x)||\frac{p(x)+q(x)}{2})<br>$$</p>
 <h3 id="全概率公式"><a href="#全概率公式" class="headerlink" title="全概率公式"></a><strong>全概率公式</strong></h3><h3 id="贝叶斯公式"><a href="#贝叶斯公式" class="headerlink" title="贝叶斯公式"></a><strong>贝叶斯公式</strong></h3><p><strong>条件概率（后验概率）</strong>就是事件A在另一个事件B已经发生的条件下发生概率，公式表示为P(A|B)。</p>
 <p><strong>联合概率</strong>表示两件事情共同发生的概率。A与B的联合概率表示为p(A,B)。</p>
 <p><strong>边缘概率（先验概率）</strong>是某个事件发生的概率。边缘概率是这样得到的：在联合概率中，<em>把最终结果中那些不需要的事件通过合并成它们的全概率</em>，而消去它们（<em>对离散随机变量用求和得全概率，对连续随机变量用积分得全概率</em>），这称为边缘化（marginalization），比如A的边缘概率表示为P(A)，B的边缘概率表示为P(B)。</p>
-<p>$$<br>P (A∩B) &#x3D; P (A)*P (B|A)&#x3D;P (B)*P (A|B)<br>$$</p>
-<p>$$<br>P (A|B)&#x3D;P (B|A)*P (A)&#x2F;P (B)<br>$$</p>
+<p>$$<br>P (A∩B) = P (A)<em>P (B|A)=P (B)</em>P (A|B)<br>$$</p>
+<p>$$<br>P (A|B)=P (B|A)*P (A)/P (B)<br>$$</p>
 <h3 id="似然函数"><a href="#似然函数" class="headerlink" title="似然函数"></a><strong>似然函数</strong></h3><p>$$<br>p(x|\theta)<br>$$</p>
 <p>其中：x表示某一个具体的数据，θ 表示模型的参数。</p>
 <p><strong>若x已知，$\theta$为变量，则该函数为似然函数     描述对于不同的模型参数，x样本点出现的概率</strong></p>
@@ -220,7 +217,7 @@
 
 
 
-<p>目标函数：<br>$$<br>\underset{G}{min}\underset{D}{max}V(D,G)&#x3D;E_{x\backsim{p_{data}}}[\log{D(x)}]+E_{z\backsim{p_z(z)}}[\log{1-D(G(z)))}]<br>$$</p>
+<p>目标函数：<br>$$<br>\underset{G}{min}\underset{D}{max}V(D,G)=E_{x\backsim{p_{data}}}[\log{D(x)}]+E_{z\backsim{p_z(z)}}[\log{1-D(G(z)))}]<br>$$</p>
 <p> <u>A less formal, more pedagogical explanation of the approach.</u></p>
 <img width="602" alt="image" src="https://user-images.githubusercontent.com/93063038/165944429-2fe05a8e-21e1-4708-9c4c-5fb86fdba24f.png">
 
@@ -229,7 +226,7 @@
 <li>红线 生成分布 $p_{g}$</li>
 <li>黑线 真实数据分布 $p_{x}$</li>
 </ul>
-<p>$$<br>\begin{aligned}V(G,D)&amp;&#x3D;\int_xp_{data}(x)\log{(D(x))}dx+\int_xp(z)\log{(1-D(g(z)))}dz\&amp;&#x3D;\int_xp_{data(x)}\log{(D(x))}+p_g(x)\log{(1-D(x))dx}\end{aligned}<br>$$</p>
+<p>$$<br>\begin{aligned}V(G,D)&amp;=\int_xp_{data}(x)\log{(D(x))}dx+\int_xp(z)\log{(1-D(g(z)))}dz\&amp;=\int_xp_{data(x)}\log{(D(x))}+p_g(x)\log{(1-D(x))dx}\end{aligned}<br>$$</p>
 <p>为什么选择训练判别器？</p>
 <p>在刚开始训练的时候，生成器G生成的数据显然与真实数据相差很大，此时判别器D将以高置信度拒绝生成器G生成的样本，这将导致$\log{1-D(G(z))}$饱和（很大）。</p>
 <p>为什么不先将判别器训练得很好再训练生成器？</p>

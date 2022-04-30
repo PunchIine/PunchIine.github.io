@@ -29,10 +29,7 @@
   </script>
 <meta name="generator" content="Hexo 6.1.0"></head>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
+
 <body>
 <div class="progress-bar-container">
     
@@ -204,20 +201,20 @@
 <p>因此在不同的场合中需要自己判断希望P比较高还是R比较高。如果是做实验研究，可以绘制Precision-Recall曲线来帮助分析。</p>
 </blockquote>
 <p><img src="https://user-images.githubusercontent.com/93063038/166089529-222bed42-72cb-432b-9c13-e8793d1dd308.png" alt="f133591e-4ed5-4cbb-829b-aa81a7dd19bb_"></p>
-<h2 id="AP-Average-Precision"><a href="#AP-Average-Precision" class="headerlink" title="AP (Average Precision)"></a>AP (Average Precision)</h2><p>AP &#x3D; $\int^1_0p(r)dr$</p>
+<h2 id="AP-Average-Precision"><a href="#AP-Average-Precision" class="headerlink" title="AP (Average Precision)"></a>AP (Average Precision)</h2><p>AP = $\int^1_0p(r)dr$</p>
 <p>在实际应用中，我们并不直接对该PR曲线进行计算，而是对PR曲线进行平滑处理。即对PR曲线上的每个点，Precision的值取该点右侧最大的Precision的值。</p>
 <p>？</p>
 <h2 id="Yolov1"><a href="#Yolov1" class="headerlink" title="Yolov1"></a>Yolov1</h2><blockquote>
 <p><strong>将目标检测问题转化为一个回归问题进行求解</strong>，也就是说将图像作为输入（像素数据），直接输出物体的位置和所属于的类别的置信度（是以一个向量的形式表示的，后续会介绍），属于端到端的模型形式。</p>
 </blockquote>
 <p>基本思想：将图片划分为S*S个区域（gridcell），假设都存在一个 true answer 也就是针对这个目标的最好的检测框 ， 则每一个目标的检测框的中心点一定是落在某一个小区域内的；如果此时的中心点落在 x 框内，则 x 小区域就负责搞定这个目标；注意此时可能多个目标落在同一个区域内。</p>
-<p>每一个<strong>小区域设定 B （bounding box的数量）个可能的候选框，并计算每一个可能的候选框的得分</strong> &#x3D; 置信度，是一个（该候选框和真实的目标检测框的重合程度）和（这个框里确实框住了某一个物体）的综合度量指标，计算方式如下：</p>
-<p>$confidence &#x3D; Pr（Object）* IOU^{truth}_{pred}$</p>
-<p><strong>其中，若bounding box包含物体，则P(object) &#x3D; 1；否则P(object) &#x3D; 0</strong></p>
+<p>每一个<strong>小区域设定 B （bounding box的数量）个可能的候选框，并计算每一个可能的候选框的得分</strong> = 置信度，是一个（该候选框和真实的目标检测框的重合程度）和（这个框里确实框住了某一个物体）的综合度量指标，计算方式如下：</p>
+<p>$confidence = Pr（Object）* IOU^{truth}_{pred}$</p>
+<p><strong>其中，若bounding box包含物体，则P(object) = 1；否则P(object) = 0</strong></p>
 <p>每一个预测是一个长度为 5 的向量，记作 （x, y, w, h, conf）</p>
 <ul>
 <li>(x, y) 表示当前预测的检测框的中心相对于我的小区域的位置（共 $S^2$ 个小区域)，这里的 x 和 y 都是 0-1 之间的，也就是说是相对于当前小区域的左上角的偏移值</li>
-<li>(w,h) 表示检测框的宽度和高度，一般是处理到 0-1 之间，标记当前的预测框和整个图片的宽度&#x2F;高度的比例 - conf 为上述的置信度，可以看作是当前的框的可信度的综合指标，由（是否框准了 &#x3D; 是否和真实的预测框有较好的重合）和（是否框里确实框住了物体）两个部分影响</li>
+<li>(w,h) 表示检测框的宽度和高度，一般是处理到 0-1 之间，标记当前的预测框和整个图片的宽度/高度的比例 - conf 为上述的置信度，可以看作是当前的框的可信度的综合指标，由（是否框准了 = 是否和真实的预测框有较好的重合）和（是否框里确实框住了物体）两个部分影响</li>
 </ul>
 <p>网络结构</p>
 <blockquote>
@@ -238,7 +235,7 @@
 
 
 
-<p>NMS 方法（Non-Maximal Suppression &#x2F; 非极大值抑制）</p>
+<p>NMS 方法（Non-Maximal Suppression / 非极大值抑制）</p>
 <blockquote>
 <p>将同一目标内的bboxes按照cls score + IoU阈值做筛选，剔除冗余地、低置信度的bbox</p>
 </blockquote>

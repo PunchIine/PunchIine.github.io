@@ -29,10 +29,7 @@
   </script>
 <meta name="generator" content="Hexo 6.1.0"></head>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
+
 <body>
 <div class="progress-bar-container">
     
@@ -182,21 +179,21 @@
 
 <ul>
 <li><a href="#json">JSON</a><ul>
-<li><a href="#json-%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99">JSON 语法规则</a></li>
-<li><a href="#json-%E5%90%8D%E7%A7%B0%E5%80%BC%E5%AF%B9">JSON 名称&#x2F;值对</a></li>
-<li><a href="#json-%E5%80%BC">JSON 值</a></li>
-<li><a href="#json-%E6%96%87%E4%BB%B6">JSON 文件</a></li>
-<li><a href="#json%E5%AF%B9%E8%B1%A1">JSON对象</a><ul>
-<li><a href="#%E4%BD%BF%E7%94%A8%E7%82%B9%E5%8F%B7%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1%E5%80%BC">使用点号访问对象值</a></li>
-<li><a href="#%E4%BD%BF%E7%94%A8%E7%82%B9%E5%8F%B7-%E6%88%96%E8%80%85%E4%B8%AD%E6%8B%AC%E5%8F%B7-%E6%9D%A5%E8%AE%BF%E9%97%AE%E5%B5%8C%E5%A5%97%E7%9A%84json%E5%AF%B9%E8%B1%A1">使用点号. 或者中括号 [] 来访问嵌套的JSON对象。</a></li>
-<li><a href="#%E4%BF%AE%E6%94%B9json%E5%80%BC">修改JSON值</a></li>
-<li><a href="#%E4%BF%AE%E6%94%B9%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7">修改对象属性</a></li>
+<li><a href="#json-语法规则">JSON 语法规则</a></li>
+<li><a href="#json-名称值对">JSON 名称/值对</a></li>
+<li><a href="#json-值">JSON 值</a></li>
+<li><a href="#json-文件">JSON 文件</a></li>
+<li><a href="#json对象">JSON对象</a><ul>
+<li><a href="#使用点号访问对象值">使用点号访问对象值</a></li>
+<li><a href="#使用点号-或者中括号-来访问嵌套的json对象">使用点号. 或者中括号 [] 来访问嵌套的JSON对象。</a></li>
+<li><a href="#修改json值">修改JSON值</a></li>
+<li><a href="#修改对象属性">修改对象属性</a></li>
 </ul>
 </li>
-<li><a href="#json%E6%95%B0%E7%BB%84">JSON数组</a><ul>
-<li><a href="#%E6%95%B0%E7%BB%84%E5%8F%AF%E4%BB%A5%E4%BD%9C%E4%B8%BAjson%E5%AF%B9%E8%B1%A1">数组可以作为JSON对象</a></li>
-<li><a href="#json%E5%AF%B9%E8%B1%A1%E4%B8%AD%E7%9A%84%E6%95%B0%E7%BB%84">JSON对象中的数组</a></li>
-<li><a href="#%E5%B5%8C%E5%A5%97-json-%E5%AF%B9%E8%B1%A1%E4%B8%AD%E7%9A%84%E6%95%B0%E7%BB%84">嵌套 JSON 对象中的数组</a></li>
+<li><a href="#json数组">JSON数组</a><ul>
+<li><a href="#数组可以作为json对象">数组可以作为JSON对象</a></li>
+<li><a href="#json对象中的数组">JSON对象中的数组</a></li>
+<li><a href="#嵌套-json-对象中的数组">嵌套 JSON 对象中的数组</a></li>
 </ul>
 </li>
 </ul>
@@ -212,15 +209,15 @@
 <h3 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h3><p>JSON: <strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation(JavaScript 对象表示法)</p>
 <h4 id="JSON-语法规则"><a href="#JSON-语法规则" class="headerlink" title="JSON 语法规则"></a>JSON 语法规则</h4><p>JSON 语法是 JavaScript 对象表示语法的子集。</p>
 <ul>
-<li>数据在名称&#x2F;值对中</li>
+<li>数据在名称/值对中</li>
 <li>数据由逗号分隔</li>
 <li>大括号 <strong>{}</strong> 保存对象</li>
 <li>中括号 <strong>[]</strong> 保存数组，数组可以包含多个对象</li>
 </ul>
-<h4 id="JSON-名称-x2F-值对"><a href="#JSON-名称-x2F-值对" class="headerlink" title="JSON 名称&#x2F;值对"></a>JSON 名称&#x2F;值对</h4><p>JSON 数据的书写格式是：</p>
+<h4 id="JSON-名称-值对"><a href="#JSON-名称-值对" class="headerlink" title="JSON 名称/值对"></a>JSON 名称/值对</h4><p>JSON 数据的书写格式是：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">key <span class="punctuation">:</span> value</span><br></pre></td></tr></table></figure>
 
-<p>名称&#x2F;值对包括字段名称（在双引号中），后面写一个冒号，然后是值：</p>
+<p>名称/值对包括字段名称（在双引号中），后面写一个冒号，然后是值：</p>
 <p>“name” : “菜鸟教程”</p>
 <h4 id="JSON-值"><a href="#JSON-值" class="headerlink" title="JSON 值"></a>JSON 值</h4><p>JSON 值可以是：</p>
 <ul>
@@ -233,7 +230,7 @@
 </ul>
 <h4 id="JSON-文件"><a href="#JSON-文件" class="headerlink" title="JSON 文件"></a>JSON 文件</h4><ul>
 <li>JSON 文件的文件类型是 <strong>.json</strong></li>
-<li>JSON 文本的 MIME 类型是 <strong>application&#x2F;json</strong></li>
+<li>JSON 文本的 MIME 类型是 <strong>application/json</strong></li>
 </ul>
 <p>MINE类型：媒体类型（通常称为 Multipurpose Internet Mail Extensions 或 MIME 类型 ）是一种标准，用来表示文档、文件或字节流的性质和格式。 它在IETF RFC 6838中进行了定义和标准化。</p>
 <h4 id="JSON对象"><a href="#JSON对象" class="headerlink" title="JSON对象"></a>JSON对象</h4><p>必须在大括号{}中书写，</p>
@@ -432,7 +429,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON"><span class="nav-text">JSON</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON-%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99"><span class="nav-text">JSON 语法规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON-%E5%90%8D%E7%A7%B0-x2F-%E5%80%BC%E5%AF%B9"><span class="nav-text">JSON 名称&#x2F;值对</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON-%E5%80%BC"><span class="nav-text">JSON 值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON-%E6%96%87%E4%BB%B6"><span class="nav-text">JSON 文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON%E5%AF%B9%E8%B1%A1"><span class="nav-text">JSON对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%82%B9%E5%8F%B7%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1%E5%80%BC"><span class="nav-text">使用点号访问对象值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%82%B9%E5%8F%B7-%E6%88%96%E8%80%85%E4%B8%AD%E6%8B%AC%E5%8F%B7-%E6%9D%A5%E8%AE%BF%E9%97%AE%E5%B5%8C%E5%A5%97%E7%9A%84JSON%E5%AF%B9%E8%B1%A1%E3%80%82"><span class="nav-text">使用点号. 或者中括号 [] 来访问嵌套的JSON对象。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9JSON%E5%80%BC"><span class="nav-text">修改JSON值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7"><span class="nav-text">修改对象属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON%E6%95%B0%E7%BB%84"><span class="nav-text">JSON数组</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E5%8F%AF%E4%BB%A5%E4%BD%9C%E4%B8%BAJSON%E5%AF%B9%E8%B1%A1"><span class="nav-text">数组可以作为JSON对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JSON%E5%AF%B9%E8%B1%A1%E4%B8%AD%E7%9A%84%E6%95%B0%E7%BB%84"><span class="nav-text">JSON对象中的数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B5%8C%E5%A5%97-JSON-%E5%AF%B9%E8%B1%A1%E4%B8%AD%E7%9A%84%E6%95%B0%E7%BB%84"><span class="nav-text">嵌套 JSON 对象中的数组</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-json"><span class="nav-text">Python json</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#json-dumps"><span class="nav-text">json.dumps</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#json-loads"><span class="nav-text">json.loads</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON"><span class="nav-text">JSON</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON-%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99"><span class="nav-text">JSON 语法规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON-%E5%90%8D%E7%A7%B0-%E5%80%BC%E5%AF%B9"><span class="nav-text">JSON 名称&#x2F;值对</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON-%E5%80%BC"><span class="nav-text">JSON 值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON-%E6%96%87%E4%BB%B6"><span class="nav-text">JSON 文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON%E5%AF%B9%E8%B1%A1"><span class="nav-text">JSON对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%82%B9%E5%8F%B7%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1%E5%80%BC"><span class="nav-text">使用点号访问对象值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%82%B9%E5%8F%B7-%E6%88%96%E8%80%85%E4%B8%AD%E6%8B%AC%E5%8F%B7-%E6%9D%A5%E8%AE%BF%E9%97%AE%E5%B5%8C%E5%A5%97%E7%9A%84JSON%E5%AF%B9%E8%B1%A1%E3%80%82"><span class="nav-text">使用点号. 或者中括号 [] 来访问嵌套的JSON对象。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9JSON%E5%80%BC"><span class="nav-text">修改JSON值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7"><span class="nav-text">修改对象属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON%E6%95%B0%E7%BB%84"><span class="nav-text">JSON数组</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E5%8F%AF%E4%BB%A5%E4%BD%9C%E4%B8%BAJSON%E5%AF%B9%E8%B1%A1"><span class="nav-text">数组可以作为JSON对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JSON%E5%AF%B9%E8%B1%A1%E4%B8%AD%E7%9A%84%E6%95%B0%E7%BB%84"><span class="nav-text">JSON对象中的数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B5%8C%E5%A5%97-JSON-%E5%AF%B9%E8%B1%A1%E4%B8%AD%E7%9A%84%E6%95%B0%E7%BB%84"><span class="nav-text">嵌套 JSON 对象中的数组</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-json"><span class="nav-text">Python json</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#json-dumps"><span class="nav-text">json.dumps</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#json-loads"><span class="nav-text">json.loads</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
