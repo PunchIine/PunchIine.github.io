@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="LAzy">
+    
+    <title>
+        
+            OpenMV实现靶点检测 |
+        
+        LAzy&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://www.helloimg.com/images/2022/04/08/RsLwlM.jpg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"lazy.github.io","root":"/","language":"en","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://www.helloimg.com/images/2022/04/08/RsLwlM.jpg","favicon":"https://www.helloimg.com/images/2022/04/08/RsLwlM.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://www.helloimg.com/images/2022/04/08/RsLwlM.jpg">
+                </a>
+            
+            <a class="logo-title" href="/">
+                LAzy&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">CATEGORIES</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">OpenMV实现靶点检测</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://www.helloimg.com/images/2022/04/08/RsLwlM.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">LAzy</span>
+                        
+                            <span class="author-label">Lv1</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-04-27 16:33:01</span>
+        <span class="mobile">2022-04-27 16:33</span>
+    </span>
+    
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>—— 未完</p>
+<p>idea:</p>
+<blockquote>
+<p>初步想法是利用颜色信息对靶子进行检测</p>
+<p>再对靶点进行定位。若效果不佳考虑部署TensorFlow Lite yolo进行目标检测</p>
+<p>边缘检测</p>
+<p>图像对比</p>
+<p>先颜色识别后模块匹配</p>
+</blockquote>
+<blockquote>
+<p>决定先色块识别定位靶子。舵机追踪靶子方位同时横向运动小车，令小车舵机与车身角度为90度时舵机对准靶子。转动小车使车身与舵机夹角为0度。使小车直行，并进行边缘检测，传回矩形靶子的长宽大小比例，分析数据并不断进行微调。戳中靶心后转动舵机寻找第二个靶子重复以上操做。</p>
+</blockquote>
+<p>1.设置窗口roi</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sensor.set_windowing(roi)</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>roi （回报率） （感兴趣的区域）（进行检测的区域）</p>
+</blockquote>
+<p>roi的格式是(x, y, w, h)的tupple</p>
+<p>2.水平翻转图像，使小车视野与实际相同</p>
+<p>水平方向翻转：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sensor.set_hmirror(True)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>3.获取区域内的平均颜色或者占面积最大的颜色信息</p>
+<p>使用 Statistics</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">image.get_statistics(roi=Auto)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>4.寻找色块</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">image.find_blobs(thresholds, roi=Auto, x_stride=2, y_stride=1, invert=False, area_threshold=10, pixels_threshold=10, merge=False, margin=0, threshold_cb=None, merge_cb=None)</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>thresholds是<strong>颜色的阈值</strong>，注意：这个参数是一个<strong>列表</strong>，可以包含多个颜色。如果你只需要一个颜色，那么在这个列表中只需要有一个颜色值，如果你想要多个颜色阈值，那这个列表就需要多个颜色阈值。注意：在返回的<strong>色块对象blob可以调用code方法，来判断是什么颜色的色块</strong>。</li>
+</ul>
+<img width="583" alt="image" src="https://user-images.githubusercontent.com/93063038/164970009-1e6c157e-213c-4048-9d2c-45e6ed64a539.png">
+
+
+
+<p>阈值参数的结构</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">colour = (minL, maxL, minA, maxA, minB, maxB)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p><strong>OpenMV 的IDE里加入了阈值选择工具</strong>      用他！</p>
+<p>(50, 75, -60, -14, 12, 62)浅测一个绿色 感觉不是很准。。</p>
+<p>靶点检测场地为200*200   调整x, y_stride    将merge设置为True</p>
+<p><strong>blob.rect() 返回这个色块的外框——矩形元组(x, y, w, h)</strong></p>
+<img width="493" alt="image" src="https://user-images.githubusercontent.com/93063038/164972113-651c1b87-43c5-4fd9-a565-0a2b59d7876f.png">
+
+
+
+
+
+
+
+
+
+<p>边缘检测</p>
+<p>image.find_edges(edge_type[,threshold])</p>
+<p>将图像变为黑白。边缘保留白色像素</p>
+<p>edge_type 参数：image.EDGE_SIMPLE ——简单的阈值高通滤波算法</p>
+<p>​                               image.EDGE_CANNY ——canny边缘检测</p>
+<p>threshold —— 包含高低阈值的二元组 默认（100，200） 仅支持灰度图像</p>
+<p>例程：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Canny边缘检测:</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 这个例子展示了Canny边缘检测。</span></span><br><span class="line"><span class="keyword">import</span> sensor, image, time</span><br><span class="line"></span><br><span class="line">sensor.reset() <span class="comment"># 初始化sensor.</span></span><br><span class="line"></span><br><span class="line">sensor.set_pixformat(sensor.GRAYSCALE) <span class="comment"># or sensor.RGB565</span></span><br><span class="line"><span class="comment">#设置图像色彩格式，有RGB565色彩图和GRAYSCALE灰度图两种</span></span><br><span class="line"></span><br><span class="line">sensor.set_framesize(sensor.QQVGA) <span class="comment"># or sensor.QVGA (or others)</span></span><br><span class="line"><span class="comment">#设置图像像素大小</span></span><br><span class="line"></span><br><span class="line">sensor.skip_frames(<span class="number">30</span>) <span class="comment"># 让新的设置生效</span></span><br><span class="line">sensor.set_gainceiling(<span class="number">8</span>)</span><br><span class="line"></span><br><span class="line">clock = time.clock() <span class="comment"># 跟踪FPS帧率</span></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">    clock.tick() <span class="comment"># 追踪两个snapshots()之间经过的毫秒数.</span></span><br><span class="line">    img = sensor.snapshot() <span class="comment"># 拍一张照片并返回图像。</span></span><br><span class="line">    <span class="comment"># 使用Canny边缘检测器</span></span><br><span class="line">    img.find_edges(image.EDGE_CANNY, threshold=(<span class="number">50</span>, <span class="number">80</span>))</span><br><span class="line">    <span class="comment">#threshold设置阈值</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 更快更简单的边缘检测</span></span><br><span class="line">    <span class="comment">#img.find_edges(image.EDGE_SIMPLE, threshold=(100, 255))</span></span><br><span class="line">    <span class="built_in">print</span>(clock.fps()) <span class="comment"># 注意:你的OpenMV摄像头的运行速度只有它的一半</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import sensor, image, lcd</span><br><span class="line">#初始化摄像头</span><br><span class="line">sensor.reset() # 初始化摄像头模块.</span><br><span class="line">sensor.set_pixformat(sensor.GRAYSCALE) # 或者使用 sensor.RGB565 彩色</span><br><span class="line">sensor.set_framesize(sensor.QQVGA) # 或者使用 sensor.QVGA (or others)</span><br><span class="line">sensor.skip_frames(time = 2000) #延时让摄像头文稳定.</span><br><span class="line">sensor.set_gainceiling(8) #设置增益，这是官方推荐的参数</span><br><span class="line">lcd.init()                          # LCD初始化</span><br><span class="line">while(True):</span><br><span class="line">    img = sensor.snapshot() # 拍摄并返回图像.</span><br><span class="line">    #使用 Canny 边缘检测器</span><br><span class="line">    img.find_edges(image.EDGE_CANNY, threshold=(50, 80))</span><br><span class="line">    lcd.display(img)                # LCD显示img</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<p><strong>舵机控制</strong></p>
+<p>构造函数</p>
+<blockquote>
+<ul>
+<li><p><em>class</em>pyb.Servo(<em>id</em>)</p>
+<p>创建一个伺服对象。 <code>id</code> 为1-3，与引脚P7至P9相对应。</p>
+</li>
+</ul>
+</blockquote>
+<p>方法</p>
+<ul>
+<li><p>Servo.angle(<strong>[<em><strong>angle*, *time&#x3D;0</strong></em>]</strong>)</p>
+<p>若未给定参数，该函数返回当前角度。若给定函数，该函数设置servo的角度：<code>angle</code> 是度数计的移动的角度。<code>time</code> 是达到指定角度所用的毫秒数。若省略，则servo会尽快移动到新的位置。</p>
+</li>
+<li><p>Servo.speed(<strong>[<em><strong>speed*, *time&#x3D;0</strong></em>]</strong>)</p>
+<p>若未给定参数，该函数会返回当前速度。若给定参数，该函数设置servo的速度：<code>speed</code> 是改变的速度，取值100-100。<code>time</code> 是达到指定角度所用的毫秒数。若省略，则servo会尽快加速。</p>
+</li>
+<li><p>Servo.pulse_width(<strong>[<em><strong>value</strong></em>]</strong>)</p>
+<p>若未给定参数，该函数会返回当前的原始脉宽值。若给定参数，该函数设置原始脉宽值。</p>
+</li>
+<li><p>Servo.calibration(<strong>[<em><strong>pulse_min*, <em>pulse_max</em>, *pulse_centre</strong></em>[</strong>, pulse_angle_90, <em>pulse_speed_100</em><strong>]****]</strong>)</p>
+<p>若未给定参数，这个函数返回当前的5元组校准数据。若给定参数，该函数设定计时校准：<code>pulse_min</code> 是允许的最小脉宽。<code>pulse_max</code> 是允许的最大脉冲。<code>pulse_centre</code> 是中心&#x2F;零位置对应的脉宽。<code>pulse_angle_90</code> 是90度对应的脉宽。<code>pulse_speed_100</code> 是速度100对应的脉宽。</p>
+</li>
+</ul>
+<p>串口通信</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> pyb <span class="keyword">import</span> UART</span><br><span class="line"></span><br><span class="line">uart = UART(<span class="number">3</span>, <span class="number">19200</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(<span class="literal">True</span>):</span><br><span class="line">    uart.write(<span class="string">&quot;Hello World!\r&quot;</span>)</span><br><span class="line">    time.sleep_ms(<span class="number">1000</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>UART类</p>
+<p>实例化一个串口， 波特率为19200的串口3</p>
+<blockquote>
+<p>注意：必须是串口3，因为OpenMV2只引出了这个串口，pyb的串口有好多个的。OpenMV3又增加了串口1。</p>
+</blockquote>
+<p>调用write方法传输数据   可传输Json数据</p>
+
+        </div>
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/04/27/yolo/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">yolo</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/04/24/pytorch%E7%AC%94%E8%AE%B0/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">pytorch笔记</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">LAzy</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>
