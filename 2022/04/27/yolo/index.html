@@ -178,12 +178,12 @@
 
 
 
-<h2><span id="iouintersection-over-union">IoU（<strong>Intersection over union</strong>）</span></h2><blockquote>
+<h2 id="IoU（Intersection-over-union）"><a href="#IoU（Intersection-over-union）" class="headerlink" title="IoU（Intersection over union）"></a>IoU（<strong>Intersection over union</strong>）</h2><blockquote>
 <p>交并比，衡量两个区域的重叠程度，是二者重叠部分面积占二者总面积的比例</p>
 </blockquote>
 <p><img src="https://user-images.githubusercontent.com/93063038/163665429-095df1bd-6ac4-4023-a4e3-b58936722093.png" alt="img"></p>
 <p>在目标检测任务中，如果我们模型输出的矩形框与我们人工标注的矩形框的IoU值大于某个阈值时（通常为0.5）即认为我们的模型输出了正确的</p>
-<h2><span id="precision-amp-recall"><strong>Precision &amp; Recall</strong></span></h2><p>假设我们有一组图片，里面有若干待检测的目标，</p>
+<h2 id="Precision-amp-Recall"><a href="#Precision-amp-Recall" class="headerlink" title="Precision &amp; Recall"></a><strong>Precision &amp; Recall</strong></h2><p>假设我们有一组图片，里面有若干待检测的目标，</p>
 <p>Precision就代表我们模型检测出来的目标有多大比例是真正的目标物体，</p>
 <p>Recall就代表所有真实的目标有多大比例被我们的模型检测出来了。</p>
 <p><img src="https://user-images.githubusercontent.com/93063038/163666221-257ded9e-5809-4e48-bb2f-abc97f0ce6c7.png" alt="image"></p>
@@ -200,7 +200,7 @@
 <p><img src="https://user-images.githubusercontent.com/93063038/163666288-f948f80e-77df-47ab-b850-09f8990e79c1.png" alt="image"></p>
 <p>召回率： 所有正确的目标中被模型检测出来的比例</p>
 <p><img src="https://user-images.githubusercontent.com/93063038/163666293-016cc94a-35c1-4fc0-9be5-dd7257e4e60a.png" alt="image"></p>
-<h2><span id="pr曲线">PR曲线</span></h2><blockquote>
+<h2 id="PR曲线"><a href="#PR曲线" class="headerlink" title="PR曲线"></a>PR曲线</h2><blockquote>
 <p>我们当然希望检测的结果P越高越好，R也越高越好，但事实上这两者在<strong>某些情况下是矛盾的</strong>。比如极端情况下，我们只检测出了一个结果，且是准确的，那么Precision就是100%，但是Recall就很低；而如果我们把所有结果都返回，那么必然Recall必然很大，但是Precision很低。</p>
 <p>因此在不同的场合中需要自己判断希望P比较高还是R比较高。如果是做实验研究，可以绘制Precision-Recall曲线来帮助分析。</p>
 </blockquote>
@@ -208,10 +208,10 @@
 
 
 
-<h2><span id="ap-average-precision">AP (Average Precision)</span></h2><p>AP &#x3D; $\int^1_0p(r)dr$</p>
+<h2 id="AP-Average-Precision"><a href="#AP-Average-Precision" class="headerlink" title="AP (Average Precision)"></a>AP (Average Precision)</h2><p>AP &#x3D; $\int^1_0p(r)dr$</p>
 <p>在实际应用中，我们并不直接对该PR曲线进行计算，而是对PR曲线进行平滑处理。即对PR曲线上的每个点，Precision的值取该点右侧最大的Precision的值。</p>
 <p>？</p>
-<h1><span id="yolov1">Yolov1</span></h1><blockquote>
+<h1 id="Yolov1"><a href="#Yolov1" class="headerlink" title="Yolov1"></a>Yolov1</h1><blockquote>
 <p><strong>将目标检测问题转化为一个回归问题进行求解</strong>，也就是说将图像作为输入（像素数据），直接输出物体的位置和所属于的类别的置信度（是以一个向量的形式表示的，后续会介绍），属于端到端的模型形式。</p>
 </blockquote>
 <p>基本思想：将图片划分为S*S个区域（gridcell），假设都存在一个 true answer 也就是针对这个目标的最好的检测框 ， 则每一个目标的检测框的中心点一定是落在某一个小区域内的；如果此时的中心点落在 x 框内，则 x 小区域就负责搞定这个目标；注意此时可能多个目标落在同一个区域内。</p>
@@ -246,8 +246,8 @@
 <blockquote>
 <p>将同一目标内的bboxes按照cls score + IoU阈值做筛选，剔除冗余地、低置信度的bbox</p>
 </blockquote>
-<h1><span id="yolov3">Yolov3</span></h1><p>实际框    预测框  anchor box</p>
-<h2><span id="anchor-box">Anchor Box</span></h2>
+<h1 id="Yolov3"><a href="#Yolov3" class="headerlink" title="Yolov3"></a>Yolov3</h1><p>实际框    预测框  anchor box</p>
+<h2 id="Anchor-Box"><a href="#Anchor-Box" class="headerlink" title="Anchor Box"></a>Anchor Box</h2>
         </div>
 
         
@@ -391,7 +391,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text">IoU（Intersection over union）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text">Precision &amp; Recall</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text">PR曲线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text">AP (Average Precision)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">Yolov1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">Yolov3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text">Anchor Box</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#IoU%EF%BC%88Intersection-over-union%EF%BC%89"><span class="nav-text">IoU（Intersection over union）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Precision-amp-Recall"><span class="nav-text">Precision &amp; Recall</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PR%E6%9B%B2%E7%BA%BF"><span class="nav-text">PR曲线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AP-Average-Precision"><span class="nav-text">AP (Average Precision)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Yolov1"><span class="nav-text">Yolov1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Yolov3"><span class="nav-text">Yolov3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Anchor-Box"><span class="nav-text">Anchor Box</span></a></li></ol>
     </div>
 </div>
         </aside>
@@ -440,20 +440,5 @@
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

@@ -180,7 +180,7 @@
 
 
 
-<h3><span id="一张量">一.张量</span></h3><h4><span id="1张量的数据类型">1.张量的数据类型</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202201311115752.png" alt="image-20220131111457646"></p>
+<h3 id="一-张量"><a href="#一-张量" class="headerlink" title="一.张量"></a>一.张量</h3><h4 id="1-张量的数据类型"><a href="#1-张量的数据类型" class="headerlink" title="1.张量的数据类型"></a>1.张量的数据类型</h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202201311115752.png" alt="image-20220131111457646"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202201311137743.png" alt="image-20220131113706683"></p>
 <p>默认数据类型为32位浮点型</p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202201311137323.png" alt="image-20220131113746252"></p>
@@ -188,7 +188,7 @@
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202201311141394.png" alt="image-20220131114156317"></p>
 <p><strong>a.long()  a.int()  a.float()方法</strong></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202201311143047.png" alt="image-20220131114336959"></p>
-<h4><span id="2张量的生成">2.张量的生成</span></h4><p>(1)列表或序列可通过**torch.tensor()**函数构造张量</p>
+<h4 id="2-张量的生成"><a href="#2-张量的生成" class="headerlink" title="2.张量的生成"></a>2.张量的生成</h4><p>(1)列表或序列可通过**torch.tensor()**函数构造张量</p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202011519786.png" alt="image-20220201151919676"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202201311204496.png" alt="image-20220131120443462"></p>
 <p>**.shape .size .numel()**方法</p>
@@ -221,17 +221,17 @@
 <p> <img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202011614983.png" alt="image-20220201161451904"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202011615034.png" alt="image-20220201161514884"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202011616898.png" alt="image-20220201161608761"></p>
-<h4><span id="3张量的操作">3.张量的操作</span></h4><h5><span id="1张量的拼接与切分">（1）张量的拼接与切分</span></h5><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202021015601.png" alt="image-20220202101504497"></p>
+<h4 id="3-张量的操作"><a href="#3-张量的操作" class="headerlink" title="3.张量的操作"></a>3.张量的操作</h4><h5 id="（1）张量的拼接与切分"><a href="#（1）张量的拼接与切分" class="headerlink" title="（1）张量的拼接与切分"></a>（1）张量的拼接与切分</h5><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202021015601.png" alt="image-20220202101504497"></p>
 <p>**torch.stack()**会拓展张量维度</p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202021018613.png" alt="image-20220202101844509"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202021020023.png" alt="image-20220202102018924"></p>
-<h5><span id="2张量索引">（2）张量索引</span></h5><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202021023763.png" alt="image-20220202102350596"></p>
+<h5 id="（2）张量索引"><a href="#（2）张量索引" class="headerlink" title="（2）张量索引"></a>（2）张量索引</h5><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202021023763.png" alt="image-20220202102350596"></p>
 <p>&#x3D;&#x3D;注意index参数的数据类型必须是torch.long&#x3D;&#x3D;</p>
 <p>例</p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202021030467.png" alt="image-20220202103022392"></p>
 <p>(对第0维度进行索引（相当于索引第一维度）)</p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202021032248.png" alt="image-20220202103238169"></p>
-<h5><span id="3张量变换">（3）张量变换</span></h5><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202021034687.png" alt="image-20220202103425616"></p>
+<h5 id="（3）张量变换"><a href="#（3）张量变换" class="headerlink" title="（3）张量变换"></a>（3）张量变换</h5><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202021034687.png" alt="image-20220202103425616"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202041220593.png" alt="image-20220204122005493"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202041236220.png" alt="image-20220204123625169"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202041234792.png" alt="image-20220204123440698"></p>
@@ -245,34 +245,34 @@
 <p>沿着指定的维度重复tensor。不同与expand()，本函数复制的是tensor中的数据。扩展（expand）张量不会分配新的内存，只是在存在的张量上创建一个新的视图（view），一个大小（size）等于1的维度扩展到更大的尺寸。repeat沿着特定的维度重复这个张量，和expand()不同的是，这个函数拷贝张量的数据。</p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202041716152.png" alt="image-20220204171657106"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202041717585.png" alt="image-20220204171731493"></p>
-<h5><span id="4张量数学运算">（4）张量数学运算</span></h5><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202021045502.png" alt="image-20220202104524351"></p>
+<h5 id="（4）张量数学运算"><a href="#（4）张量数学运算" class="headerlink" title="（4）张量数学运算"></a>（4）张量数学运算</h5><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202021045502.png" alt="image-20220202104524351"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202021044623.png" alt="image-20220202104455497"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202041733245.png" alt="image-20220204173330127"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202041913380.png" alt="image-20220204191336309"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202041914954.png" alt="image-20220204191459872"></p>
 <p>真多啊。。。用到再查叭。</p>
-<h3><span id="二pytorch中的自动求导">二.pytorch中的自动求导</span></h3><p>将张量的<strong>requires_grad参数</strong>设为Ture可自动求导得到其梯度</p>
+<h3 id="二-pytorch中的自动求导"><a href="#二-pytorch中的自动求导" class="headerlink" title="二.pytorch中的自动求导"></a>二.pytorch中的自动求导</h3><p>将张量的<strong>requires_grad参数</strong>设为Ture可自动求导得到其梯度</p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202042022817.png" alt="image-20220204202233657"></p>
 <p><strong>Tensor()类的重要属性：</strong></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202042036027.png" alt="image-20220204203646918"></p>
 <p>在Pytorch中，默认情况下，非叶节点的梯度值在反向传播过程中使用完后就会被清除，不会被保留。<strong>只有叶子节点的梯度值能够被保留下来</strong></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202042032787.png" alt="image-20220204203208599"></p>
-<h6><span id="retain_grad">retain_grad()</span></h6><p>可保存非叶子节点梯度</p>
+<h6 id="retain-grad"><a href="#retain-grad" class="headerlink" title="retain_grad()"></a>retain_grad()</h6><p>可保存非叶子节点梯度</p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202042033410.png" alt="image-20220204203319272"></p>
 <p>grad_fn：记录创建该张量时所用的方法（函数）</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;grad_fn:&quot;</span>, w.grad_fn, x.grad_fn, a.grad_fn, b.grad_fn, y.grad_fn)</span><br><span class="line"><span class="comment"># Out：grad_fn: None None &lt;AddBackward0 object at 0x000001C04BB24788&gt; &lt;AddBackward0 object at 0x000001C04605D188&gt; &lt;MulBackward0 object at 0x000001C04605D1C8&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h4><span id="autograd">autograd</span></h4><h5><span id="torchautogradbackward">torch.autograd.backward</span></h5><p>张量中的backward()方法直接调用了torch.autograd.backward()</p>
+<h4 id="autograd"><a href="#autograd" class="headerlink" title="autograd"></a>autograd</h4><h5 id="torch-autograd-backward"><a href="#torch-autograd-backward" class="headerlink" title="torch.autograd.backward"></a>torch.autograd.backward</h5><p>张量中的backward()方法直接调用了torch.autograd.backward()</p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202042048465.png" alt="image-20220204204833276"></p>
 <p><strong>retain_graph</strong>参数设置为True，得以进行两次反向传播</p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202051129435.png" alt="image-20220205112941344"></p>
 <p><strong>grad_tensors</strong>参数用于多梯度权重的设置</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">w = torch.tensor([<span class="number">1.</span>], requires_grad=<span class="literal">True</span>)</span><br><span class="line">    x = torch.tensor([<span class="number">2.</span>], requires_grad=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    a = torch.add(w, x)     <span class="comment"># retain_grad()</span></span><br><span class="line">    b = torch.add(w, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    y0 = torch.mul(a, b)    <span class="comment"># y0 = (x+w) * (w+1)</span></span><br><span class="line">    y1 = torch.add(a, b)    <span class="comment"># y1 = (x+w) + (w+1)    dy1/dw = 2</span></span><br><span class="line"></span><br><span class="line">    loss = torch.cat([y0, y1], dim=<span class="number">0</span>)       <span class="comment"># [y0, y1]</span></span><br><span class="line">    grad_tensors = torch.tensor([<span class="number">1.</span>, <span class="number">1.</span>])</span><br><span class="line">    <span class="comment"># grad_tensors = torch.tensor([1., 2.])</span></span><br><span class="line"></span><br><span class="line">    loss.backward(gradient=grad_tensors)    <span class="comment"># gradient 传入 torch.autograd.backward()中的grad_tensors</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(w.grad)</span><br><span class="line">    </span><br><span class="line">    out：<span class="number">7</span> <span class="comment"># 9</span></span><br></pre></td></tr></table></figure>
 
-<h5><span id="torchautogradgrad">torch.autograd.grad</span></h5><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202042059611.png" alt="image-20220204205947396"></p>
+<h5 id="torch-autograd-grad"><a href="#torch-autograd-grad" class="headerlink" title="torch.autograd.grad"></a>torch.autograd.grad</h5><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202042059611.png" alt="image-20220204205947396"></p>
 <p><strong>create_graph</strong>   创建导数计算图，用于高阶求导</p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202051145014.png" alt="image-20220205114554928"></p>
-<h5><span id="autograd小贴士">autograd小贴士：</span></h5><p>1.梯度不自动清零</p>
+<h5 id="autograd小贴士："><a href="#autograd小贴士：" class="headerlink" title="autograd小贴士："></a>autograd小贴士：</h5><p>1.梯度不自动清零</p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202051150324.png" alt="image-20220205115044251"></p>
 <p>使用<strong>grad.zero_()</strong>  对梯度清零</p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202051151087.png" alt="image-20220205115154019"></p>
@@ -282,10 +282,10 @@
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202051200092.png" alt="image-20220205120026028"></p>
 <p>可知+&#x3D;操作时不改变内存地址，为in-place操作，不可对叶子节点执行</p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202051202037.png" alt="image-20220205120213991"></p>
-<h3><span id="三torchnn模块">三.torch.nn模块</span></h3><h4><span id="容器">容器</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190444179.png" alt="image-20220219044440063"></p>
+<h3 id="三-torch-nn模块"><a href="#三-torch-nn模块" class="headerlink" title="三.torch.nn模块"></a>三.torch.nn模块</h3><h4 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190444179.png" alt="image-20220219044440063"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190444944.png" alt="image-20220219044452816"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190448651.png" alt="image-20220219044809497"></p>
-<h4><span id="卷积层">卷积层</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202051346913.png" alt="image-20220205134635851"></p>
+<h4 id="卷积层"><a href="#卷积层" class="headerlink" title="卷积层"></a>卷积层</h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202051346913.png" alt="image-20220205134635851"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以torch.nn.Conv2d()为例， 介绍卷积再图像上的使用方法，其调用方式为：</span></span><br><span class="line">torch.nn.Conv2d(in_channels,</span><br><span class="line">               out_channels,</span><br><span class="line">               kernel_size,</span><br><span class="line">               stride=<span class="number">1</span>,</span><br><span class="line">               padding=<span class="number">0</span>,</span><br><span class="line">               dilation=<span class="number">1</span>,</span><br><span class="line">               groups=<span class="number">1</span>,</span><br><span class="line">               bias=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202051349651.png" alt="image-20220205134953580"></p>
@@ -293,31 +293,31 @@
 
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202070301469.png" alt="image-20220207030119312"></p>
 <p><strong>可见使用边缘特征提取卷积核很好的提取出了图像的边缘信息</strong></p>
-<h4><span id="池化层">池化层</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202070317522.png" alt="image-20220207031712430"></p>
+<h4 id="池化层"><a href="#池化层" class="headerlink" title="池化层"></a>池化层</h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202070317522.png" alt="image-20220207031712430"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202070317316.png" alt="image-20220207031744256"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202130929419.png" alt="image-20220213092921319"></p>
-<h4><span id="激活函数">激活函数</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202130930276.png" alt="image-20220213093044229"></p>
-<h4><span id="全连接层">全连接层</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202130950880.png" alt="image-20220213095021812"></p>
-<h3><span id="四pytorch中的数据操作与预处理">四.pytorch中的数据操作与预处理</span></h3><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202130951963.png" alt="image-20220213095134915"></p>
-<h4><span id="dataloader">Dataloader</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190325547.png" alt="image-20220219032522337"></p>
-<h4><span id="dataset">Dataset</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190326166.png" alt="image-20220219032624056"></p>
-<h4><span id="transforms">transforms</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190354368.png" alt="image-20220219035439267"></p>
-<h4><span id="crop">crop</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190357254.png" alt="image-20220219035758981"></p>
+<h4 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202130930276.png" alt="image-20220213093044229"></p>
+<h4 id="全连接层"><a href="#全连接层" class="headerlink" title="全连接层"></a>全连接层</h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202130950880.png" alt="image-20220213095021812"></p>
+<h3 id="四-pytorch中的数据操作与预处理"><a href="#四-pytorch中的数据操作与预处理" class="headerlink" title="四.pytorch中的数据操作与预处理"></a>四.pytorch中的数据操作与预处理</h3><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202130951963.png" alt="image-20220213095134915"></p>
+<h4 id="Dataloader"><a href="#Dataloader" class="headerlink" title="Dataloader"></a>Dataloader</h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190325547.png" alt="image-20220219032522337"></p>
+<h4 id="Dataset"><a href="#Dataset" class="headerlink" title="Dataset"></a>Dataset</h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190326166.png" alt="image-20220219032624056"></p>
+<h4 id="transforms"><a href="#transforms" class="headerlink" title="transforms"></a>transforms</h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190354368.png" alt="image-20220219035439267"></p>
+<h4 id="crop"><a href="#crop" class="headerlink" title="crop"></a>crop</h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190357254.png" alt="image-20220219035758981"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190402535.png" alt="image-20220219040238390"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190407217.png" alt="image-20220219040747063"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190407901.png" alt="image-20220219040715776"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190409623.png" alt="image-20220219040934500"></p>
-<h4><span id="flip">flip</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190413544.png" alt="image-20220219041354431"></p>
-<h4><span id="rotation">rotation</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190417363.png" alt="image-20220219041707239"></p>
+<h4 id="flip"><a href="#flip" class="headerlink" title="flip"></a>flip</h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190413544.png" alt="image-20220219041354431"></p>
+<h4 id="rotation"><a href="#rotation" class="headerlink" title="rotation"></a>rotation</h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190417363.png" alt="image-20220219041707239"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190425111.png" alt="image-20220219042546974"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190426940.png" alt="image-20220219042619787"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190427628.png" alt="image-20220219042739525"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190428019.png" alt="image-20220219042807856"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190428461.png" alt="image-20220219042851339"></p>
 <p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190430602.png" alt="image-20220219043053494"></p>
-<h4><span id="transforms的操作">transforms的操作</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190431831.png" alt="image-20220219043148686"></p>
-<h4><span id="自定义transforms">自定义transforms</span></h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190434716.png" alt="image-20220219043402594"></p>
-<h2><span id="正态分布与平方损失">正态分布与平方损失</span></h2><p>接下来，我们通过对噪声分布的假设来解读平方损失目标函数。</p>
+<h4 id="transforms的操作"><a href="#transforms的操作" class="headerlink" title="transforms的操作"></a>transforms的操作</h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190431831.png" alt="image-20220219043148686"></p>
+<h4 id="自定义transforms"><a href="#自定义transforms" class="headerlink" title="自定义transforms"></a>自定义transforms</h4><p><img src="https://gitee.com/chen-zeyu0/wohaoxiangshuijiao/raw/master/img/202202190434716.png" alt="image-20220219043402594"></p>
+<h2 id="正态分布与平方损失"><a href="#正态分布与平方损失" class="headerlink" title="正态分布与平方损失"></a>正态分布与平方损失</h2><p>接下来，我们通过对噪声分布的假设来解读平方损失目标函数。</p>
 <p>正态分布和线性回归之间的关系很密切。 正态分布（normal distribution），也称为<em>高斯分布</em>（Gaussian distribution）， 最早由德国数学家高斯（Gauss）应用于天文学研究。 简单的说，若随机变量xx具有均值μμ和方差σ2σ2（标准差σσ），其正态分布概率密度函数如下：</p>
 <p>(3.1.11)</p>
 <p>p(x)&#x3D;12πσ2−−−−√exp(−12σ2(x−μ)2).p(x)&#x3D;12πσ2exp⁡(−12σ2(x−μ)2).</p>
@@ -487,7 +487,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text">一.张量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">1.张量的数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">2.张量的生成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">3.张量的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-text">（1）张量的拼接与切分</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-text">（2）张量索引</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-text">（3）张量变换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-text">（4）张量数学运算</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text">二.pytorch中的自动求导</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-text">retain_grad()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">autograd</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-text">torch.autograd.backward</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-text">torch.autograd.grad</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-text">autograd小贴士：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text">三.torch.nn模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">卷积层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">池化层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">激活函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">全连接层</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text">四.pytorch中的数据操作与预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">Dataloader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">Dataset</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">transforms</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">crop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">flip</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">rotation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">transforms的操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">自定义transforms</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text">正态分布与平方损失</span></a>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80-%E5%BC%A0%E9%87%8F"><span class="nav-text">一.张量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%BC%A0%E9%87%8F%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">1.张量的数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%BC%A0%E9%87%8F%E7%9A%84%E7%94%9F%E6%88%90"><span class="nav-text">2.张量的生成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%BC%A0%E9%87%8F%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-text">3.张量的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E5%BC%A0%E9%87%8F%E7%9A%84%E6%8B%BC%E6%8E%A5%E4%B8%8E%E5%88%87%E5%88%86"><span class="nav-text">（1）张量的拼接与切分</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E5%BC%A0%E9%87%8F%E7%B4%A2%E5%BC%95"><span class="nav-text">（2）张量索引</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E5%BC%A0%E9%87%8F%E5%8F%98%E6%8D%A2"><span class="nav-text">（3）张量变换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%884%EF%BC%89%E5%BC%A0%E9%87%8F%E6%95%B0%E5%AD%A6%E8%BF%90%E7%AE%97"><span class="nav-text">（4）张量数学运算</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C-pytorch%E4%B8%AD%E7%9A%84%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC"><span class="nav-text">二.pytorch中的自动求导</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#retain-grad"><span class="nav-text">retain_grad()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#autograd"><span class="nav-text">autograd</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#torch-autograd-backward"><span class="nav-text">torch.autograd.backward</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#torch-autograd-grad"><span class="nav-text">torch.autograd.grad</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#autograd%E5%B0%8F%E8%B4%B4%E5%A3%AB%EF%BC%9A"><span class="nav-text">autograd小贴士：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89-torch-nn%E6%A8%A1%E5%9D%97"><span class="nav-text">三.torch.nn模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8"><span class="nav-text">容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%B7%E7%A7%AF%E5%B1%82"><span class="nav-text">卷积层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B1%A0%E5%8C%96%E5%B1%82"><span class="nav-text">池化层</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">激活函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%A8%E8%BF%9E%E6%8E%A5%E5%B1%82"><span class="nav-text">全连接层</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B-pytorch%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C%E4%B8%8E%E9%A2%84%E5%A4%84%E7%90%86"><span class="nav-text">四.pytorch中的数据操作与预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Dataloader"><span class="nav-text">Dataloader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dataset"><span class="nav-text">Dataset</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#transforms"><span class="nav-text">transforms</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#crop"><span class="nav-text">crop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flip"><span class="nav-text">flip</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rotation"><span class="nav-text">rotation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#transforms%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-text">transforms的操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89transforms"><span class="nav-text">自定义transforms</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E4%B8%8E%E5%B9%B3%E6%96%B9%E6%8D%9F%E5%A4%B1"><span class="nav-text">正态分布与平方损失</span></a>
     </div>
 </div>
         </aside>
@@ -536,20 +536,5 @@
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

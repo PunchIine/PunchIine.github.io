@@ -203,14 +203,14 @@
 <p><img src="https://user-images.githubusercontent.com/93063038/161943887-0d855334-36d8-43e0-a11c-1af252d2f1a5.png" alt="image"></p>
 <p><img src="https://user-images.githubusercontent.com/93063038/161944097-2f6073fb-e205-47e5-a548-e2400cb085b3.png" alt="image"></p>
 <p><img src="https://user-images.githubusercontent.com/93063038/161944157-eba89533-9328-4993-842e-926ec57bb7d0.png" alt="image"></p>
-<h4><span id="git-init-初始化一个git仓库">git init —— 初始化一个Git仓库</span></h4><p> 执行后会生成一个.git目录， 该目录包含了资源的所有元数据</p>
+<h4 id="git-init-——-初始化一个Git仓库"><a href="#git-init-——-初始化一个Git仓库" class="headerlink" title="git init —— 初始化一个Git仓库"></a>git init —— 初始化一个Git仓库</h4><p> 执行后会生成一个.git目录， 该目录包含了资源的所有元数据</p>
 <p><strong>使用指定目录作为git仓库</strong>  ——git init newrepo</p>
 <p>执行后会在newrepo目录下生成.git目录</p>
 <p><code>将文件纳入版本控制</code></p>
-<h4><span id="git-add-添至暂存区">git add —— 添至暂存区</span></h4><p>git add . —— 将当前目录下所有未纳入的文件添加到暂存区</p>
+<h4 id="git-add-——-添至暂存区"><a href="#git-add-——-添至暂存区" class="headerlink" title="git add —— 添至暂存区"></a>git add —— 添至暂存区</h4><p>git add . —— 将当前目录下所有未纳入的文件添加到暂存区</p>
 <p>git add {文件名} —— 将指定文件添加到暂存区</p>
-<h4><span id="git-commit-提交">git commit —— 提交</span></h4><p>git commit -m ‘提交说明’ —— 对暂存区中的文件进行提交（添加到仓库中）</p>
-<h4><span id="git-push-上传远程代码并合并">git push —— 上传远程代码并合并</span></h4><p><strong>git push</strong> 命用于从将本地的分支版本上传到远程并合并。</p>
+<h4 id="git-commit-——-提交"><a href="#git-commit-——-提交" class="headerlink" title="git commit —— 提交"></a>git commit —— 提交</h4><p>git commit -m ‘提交说明’ —— 对暂存区中的文件进行提交（添加到仓库中）</p>
+<h4 id="git-push-——-上传远程代码并合并"><a href="#git-push-——-上传远程代码并合并" class="headerlink" title="git push —— 上传远程代码并合并"></a>git push —— 上传远程代码并合并</h4><p><strong>git push</strong> 命用于从将本地的分支版本上传到远程并合并。</p>
 <p>命令格式如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</span><br></pre></td></tr></table></figure>
 
@@ -223,7 +223,7 @@
 
 
 
-<h4><span id="git-pull-下载远程代码并合并">git pull —— 下载远程代码并合并</span></h4><p><strong>git pull</strong> 命令用于从远程获取代码并合并本地的版本。</p>
+<h4 id="git-pull-——-下载远程代码并合并"><a href="#git-pull-——-下载远程代码并合并" class="headerlink" title="git pull —— 下载远程代码并合并"></a>git pull —— 下载远程代码并合并</h4><p><strong>git pull</strong> 命令用于从远程获取代码并合并本地的版本。</p>
 <p><strong>git pull</strong> 其实就是 <strong>git fetch</strong> 和 <strong>git merge FETCH_HEAD</strong> 的简写。 命令格式如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</span><br></pre></td></tr></table></figure>
 
@@ -231,24 +231,24 @@
 
 
 
-<h4><span id="git-clone-从现有git仓库中拷贝项目">git clone —— 从现有Git仓库中拷贝项目</span></h4><p><strong>git clone <repo></repo></strong></p>
+<h4 id="git-clone-——-从现有Git仓库中拷贝项目"><a href="#git-clone-——-从现有Git仓库中拷贝项目" class="headerlink" title="git clone —— 从现有Git仓库中拷贝项目"></a>git clone —— 从现有Git仓库中拷贝项目</h4><p><strong>git clone <repo></repo></strong></p>
 <p>or</p>
 <p><strong>git clone <repo> <directory></directory></repo></strong> ——克隆到指定目录</p>
 <p>如果要自己定义要新建的项目目录名称，可以在上面的命令末尾指定新的名字</p>
 <p>git commit -a 跳过git add，直接添加至暂存区后提交</p>
-<h4><span id="git-config-配置信息">git config —— 配置信息</span></h4><p><strong>git config –list</strong> —— 显示当前的git配置信息</p>
+<h4 id="git-config-——-配置信息"><a href="#git-config-——-配置信息" class="headerlink" title="git config —— 配置信息"></a>git config —— 配置信息</h4><p><strong>git config –list</strong> —— 显示当前的git配置信息</p>
 <p><strong>git config -e</strong>  —— 针对当前仓库编辑git配置文件</p>
 <p><strong>git config -e –global</strong> —— 针对系统上所有仓库</p>
 <p>设置提交代码时的用户信息：</p>
 <p><strong>git config –global user.name {YOURGITHUBNAME}</strong><br><strong>git config –global user.email {YOUREMAIL}</strong></p>
-<h4><span id="git-status-查看仓库当前的状态-显示有变更的文件">git status —— 查看仓库当前的状态    显示有变更的文件</span></h4><p>git status -s 获得更简短的输出结果</p>
-<h4><span id="git-diff-比较文件的不同即暂存区和工作区的差异">git diff  —— 比较文件的不同，即暂存区和工作区的差异</span></h4><ul>
+<h4 id="git-status-——-查看仓库当前的状态-显示有变更的文件"><a href="#git-status-——-查看仓库当前的状态-显示有变更的文件" class="headerlink" title="git status —— 查看仓库当前的状态    显示有变更的文件"></a>git status —— 查看仓库当前的状态    显示有变更的文件</h4><p>git status -s 获得更简短的输出结果</p>
+<h4 id="git-diff-——-比较文件的不同，即暂存区和工作区的差异"><a href="#git-diff-——-比较文件的不同，即暂存区和工作区的差异" class="headerlink" title="git diff  —— 比较文件的不同，即暂存区和工作区的差异"></a>git diff  —— 比较文件的不同，即暂存区和工作区的差异</h4><ul>
 <li>尚未缓存的改动：<strong>git diff</strong></li>
 <li>查看已缓存的改动： <strong>git diff –cached</strong></li>
 <li>查看已缓存的与未缓存的所有改动：<strong>git diff HEAD</strong></li>
 <li>显示摘要而非整个 diff：<strong>git diff –stat</strong></li>
 </ul>
-<h4><span id="git-reset-用于回退版本-可以制定退回某一次提交的版本">git reset —— 用于回退版本， 可以制定退回某一次提交的版本</span></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset [--soft | --mixed | --hard] [HEAD]</span><br></pre></td></tr></table></figure>
+<h4 id="git-reset-——-用于回退版本，-可以制定退回某一次提交的版本"><a href="#git-reset-——-用于回退版本，-可以制定退回某一次提交的版本" class="headerlink" title="git reset —— 用于回退版本， 可以制定退回某一次提交的版本"></a>git reset —— 用于回退版本， 可以制定退回某一次提交的版本</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset [--soft | --mixed | --hard] [HEAD]</span><br></pre></td></tr></table></figure>
 
 <p><strong>git reset HEAD^</strong> - 回退所有内容到上一个版本</p>
 <p><strong>git reset HEAD^ {filename}</strong> - 回退指定文件到上一个版本</p>
@@ -281,15 +281,15 @@
 <li>以此类推…</li>
 </ul>
 <p><strong>git reset HEAD</strong> 命令用于取消已缓存的内容。</p>
-<h4><span id="git-rm-将文件从暂存区和工作区中删除">git rm <file> —— 将文件从暂存区和工作区中删除</file></span></h4><p>如果删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项 <strong>-f</strong></p>
+<h4 id="git-rm-——-将文件从暂存区和工作区中删除"><a href="#git-rm-——-将文件从暂存区和工作区中删除" class="headerlink" title="git rm  —— 将文件从暂存区和工作区中删除"></a>git rm <file> —— 将文件从暂存区和工作区中删除</file></h4><p>如果删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项 <strong>-f</strong></p>
 <p>git rm -f <file></file></p>
 <p>如果想把文件从暂存区域移除，但仍然希望保留在当前工作目录中，换句话说，仅是从跟踪清单中删除，使用 <strong>–cached</strong> 选项即可：</p>
 <p>git rm –cached <file></file></p>
-<h4><span id="git-mv-用于移动或重命名一个文件目录或软连接">git mv  —— 用于移动或重命名一个文件,目录或软连接。</span></h4><p>git mv [file] [newfile]</p>
-<h4><span id="git-log-查看历史提交记录">git log —— 查看历史提交记录</span></h4><p>用 –online 选项来查看历史记录的简洁版本。</p>
+<h4 id="git-mv-——-用于移动或重命名一个文件-目录或软连接。"><a href="#git-mv-——-用于移动或重命名一个文件-目录或软连接。" class="headerlink" title="git mv  —— 用于移动或重命名一个文件,目录或软连接。"></a>git mv  —— 用于移动或重命名一个文件,目录或软连接。</h4><p>git mv [file] [newfile]</p>
+<h4 id="git-log-——-查看历史提交记录"><a href="#git-log-——-查看历史提交记录" class="headerlink" title="git log —— 查看历史提交记录"></a>git log —— 查看历史提交记录</h4><p>用 –online 选项来查看历史记录的简洁版本。</p>
 <p><strong>git log –online</strong></p>
 <p><strong>git blame <file></file></strong> - 以列表形式查看指定文件的历史修改记录</p>
-<h4><span id="git-remote-远程仓库操作">git remote —— 远程仓库操作</span></h4><p><strong>git remote -v</strong> —— 显示所有远程仓库</p>
+<h4 id="git-remote-——-远程仓库操作"><a href="#git-remote-——-远程仓库操作" class="headerlink" title="git remote —— 远程仓库操作"></a>git remote —— 远程仓库操作</h4><p><strong>git remote -v</strong> —— 显示所有远程仓库</p>
 <p><strong>git remote show [remote]</strong> —— 显示某个远程仓库的信息</p>
 <p><code>remote为远程仓库地址</code></p>
 <p>git remote set-url [shortname] [url]</p>
@@ -298,19 +298,19 @@
 <p><strong>git remote add [shortname] [url]</strong></p>
 <p>shortname 为本地的版本库</p>
 <p><strong>git remote rm name  # 删除远程仓库</strong><br><strong>git remote rename old_name new_name  # 修改仓库名</strong></p>
-<h4><span id="git-branch-branchname-创建新分支">git branch (branchname) —— 创建新分支</span></h4><p><strong>git branch</strong> —— 列出本地的分支</p>
-<h4><span id="git-checkout-branchname-切换分支命令">git checkout (branchname) —— 切换分支命令</span></h4><p>当切换分支的时候，Git 会用该分支的最后提交的快照替换你的工作目录的内容， 所以多个分支不需要多个目录。</p>
+<h4 id="git-branch-branchname-——-创建新分支"><a href="#git-branch-branchname-——-创建新分支" class="headerlink" title="git branch (branchname) —— 创建新分支"></a>git branch (branchname) —— 创建新分支</h4><p><strong>git branch</strong> —— 列出本地的分支</p>
+<h4 id="git-checkout-branchname-——-切换分支命令"><a href="#git-checkout-branchname-——-切换分支命令" class="headerlink" title="git checkout (branchname) —— 切换分支命令"></a>git checkout (branchname) —— 切换分支命令</h4><p>当切换分支的时候，Git 会用该分支的最后提交的快照替换你的工作目录的内容， 所以多个分支不需要多个目录。</p>
 <p>也可以使用 <strong>git checkout -b (branchname)</strong> —— <strong>创建新分支并立即切换到该分支下</strong>，从而在该分支中操作。</p>
-<h4><span id="git-merge-合并分支命令">git merge —— 合并分支命令</span></h4><p><strong>git merge [branchname]</strong> —— 将指定分支与当前所在分支合并 </p>
-<h4><span id="git-fetch-从远程获取代码库">git fetch —— 从远程获取代码库</span></h4><p>执行完后执行<strong>git merge</strong>合并远程分支到你所在的分支</p>
+<h4 id="git-merge-——-合并分支命令"><a href="#git-merge-——-合并分支命令" class="headerlink" title="git merge —— 合并分支命令"></a>git merge —— 合并分支命令</h4><p><strong>git merge [branchname]</strong> —— 将指定分支与当前所在分支合并 </p>
+<h4 id="git-fetch-——-从远程获取代码库"><a href="#git-fetch-——-从远程获取代码库" class="headerlink" title="git fetch —— 从远程获取代码库"></a>git fetch —— 从远程获取代码库</h4><p>执行完后执行<strong>git merge</strong>合并远程分支到你所在的分支</p>
 <p><img src="https://user-images.githubusercontent.com/93063038/161936610-0ae3d485-71f2-45bb-ad8a-7120f28d8b55.png" alt="image"></p>
-<h4><span id="git-tag-tagname-为提交快照打上标签">git tag [tagname]—— 为提交快照打上标签</span></h4><p>例：</p>
+<h4 id="git-tag-tagname-——-为提交快照打上标签"><a href="#git-tag-tagname-——-为提交快照打上标签" class="headerlink" title="git tag [tagname]—— 为提交快照打上标签"></a>git tag [tagname]—— 为提交快照打上标签</h4><p>例：</p>
 <p>我们可以用 <strong>git tag -a v1.0</strong> 命令给最新一次提交打上（HEAD）”v1.0”的标签</p>
 <p><strong>git tag</strong> <strong>—— 查看所有标签</strong></p>
 <p>-a 选项意为”创建一个带注解的标签”。 不用 -a 选项也可以执行的，但它不会记录这标签是啥时候打的，谁打的，也不会让你添加个标签的注解。</p>
 <p><strong>git log –decorate —— 查看标签</strong></p>
 <p><img src="https://user-images.githubusercontent.com/93063038/161943622-a1ef7d03-42da-448f-95be-6999dc6b773c.png" alt="image"></p>
-<h4><span id="生成ssh密钥">生成ssh密钥</span></h4><p>执行：</p>
+<h4 id="生成ssh密钥"><a href="#生成ssh密钥" class="headerlink" title="生成ssh密钥"></a>生成ssh密钥</h4><p>执行：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &lt;your email&gt;</span><br></pre></td></tr></table></figure>
 
 <p>会生成一个.ssh文件</p>
@@ -446,7 +446,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">git init —— 初始化一个Git仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">git add —— 添至暂存区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">git commit —— 提交</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">git push —— 上传远程代码并合并</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">git pull —— 下载远程代码并合并</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">git clone —— 从现有Git仓库中拷贝项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">git config —— 配置信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">git status —— 查看仓库当前的状态    显示有变更的文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">git diff  —— 比较文件的不同，即暂存区和工作区的差异</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">git reset —— 用于回退版本， 可以制定退回某一次提交的版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">git rm  —— 将文件从暂存区和工作区中删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">git mv  —— 用于移动或重命名一个文件,目录或软连接。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">git log —— 查看历史提交记录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">git remote —— 远程仓库操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">git branch (branchname) —— 创建新分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">git checkout (branchname) —— 切换分支命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">git merge —— 合并分支命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">git fetch —— 从远程获取代码库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">git tag [tagname]—— 为提交快照打上标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">生成ssh密钥</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#git-init-%E2%80%94%E2%80%94-%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%80%E4%B8%AAGit%E4%BB%93%E5%BA%93"><span class="nav-text">git init —— 初始化一个Git仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-add-%E2%80%94%E2%80%94-%E6%B7%BB%E8%87%B3%E6%9A%82%E5%AD%98%E5%8C%BA"><span class="nav-text">git add —— 添至暂存区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-commit-%E2%80%94%E2%80%94-%E6%8F%90%E4%BA%A4"><span class="nav-text">git commit —— 提交</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-push-%E2%80%94%E2%80%94-%E4%B8%8A%E4%BC%A0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%B9%B6%E5%90%88%E5%B9%B6"><span class="nav-text">git push —— 上传远程代码并合并</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-pull-%E2%80%94%E2%80%94-%E4%B8%8B%E8%BD%BD%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%B9%B6%E5%90%88%E5%B9%B6"><span class="nav-text">git pull —— 下载远程代码并合并</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-clone-%E2%80%94%E2%80%94-%E4%BB%8E%E7%8E%B0%E6%9C%89Git%E4%BB%93%E5%BA%93%E4%B8%AD%E6%8B%B7%E8%B4%9D%E9%A1%B9%E7%9B%AE"><span class="nav-text">git clone —— 从现有Git仓库中拷贝项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-config-%E2%80%94%E2%80%94-%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="nav-text">git config —— 配置信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-status-%E2%80%94%E2%80%94-%E6%9F%A5%E7%9C%8B%E4%BB%93%E5%BA%93%E5%BD%93%E5%89%8D%E7%9A%84%E7%8A%B6%E6%80%81-%E6%98%BE%E7%A4%BA%E6%9C%89%E5%8F%98%E6%9B%B4%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-text">git status —— 查看仓库当前的状态    显示有变更的文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-diff-%E2%80%94%E2%80%94-%E6%AF%94%E8%BE%83%E6%96%87%E4%BB%B6%E7%9A%84%E4%B8%8D%E5%90%8C%EF%BC%8C%E5%8D%B3%E6%9A%82%E5%AD%98%E5%8C%BA%E5%92%8C%E5%B7%A5%E4%BD%9C%E5%8C%BA%E7%9A%84%E5%B7%AE%E5%BC%82"><span class="nav-text">git diff  —— 比较文件的不同，即暂存区和工作区的差异</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-reset-%E2%80%94%E2%80%94-%E7%94%A8%E4%BA%8E%E5%9B%9E%E9%80%80%E7%89%88%E6%9C%AC%EF%BC%8C-%E5%8F%AF%E4%BB%A5%E5%88%B6%E5%AE%9A%E9%80%80%E5%9B%9E%E6%9F%90%E4%B8%80%E6%AC%A1%E6%8F%90%E4%BA%A4%E7%9A%84%E7%89%88%E6%9C%AC"><span class="nav-text">git reset —— 用于回退版本， 可以制定退回某一次提交的版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-rm-%E2%80%94%E2%80%94-%E5%B0%86%E6%96%87%E4%BB%B6%E4%BB%8E%E6%9A%82%E5%AD%98%E5%8C%BA%E5%92%8C%E5%B7%A5%E4%BD%9C%E5%8C%BA%E4%B8%AD%E5%88%A0%E9%99%A4"><span class="nav-text">git rm  —— 将文件从暂存区和工作区中删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-mv-%E2%80%94%E2%80%94-%E7%94%A8%E4%BA%8E%E7%A7%BB%E5%8A%A8%E6%88%96%E9%87%8D%E5%91%BD%E5%90%8D%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6-%E7%9B%AE%E5%BD%95%E6%88%96%E8%BD%AF%E8%BF%9E%E6%8E%A5%E3%80%82"><span class="nav-text">git mv  —— 用于移动或重命名一个文件,目录或软连接。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-log-%E2%80%94%E2%80%94-%E6%9F%A5%E7%9C%8B%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4%E8%AE%B0%E5%BD%95"><span class="nav-text">git log —— 查看历史提交记录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-remote-%E2%80%94%E2%80%94-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="nav-text">git remote —— 远程仓库操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-branch-branchname-%E2%80%94%E2%80%94-%E5%88%9B%E5%BB%BA%E6%96%B0%E5%88%86%E6%94%AF"><span class="nav-text">git branch (branchname) —— 创建新分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-checkout-branchname-%E2%80%94%E2%80%94-%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF%E5%91%BD%E4%BB%A4"><span class="nav-text">git checkout (branchname) —— 切换分支命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-merge-%E2%80%94%E2%80%94-%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF%E5%91%BD%E4%BB%A4"><span class="nav-text">git merge —— 合并分支命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-fetch-%E2%80%94%E2%80%94-%E4%BB%8E%E8%BF%9C%E7%A8%8B%E8%8E%B7%E5%8F%96%E4%BB%A3%E7%A0%81%E5%BA%93"><span class="nav-text">git fetch —— 从远程获取代码库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-tag-tagname-%E2%80%94%E2%80%94-%E4%B8%BA%E6%8F%90%E4%BA%A4%E5%BF%AB%E7%85%A7%E6%89%93%E4%B8%8A%E6%A0%87%E7%AD%BE"><span class="nav-text">git tag [tagname]—— 为提交快照打上标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E6%88%90ssh%E5%AF%86%E9%92%A5"><span class="nav-text">生成ssh密钥</span></a></li></ol>
     </div>
 </div>
         </aside>
@@ -495,20 +495,5 @@
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
