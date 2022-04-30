@@ -1493,6 +1493,77 @@ pre .javascript .function {
 .post-toc-wrap .post-toc .nav .active-current > a .nav-text {
   color: var(--primary-color);
 }
+.valine-container #vcomments .vwrap {
+  border: 1px solid var(--third-text-color);
+}
+.valine-container #vcomments .vwrap .vheader .vinput {
+  color: var(--default-text-color);
+  border-color: var(--third-text-color);
+}
+.valine-container #vcomments .vwrap .vheader .vinput:focus {
+  border-bottom: 1px dashed var(--primary-color) !important;
+}
+.valine-container #vcomments .vwrap .vedit .veditor {
+  color: var(--default-text-color);
+}
+.valine-container #vcomments .vwrap .vedit .vctrl .vicon {
+  fill: var(--default-text-color);
+}
+.valine-container #vcomments .vwrap .vedit .vctrl .vicon.actived {
+  fill: var(--primary-color);
+}
+.valine-container #vcomments .vwrap button.vsubmit {
+  background: transparent !important;
+  color: var(--default-text-color) !important;
+  border: 1px solid var(--default-text-color) !important;
+}
+.valine-container #vcomments .vwrap button.vsubmit:hover {
+  color: var(--primary-color) !important;
+  border: 1px solid var(--primary-color) !important;
+}
+.valine-container #vcomments .vcount {
+  color: var(--default-text-color);
+}
+.valine-container #vcomments .vcount .vnum {
+  color: var(--second-text-color);
+}
+.valine-container #vcomments .vcard .vnick .author {
+  font-weight: 450;
+  font-size: 12px;
+  padding: 2px;
+  background: -webkit-linear-gradient(45deg, #e3565e, #ee854b, #f6c258, #90c68a, #5fb3b3, #69c, #c594c5);
+  background: linear-gradient(45deg, #e3565e, #ee854b, #f6c258, #90c68a, #5fb3b3, #69c, #c594c5);
+  color: #fff;
+  margin-left: 2px;
+  border-radius: 2px;
+}
+.valine-container #vcomments .vcard .vhead .vnick {
+  color: var(--primary-color);
+}
+.valine-container #vcomments .vcard .vhead .vsys {
+  color: var(--default-text-color);
+  background: var(--fourth-text-color) !important;
+}
+.valine-container #vcomments .vcard .vcontent P {
+  color: var(--default-text-color);
+}
+.valine-container #vcomments .vcard .vcontent P code {
+  color: var(--code-foreground);
+  background: var(--code-background);
+}
+.valine-container #vcomments .vcard .vh {
+  border-bottom-color: var(--border-color);
+}
+.valine-container #vcomments .vcard .vquote {
+  border-left-color: var(--border-color);
+}
+.valine-container #vcomments .vcopy {
+  color: var(--third-text-color);
+}
+.valine-container #vcomments .vpage .vmore {
+  border: 1px solid var(--border-color);
+  color: var(--second-text-color);
+}
 .comments-container {
   display: inline-block;
   margin-top: 38px;
@@ -2055,7 +2126,7 @@ pre .javascript .function {
   box-sizing: border-box;
   width: 100%;
   overflow: hidden;
-  background: url("/images/bg.svg") center center/cover no-repeat;
+  background: url("http://static.simpledesktops.com/uploads/desktops/2020/08/22/1.png") center center/cover no-repeat;
   background-position-y: 70px;
 }
 @media (max-width: 780px) {
