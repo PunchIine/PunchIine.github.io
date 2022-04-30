@@ -188,10 +188,7 @@
 <p>TN ：模型预测不为某类物品（检测出的矩形框小于置信度阈值）但与数据集标注中某个目标框IOU大于0.5</p>
 <p>FP ：模型预测为某类物品，但与数据集标注中所有目标框IOU均大于0.5（重复检测）</p>
 <p>FN ：模型预测不为某类物品，且与数据集中所有目标框IOU均大于0.5</p>
-<img width="447" alt="image" src="https://user-images.githubusercontent.com/93063038/165037636-4aa10c6c-0368-4fad-9dcd-0c7b4d95578e.png">
-
-
-
+<p><img width="447" alt="image" src="https://user-images.githubusercontent.com/93063038/165037636-4aa10c6c-0368-4fad-9dcd-0c7b4d95578e.png"></p>
 <p>准确率： 模型检测出的物品中正确的比例</p>
 <p><img src="https://user-images.githubusercontent.com/93063038/163666288-f948f80e-77df-47ab-b850-09f8990e79c1.png" alt="image"></p>
 <p>召回率： 所有正确的目标中被模型检测出来的比例</p>
@@ -220,19 +217,9 @@
 <p>Our detection network has 24 convolutional layers followed by 2 fully connected layers. Alternating 1 <em>×</em> 1 convolutional layers reduce the features space from preceding layers. We pretrain the convolutional layers on the ImageNet classifification task at half the resolution (224 <em>×</em> 224 input image) and then double the resolution for detection.</p>
 </blockquote>
 <p>YOLO网络借鉴了GoogLeNet分类网络结构。 网络有24个卷积层，其后是2个完全连接的层，不同的是，YOLO未使用inception module，而是使用1x1卷积层（此处1x1卷积层的存在是为了跨通道信息整合）+3x3卷积层简单替代。最终输出的是7x7x30的张量的预测值</p>
-<img width="665" alt="image" src="https://user-images.githubusercontent.com/93063038/165040258-989f9ec2-36c5-411a-9ef7-ec396115ab5a.png">
-
-
-
-
-
-
-
+<p><img width="665" alt="image" src="https://user-images.githubusercontent.com/93063038/165040258-989f9ec2-36c5-411a-9ef7-ec396115ab5a.png"></p>
 <h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p>使用<strong>均方和误差</strong>作为loss函数来优化模型参数，即网络输出的SxSx(Bx5 + C)维向量与真实图像的对应SxSx(Bx5 + C)维向量的均方和误差。</p>
-<img width="523" alt="image" src="https://user-images.githubusercontent.com/93063038/165040626-b6c30262-1151-4de8-92e7-413f53811f33.png">
-
-
-
+<p><img width="523" alt="image" src="https://user-images.githubusercontent.com/93063038/165040626-b6c30262-1151-4de8-92e7-413f53811f33.png"></p>
 <h3 id="NMS-方法（Non-Maximal-Suppression-非极大值抑制）"><a href="#NMS-方法（Non-Maximal-Suppression-非极大值抑制）" class="headerlink" title="NMS 方法（Non-Maximal Suppression / 非极大值抑制）"></a>NMS 方法（Non-Maximal Suppression / 非极大值抑制）</h3><blockquote>
 <p>将同一目标内的bboxes按照cls score + IoU阈值做筛选，剔除冗余地、低置信度的bbox</p>
 </blockquote>
@@ -435,6 +422,7 @@
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 </body>
 </html>

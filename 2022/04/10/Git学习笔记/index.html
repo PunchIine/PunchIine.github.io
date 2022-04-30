@@ -188,52 +188,40 @@
 <h4 id="git-push-——-上传远程代码并合并"><a href="#git-push-——-上传远程代码并合并" class="headerlink" title="git push —— 上传远程代码并合并"></a>git push —— 上传远程代码并合并</h4><p><strong>git push</strong> 命用于从将本地的分支版本上传到远程并合并。</p>
 <p>命令格式如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</span><br></pre></td></tr></table></figure>
-
 <p>若远程分支名与本地分支名相同则可以省略：及之后部分</p>
 <p>若版本有差异，想要强制推送</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --force &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</span><br></pre></td></tr></table></figure>
-
 <p>若要删除主机的分支</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --delete master # 表示删除origin主机的master分支</span><br></pre></td></tr></table></figure>
-
-
-
 <h4 id="git-pull-——-下载远程代码并合并"><a href="#git-pull-——-下载远程代码并合并" class="headerlink" title="git pull —— 下载远程代码并合并"></a>git pull —— 下载远程代码并合并</h4><p><strong>git pull</strong> 命令用于从远程获取代码并合并本地的版本。</p>
 <p><strong>git pull</strong> 其实就是 <strong>git fetch</strong> 和 <strong>git merge FETCH_HEAD</strong> 的简写。 命令格式如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <h4 id="git-clone-——-从现有Git仓库中拷贝项目"><a href="#git-clone-——-从现有Git仓库中拷贝项目" class="headerlink" title="git clone —— 从现有Git仓库中拷贝项目"></a>git clone —— 从现有Git仓库中拷贝项目</h4><p><strong>git clone <repo></repo></strong></p>
 <p>or</p>
 <p><strong>git clone <repo> <directory></directory></repo></strong> ——克隆到指定目录</p>
 <p>如果要自己定义要新建的项目目录名称，可以在上面的命令末尾指定新的名字</p>
 <p>git commit -a 跳过git add，直接添加至暂存区后提交</p>
-<h4 id="git-config-——-配置信息"><a href="#git-config-——-配置信息" class="headerlink" title="git config —— 配置信息"></a>git config —— 配置信息</h4><p><strong>git config –list</strong> —— 显示当前的git配置信息</p>
+<h4 id="git-config-——-配置信息"><a href="#git-config-——-配置信息" class="headerlink" title="git config —— 配置信息"></a>git config —— 配置信息</h4><p><strong>git config —list</strong> —— 显示当前的git配置信息</p>
 <p><strong>git config -e</strong>  —— 针对当前仓库编辑git配置文件</p>
-<p><strong>git config -e –global</strong> —— 针对系统上所有仓库</p>
+<p><strong>git config -e —global</strong> —— 针对系统上所有仓库</p>
 <p>设置提交代码时的用户信息：</p>
-<p><strong>git config –global user.name {YOURGITHUBNAME}</strong><br><strong>git config –global user.email {YOUREMAIL}</strong></p>
+<p><strong>git config —global user.name {YOURGITHUBNAME}</strong><br><strong>git config —global user.email {YOUREMAIL}</strong></p>
 <h4 id="git-status-——-查看仓库当前的状态-显示有变更的文件"><a href="#git-status-——-查看仓库当前的状态-显示有变更的文件" class="headerlink" title="git status —— 查看仓库当前的状态    显示有变更的文件"></a>git status —— 查看仓库当前的状态    显示有变更的文件</h4><p>git status -s 获得更简短的输出结果</p>
 <h4 id="git-diff-——-比较文件的不同，即暂存区和工作区的差异"><a href="#git-diff-——-比较文件的不同，即暂存区和工作区的差异" class="headerlink" title="git diff  —— 比较文件的不同，即暂存区和工作区的差异"></a>git diff  —— 比较文件的不同，即暂存区和工作区的差异</h4><ul>
 <li>尚未缓存的改动：<strong>git diff</strong></li>
-<li>查看已缓存的改动： <strong>git diff –cached</strong></li>
+<li>查看已缓存的改动： <strong>git diff —cached</strong></li>
 <li>查看已缓存的与未缓存的所有改动：<strong>git diff HEAD</strong></li>
-<li>显示摘要而非整个 diff：<strong>git diff –stat</strong></li>
+<li>显示摘要而非整个 diff：<strong>git diff —stat</strong></li>
 </ul>
 <h4 id="git-reset-——-用于回退版本，-可以制定退回某一次提交的版本"><a href="#git-reset-——-用于回退版本，-可以制定退回某一次提交的版本" class="headerlink" title="git reset —— 用于回退版本， 可以制定退回某一次提交的版本"></a>git reset —— 用于回退版本， 可以制定退回某一次提交的版本</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset [--soft | --mixed | --hard] [HEAD]</span><br></pre></td></tr></table></figure>
-
 <p><strong>git reset HEAD^</strong> - 回退所有内容到上一个版本</p>
 <p><strong>git reset HEAD^ {filename}</strong> - 回退指定文件到上一个版本</p>
 <p><strong>git reset {版本号}</strong> - 回退到指定版本</p>
-<p><strong>git reset –soft HEAD</strong> – soft参数用于回退到某个版本</p>
+<p><strong>git reset —soft HEAD</strong> — soft参数用于回退到某个版本</p>
 <p>例：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --soft HEAD~3 # 回退上上上一个版本</span><br></pre></td></tr></table></figure>
-
-<p><strong>git reset –hard HEAD</strong></p>
-<p><strong>–hard</strong> 参数撤销工作区中所有未提交的修改内容，将暂存区与工作区都回到上一次版本，并删除之前的所有信息提交（慎重使用）</p>
+<p><strong>git reset —hard HEAD</strong></p>
+<p><strong>—hard</strong> 参数撤销工作区中所有未提交的修改内容，将暂存区与工作区都回到上一次版本，并删除之前的所有信息提交（慎重使用）</p>
 <p><strong>HEAD 说明：</strong></p>
 <ul>
 <li><p>HEAD 表示当前版本</p>
@@ -259,11 +247,11 @@
 <p><strong>git reset HEAD</strong> 命令用于取消已缓存的内容。</p>
 <h4 id="git-rm-——-将文件从暂存区和工作区中删除"><a href="#git-rm-——-将文件从暂存区和工作区中删除" class="headerlink" title="git rm  —— 将文件从暂存区和工作区中删除"></a>git rm <file> —— 将文件从暂存区和工作区中删除</file></h4><p>如果删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项 <strong>-f</strong></p>
 <p>git rm -f <file></file></p>
-<p>如果想把文件从暂存区域移除，但仍然希望保留在当前工作目录中，换句话说，仅是从跟踪清单中删除，使用 <strong>–cached</strong> 选项即可：</p>
-<p>git rm –cached <file></file></p>
+<p>如果想把文件从暂存区域移除，但仍然希望保留在当前工作目录中，换句话说，仅是从跟踪清单中删除，使用 <strong>—cached</strong> 选项即可：</p>
+<p>git rm —cached <file></file></p>
 <h4 id="git-mv-——-用于移动或重命名一个文件-目录或软连接。"><a href="#git-mv-——-用于移动或重命名一个文件-目录或软连接。" class="headerlink" title="git mv  —— 用于移动或重命名一个文件,目录或软连接。"></a>git mv  —— 用于移动或重命名一个文件,目录或软连接。</h4><p>git mv [file] [newfile]</p>
-<h4 id="git-log-——-查看历史提交记录"><a href="#git-log-——-查看历史提交记录" class="headerlink" title="git log —— 查看历史提交记录"></a>git log —— 查看历史提交记录</h4><p>用 –online 选项来查看历史记录的简洁版本。</p>
-<p><strong>git log –online</strong></p>
+<h4 id="git-log-——-查看历史提交记录"><a href="#git-log-——-查看历史提交记录" class="headerlink" title="git log —— 查看历史提交记录"></a>git log —— 查看历史提交记录</h4><p>用 —online 选项来查看历史记录的简洁版本。</p>
+<p><strong>git log —online</strong></p>
 <p><strong>git blame <file></file></strong> - 以列表形式查看指定文件的历史修改记录</p>
 <h4 id="git-remote-——-远程仓库操作"><a href="#git-remote-——-远程仓库操作" class="headerlink" title="git remote —— 远程仓库操作"></a>git remote —— 远程仓库操作</h4><p><strong>git remote -v</strong> —— 显示所有远程仓库</p>
 <p><strong>git remote show [remote]</strong> —— 显示某个远程仓库的信息</p>
@@ -284,11 +272,10 @@
 <p>我们可以用 <strong>git tag -a v1.0</strong> 命令给最新一次提交打上（HEAD）”v1.0”的标签</p>
 <p><strong>git tag</strong> <strong>—— 查看所有标签</strong></p>
 <p>-a 选项意为”创建一个带注解的标签”。 不用 -a 选项也可以执行的，但它不会记录这标签是啥时候打的，谁打的，也不会让你添加个标签的注解。</p>
-<p><strong>git log –decorate —— 查看标签</strong></p>
+<p><strong>git log —decorate —— 查看标签</strong></p>
 <p><img src="https://user-images.githubusercontent.com/93063038/161943622-a1ef7d03-42da-448f-95be-6999dc6b773c.png" alt="image"></p>
 <h4 id="生成ssh密钥"><a href="#生成ssh密钥" class="headerlink" title="生成ssh密钥"></a>生成ssh密钥</h4><p>执行：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &lt;your email&gt;</span><br></pre></td></tr></table></figure>
-
 <p>会生成一个.ssh文件</p>
 <p>找到其中的id_rsa.pub将其中内容复制</p>
 <p>进入github settings 点击SSH and GPG keys</p>
@@ -485,6 +472,7 @@
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 </body>
 </html>

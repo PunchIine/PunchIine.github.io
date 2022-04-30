@@ -177,52 +177,28 @@
         <div class="article-content markdown-body">
             <h4 id="jetson-nano-apt更换国内源"><a href="#jetson-nano-apt更换国内源" class="headerlink" title="jetson nano apt更换国内源"></a>jetson nano apt更换国内源</h4><p>备份source.list文件</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak  </span><br></pre></td></tr></table></figure>
-
 <p>修改source.list文件</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-
 <p>删除所有内容，并复制：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic main multiverse restricted universe</span><br><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-security main multiverse restricted universe</span><br><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-updates main multiverse restricted universe</span><br><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-backports main multiverse restricted universe</span><br><span class="line">deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic main multiverse restricted universe</span><br><span class="line">deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-security main multiverse restricted universe</span><br><span class="line">deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-updates main multiverse restricted universe</span><br><span class="line">deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-backports main multiverse restricted universe</span><br></pre></td></tr></table></figure>
-
 <p><strong>注意arm架构下的apt源与普通的ubuntu不相同</strong></p>
 <p>then</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <h4 id="jtop安装"><a href="#jtop安装" class="headerlink" title="jtop安装"></a>jtop安装</h4><p>先安装pip</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python3-pip</span><br></pre></td></tr></table></figure>
-
 <p>then</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip3 install jetson-stats -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo jtop # 打开jtop</span><br></pre></td></tr></table></figure>
-
-
-
 <h4 id="zerotier安装使用（内网穿透）"><a href="#zerotier安装使用（内网穿透）" class="headerlink" title="zerotier安装使用（内网穿透）"></a>zerotier安装使用（内网穿透）</h4><p>安装命令</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -s  https://install.zerotier.com  | sudo bash</span><br></pre></td></tr></table></figure>
-
 <p>加入网络</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo zerotier-cli join xxxxxxxxxxxxxxxx</span><br></pre></td></tr></table></figure>
-
 <p>离开网络</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo zerotier-cli leave xxxxxxxxxxxxxxxx</span><br></pre></td></tr></table></figure>
-
 <p>启动</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start zerotier-one.service</span><br></pre></td></tr></table></figure>
-
 <p>设置开机自启</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable zerotier-one.service</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
 <h4 id="minifoege-安装"><a href="#minifoege-安装" class="headerlink" title="minifoege 安装"></a>minifoege 安装</h4><p><a class="link" target="_blank" rel="noopener" href="https://github.com/conda-forge/miniforge">https://github.com/conda-forge/miniforge<i class="fas fa-external-link-alt"></i></a></p>
 <p>在jetson nano中选择Mambaforge时 出现了pip 无法使用 illegal instruction(core dumped) 的问题</p>
 <p>安装miniforge后在虚拟环境中出现同样问题， 但能在base环境下正常使用pip</p>
@@ -231,46 +207,23 @@
 <p>在Miniforge-Linux-aarch64.sh所在文件夹打开终端</p>
 <p>执行</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash Miniforge-Linux-aarch64.sh</span><br></pre></td></tr></table></figure>
-
 <p>全yes即可</p>
 <h4 id="conda更换国内镜像源"><a href="#conda更换国内镜像源" class="headerlink" title="conda更换国内镜像源"></a>conda更换国内镜像源</h4><p>配置清华源：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">#设置搜索时显示通道地址</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
-
-<p>可执行conda config –show channels显示已添加的源</p>
+<p>可执行conda config —show channels显示已添加的源</p>
 <h4 id="pip更换国内镜像源"><a href="#pip更换国内镜像源" class="headerlink" title="pip更换国内镜像源"></a>pip更换国内镜像源</h4><p>编辑pip配置文件：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/.pip</span><br><span class="line">vim ~/.pip/pip.conf</span><br></pre></td></tr></table></figure>
-
 <p>添加内容为：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">[install]</span><br><span class="line">trusted-host = https://pypi.tuna.tsinghua.edu.cn</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
 <h4 id="conda更改base环境下python版本"><a href="#conda更改base环境下python版本" class="headerlink" title="conda更改base环境下python版本"></a>conda更改base环境下python版本</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install python=&lt;版本号&gt;</span><br></pre></td></tr></table></figure>
-
 <p>（看网上都是这么干的， 但由于我们想换版本时已经无意中在base环境下下载了很多包， 所以由于依赖问题这样会报错）</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda clean -a # 删除所有包</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
 <h4 id="jetson-nano-和-jetson-nx-配置-cuda"><a href="#jetson-nano-和-jetson-nx-配置-cuda" class="headerlink" title="jetson nano 和 jetson nx 配置 cuda"></a>jetson nano 和 jetson nx 配置 cuda</h4><p>jetson nano 与 nx 已经内置好了cuda， 但需要配置环境变量才能使用</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc</span><br></pre></td></tr></table></figure>
-
 <p>在.bashrc文件中添加：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/usr/local/cuda-10.2/bin:$PATH</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH</span><br><span class="line">export CUDA_HOME=/usr/local/cuda-10.2</span><br><span class="line">export OPENBLAS_CORETYPE=ARMV8			# 据说不加的话，运行相关的项目会内核崩掉（but在我配置nano环境时即使加上也无济于事）</span><br></pre></td></tr></table></figure>
-
 <p>再次执行：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
-
 <p>最后输入nvcc -V 测试环境变量是否设置正确</p>
 <h4 id="cv2-torch等由于numpy问题报错illegal-instruction-core-dumped"><a href="#cv2-torch等由于numpy问题报错illegal-instruction-core-dumped" class="headerlink" title="cv2, torch等由于numpy问题报错illegal instruction(core dumped)"></a>cv2, torch等由于numpy问题报错illegal instruction(core dumped)</h4><p>我们下载的numpy版本是1.19.5</p>
 <p>在base环境中测试了几个版本发现都没有问题</p>
@@ -491,6 +444,7 @@
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 </body>
 </html>
