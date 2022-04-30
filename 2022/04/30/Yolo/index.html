@@ -216,8 +216,7 @@
 <li>(x, y) 表示当前预测的检测框的中心相对于我的小区域的位置（共 $S^2$ 个小区域)，这里的 x 和 y 都是 0-1 之间的，也就是说是相对于当前小区域的左上角的偏移值</li>
 <li>(w,h) 表示检测框的宽度和高度，一般是处理到 0-1 之间，标记当前的预测框和整个图片的宽度/高度的比例 - conf 为上述的置信度，可以看作是当前的框的可信度的综合指标，由（是否框准了 = 是否和真实的预测框有较好的重合）和（是否框里确实框住了物体）两个部分影响</li>
 </ul>
-<p>网络结构</p>
-<blockquote>
+<h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><blockquote>
 <p>Our detection network has 24 convolutional layers followed by 2 fully connected layers. Alternating 1 <em>×</em> 1 convolutional layers reduce the features space from preceding layers. We pretrain the convolutional layers on the ImageNet classifification task at half the resolution (224 <em>×</em> 224 input image) and then double the resolution for detection.</p>
 </blockquote>
 <p>YOLO网络借鉴了GoogLeNet分类网络结构。 网络有24个卷积层，其后是2个完全连接的层，不同的是，YOLO未使用inception module，而是使用1x1卷积层（此处1x1卷积层的存在是为了跨通道信息整合）+3x3卷积层简单替代。最终输出的是7x7x30的张量的预测值</p>
@@ -229,16 +228,21 @@
 
 
 
-<p>损失函数</p>
-<p>使用<strong>均方和误差</strong>作为loss函数来优化模型参数，即网络输出的SxSx(Bx5 + C)维向量与真实图像的对应SxSx(Bx5 + C)维向量的均方和误差。</p>
+<h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p>使用<strong>均方和误差</strong>作为loss函数来优化模型参数，即网络输出的SxSx(Bx5 + C)维向量与真实图像的对应SxSx(Bx5 + C)维向量的均方和误差。</p>
 <img width="523" alt="image" src="https://user-images.githubusercontent.com/93063038/165040626-b6c30262-1151-4de8-92e7-413f53811f33.png">
 
 
 
-<p>NMS 方法（Non-Maximal Suppression / 非极大值抑制）</p>
-<blockquote>
+<h3 id="NMS-方法（Non-Maximal-Suppression-非极大值抑制）"><a href="#NMS-方法（Non-Maximal-Suppression-非极大值抑制）" class="headerlink" title="NMS 方法（Non-Maximal Suppression / 非极大值抑制）"></a>NMS 方法（Non-Maximal Suppression / 非极大值抑制）</h3><blockquote>
 <p>将同一目标内的bboxes按照cls score + IoU阈值做筛选，剔除冗余地、低置信度的bbox</p>
 </blockquote>
+<p>具体实现思路如下：</p>
+<ol>
+<li>选取此类物品box中置信度最高的box</li>
+<li>计算与其余此类box的IOU</li>
+<li>IOU&gt;nms_threshold则去除置信度小的那个box</li>
+<li>从剩余box中再选取置信度最高的box，如此循环</li>
+</ol>
 
         </div>
 
@@ -368,7 +372,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#IoU%EF%BC%88Intersection-over-union%EF%BC%89"><span class="nav-text">IoU（Intersection over union）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Precision-amp-Recall"><span class="nav-text">Precision &amp; Recall</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PR%E6%9B%B2%E7%BA%BF"><span class="nav-text">PR曲线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AP-Average-Precision"><span class="nav-text">AP (Average Precision)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Yolov1"><span class="nav-text">Yolov1</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#IoU%EF%BC%88Intersection-over-union%EF%BC%89"><span class="nav-text">IoU（Intersection over union）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Precision-amp-Recall"><span class="nav-text">Precision &amp; Recall</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PR%E6%9B%B2%E7%BA%BF"><span class="nav-text">PR曲线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AP-Average-Precision"><span class="nav-text">AP (Average Precision)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Yolov1"><span class="nav-text">Yolov1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84"><span class="nav-text">网络结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-text">损失函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NMS-%E6%96%B9%E6%B3%95%EF%BC%88Non-Maximal-Suppression-%E9%9D%9E%E6%9E%81%E5%A4%A7%E5%80%BC%E6%8A%91%E5%88%B6%EF%BC%89"><span class="nav-text">NMS 方法（Non-Maximal Suppression &#x2F; 非极大值抑制）</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
