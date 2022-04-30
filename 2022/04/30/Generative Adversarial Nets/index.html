@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="LAzy">
+    <meta name="referrer" content="no-referrer" />
+    
+    <title>
+        
+            Generative Adversarial Nets |
+        
+        LAzy&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="https://www.helloimg.com/images/2022/04/08/RsLwlM.jpg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"lazy.github.io","root":"/","language":"en","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://www.helloimg.com/images/2022/04/08/RsLwlM.jpg","favicon":"https://www.helloimg.com/images/2022/04/08/RsLwlM.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://www.helloimg.com/images/2022/04/08/RsLwlM.jpg">
+                </a>
+            
+            <a class="logo-title" href="/">
+                LAzy&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">CATEGORIES</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Generative Adversarial Nets</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://www.helloimg.com/images/2022/04/08/RsLwlM.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">LAzy</span>
+                        
+                            <span class="author-label">Lv2</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-04-30 11:53:46</span>
+        <span class="mobile">2022-04-30 11:53</span>
+    </span>
+    
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id><a href="#" class="headerlink" title></a></h1><blockquote>
+<p>    $data$→真实数据$（groundtruth）$<br>    $p_{data}$→真实数据的分布<br>    $z$→噪音（输入数据）<br>    $p_{z}$→原始噪音的分布<br>    $p_g$→经过生成器后的数据分布<br>    $G()$→生成映射函数<br>    $D()$→判别映射函数</p>
+</blockquote>
+<h3 id="信息量"><a href="#信息量" class="headerlink" title="信息量"></a><strong>信息量</strong></h3><p>在信息论当中，我们用一件事情发生的概率的负对数表示信息量。<br>$$<br>H&#x3D;-\log{p}<br>$$<br>如公式所示，也就是事情发生的概率越大，其包含的信息量就越小，反之亦然。</p>
+<h3 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a><strong>信息熵</strong></h3><p>信息熵，也是平均自信息量，如公式所示，表示的是自信息量(也就是上面提到的信息量)的数学期望，表示为概率与其自信息量的乘积然后再求和。<br>$$<br>H(X)&#x3D;-\sum_{x\in{X}}p(x)\log{p(x)}<br>$$</p>
+<h3 id="交叉熵"><a href="#交叉熵" class="headerlink" title="交叉熵"></a><strong>交叉熵</strong></h3><blockquote>
+<p>交叉熵刻画的是实际输出（概率）与期望输出（概率）的距离，也就是交叉熵的值越小，两个概率分布就越接近，即拟合的更好。</p>
+</blockquote>
+<p>交叉熵其实就是对于一个分布<em>p</em>来说，我们用分布<em>q</em>来对分布<em>p</em>中的信息进行编码，所需要的信息量。</p>
+<p>如果交叉熵越小，说明用分布<em>q</em>来表示分布<em>p</em>所需要的信息量越小，这也就说明<em>q</em>分布越接近<em>p</em>分布。<br>$$<br>H(p,q)&#x3D;-\sum_xp(x)\log{q(x)}<br>$$</p>
+<h3 id="KL散度（相对熵）"><a href="#KL散度（相对熵）" class="headerlink" title="KL散度（相对熵）"></a><strong>KL散度（相对熵）</strong></h3><blockquote>
+<p>描述两个概率分布之间差异的非对称量</p>
+<p>其定义就是<strong>用理论分布去拟合真实分布时产生的信息损耗</strong></p>
+</blockquote>
+<p>若有两个随机变量p, q，且其概率分布分别为p(x)、q(x)，则p相对q的相对熵为：<br>$$<br>D_{KL}(p||q)&#x3D;\sum^n_{i&#x3D;1}p(x)\log\frac{p(x)}{q(x)}<br>$$</p>
+<p>又由定义可知：<br>&#x3D;&#x3D;KL散度 &#x3D; 交叉熵 - 信息熵&#x3D;&#x3D;</p>
+<p>因此，KL散度可通过下式得出：<br>$$<br>\begin{aligned}D_{KL}(p||q)&amp;&#x3D;H(p,q)-H(p)\&amp;&#x3D;-\sum_xp(x)(\log{q(x)}-\log{p(x)})\&amp;&#x3D;-\sum{p(x)\log{\frac{q(x)}{p(x)}}}\end{aligned}<br>$$<br><em>正定性</em></p>
+<p><strong>相对熵的值是非负值，即D(P||Q)&gt;0。</strong></p>
+<p><em>不对称性</em></p>
+<p><strong>尽管KL散度从直观上是个度量或距离函数，但它并不是一个真正的度量或者距离，因为它不具有对称性，即D(P||Q)!&#x3D;D(Q||P)。</strong></p>
+<h3 id="JS散度"><a href="#JS散度" class="headerlink" title="JS散度"></a><strong>JS散度</strong></h3><blockquote>
+<p>由于<em>KL</em>散度的不对称性，所以这里引入了一个<em>JS</em>散度，也就是<em>Jensen-Shannon</em>散度，<em>JS</em>散度度量了两个概率分布的相似度，基于<em>KL</em>散度的变体，解决了<em>KL</em>散度非对称的问题，一般地，<em>JS</em>散度是对称的</p>
+</blockquote>
+<p>公式如下<br>$$<br>JS(p||q)&#x3D;\frac{1}{2}KL(p(x)||\frac{p(x)+q(x)}{2}+\frac{1}{2}KL(q(x)||\frac{p(x)+q(x)}{2})<br>$$</p>
+<h3 id="全概率公式"><a href="#全概率公式" class="headerlink" title="全概率公式"></a><strong>全概率公式</strong></h3><h3 id="贝叶斯公式"><a href="#贝叶斯公式" class="headerlink" title="贝叶斯公式"></a><strong>贝叶斯公式</strong></h3><p><strong>条件概率（后验概率）</strong>就是事件A在另一个事件B已经发生的条件下发生概率，公式表示为P(A|B)。</p>
+<p><strong>联合概率</strong>表示两件事情共同发生的概率。A与B的联合概率表示为p(A,B)。</p>
+<p><strong>边缘概率（先验概率）</strong>是某个事件发生的概率。边缘概率是这样得到的：在联合概率中，<em>把最终结果中那些不需要的事件通过合并成它们的全概率</em>，而消去它们（<em>对离散随机变量用求和得全概率，对连续随机变量用积分得全概率</em>），这称为边缘化（marginalization），比如A的边缘概率表示为P(A)，B的边缘概率表示为P(B)。</p>
+<p>$$<br>P (A∩B) &#x3D; P (A)*P (B|A)&#x3D;P (B)*P (A|B)<br>$$</p>
+<p>$$<br>P (A|B)&#x3D;P (B|A)*P (A)&#x2F;P (B)<br>$$</p>
+<h3 id="似然函数"><a href="#似然函数" class="headerlink" title="似然函数"></a><strong>似然函数</strong></h3><p>$$<br>p(x|\theta)<br>$$</p>
+<p>其中：x表示某一个具体的数据，θ 表示模型的参数。</p>
+<p><strong>若x已知，$\theta$为变量，则该函数为似然函数     描述对于不同的模型参数，x样本点出现的概率</strong></p>
+<p><strong>若x为变量，$\theta$未知，则该函数为概率函数     描述对于参数模型$\theta$,  不同的样本点x出现的概率为多少</strong></p>
+<h3 id="最大似然估计"><a href="#最大似然估计" class="headerlink" title="最大似然估计"></a><strong>最大似然估计</strong></h3><blockquote>
+<p><strong>利用已知的样本结果信息，反推最具有可能（最大概率）导致这些样本结果出现的模型参数值</strong></p>
+</blockquote>
+<h3 id="最大后验概率估计"><a href="#最大后验概率估计" class="headerlink" title="最大后验概率估计"></a><strong>最大后验概率估计</strong></h3><h2 id="Generative-Adversarial-Networks"><a href="#Generative-Adversarial-Networks" class="headerlink" title="Generative Adversarial Networks"></a>Generative Adversarial Networks</h2><h3 id="对GAN训练过程的理解"><a href="#对GAN训练过程的理解" class="headerlink" title="对GAN训练过程的理解"></a><strong>对GAN训练过程的理解</strong></h3><p>将符合正态分布的随机噪声z输入生成器生成G(z)，经处理后与真实数据x一起交予判别器处理，判别器将G(z)是否为真实数据并给出一个概率值D(G(z))。我们的训练目标是：训练判别器D使D(x)最大，而D(G(z))最小（ We train D to maximize the probability of assigning the correct label to both training examples and samples from G），训练生成器G使D(G(z))最大（train <em>G</em> to minimize log(1 <em>−</em> D(G(z)))）。我们的训练策略是先训练k次判别器D使之具备一定的判别能力（在2014年论文中k取1），之后训练一次生成器G，如此迭代训练以接近<strong>全局最优</strong>。</p>
+<img width="616" alt="image" src="https://user-images.githubusercontent.com/93063038/165891999-3ac9fffa-6cd1-44c9-a77d-0019128df5bb.png">
+
+
+
+<p>目标函数：<br>$$<br>\underset{G}{min}\underset{D}{max}V(D,G)&#x3D;E_{x\backsim{p_{data}}}[\log{D(x)}]+E_{z\backsim{p_z(z)}}[\log{1-D(G(z)))}]<br>$$</p>
+<p> <u>A less formal, more pedagogical explanation of the approach.</u></p>
+<img width="602" alt="image" src="https://user-images.githubusercontent.com/93063038/165944429-2fe05a8e-21e1-4708-9c4c-5fb86fdba24f.png">
+
+<ul>
+<li>蓝线 判别分布 $D$</li>
+<li>红线 生成分布 $p_{g}$</li>
+<li>黑线 真实数据分布 $p_{x}$</li>
+</ul>
+<p>$$<br>\begin{aligned}V(G,D)&amp;&#x3D;\int_xp_{data}(x)\log{(D(x))}dx+\int_xp(z)\log{(1-D(g(z)))}dz\&amp;&#x3D;\int_xp_{data(x)}\log{(D(x))}+p_g(x)\log{(1-D(x))dx}\end{aligned}<br>$$</p>
+<p>为什么选择训练判别器？</p>
+<p>在刚开始训练的时候，生成器G生成的数据显然与真实数据相差很大，此时判别器D将以高置信度拒绝生成器G生成的样本，这将导致$\log{1-D(G(z))}$饱和（很大）。</p>
+<p>为什么不先将判别器训练得很好再训练生成器？</p>
+<p>为什么这样设计目标函数？</p>
+<p>何时达到全局最优？</p>
+
+        </div>
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/04/27/baseline/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">baseline</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">LAzy</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E9%87%8F"><span class="nav-text">信息量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E7%86%B5"><span class="nav-text">信息熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A4%E5%8F%89%E7%86%B5"><span class="nav-text">交叉熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KL%E6%95%A3%E5%BA%A6%EF%BC%88%E7%9B%B8%E5%AF%B9%E7%86%B5%EF%BC%89"><span class="nav-text">KL散度（相对熵）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS%E6%95%A3%E5%BA%A6"><span class="nav-text">JS散度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E6%A6%82%E7%8E%87%E5%85%AC%E5%BC%8F"><span class="nav-text">全概率公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%85%AC%E5%BC%8F"><span class="nav-text">贝叶斯公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%BC%E7%84%B6%E5%87%BD%E6%95%B0"><span class="nav-text">似然函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1"><span class="nav-text">最大似然估计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E5%90%8E%E9%AA%8C%E6%A6%82%E7%8E%87%E4%BC%B0%E8%AE%A1"><span class="nav-text">最大后验概率估计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generative-Adversarial-Networks"><span class="nav-text">Generative Adversarial Networks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9GAN%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-text">对GAN训练过程的理解</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
