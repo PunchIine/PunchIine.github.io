@@ -1602,6 +1602,47 @@ pre .javascript .function {
   width: 100%;
   z-index: 1009;
 }
+.progress-bar-container .pjax-progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--pjax-progress-bar-color);
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1008;
+  transition-property: color, background, box-shadow, border-color, width;
+  transition-delay: 0s, 0s, 0s, 0s, 0s;
+  transition-duration: 0.2s, 0.2s, 0.2s, 0.2s, 0.1s;
+  transition-timing-function: ease, ease, ease, ease, linear;
+}
+.progress-bar-container .pjax-progress-bar.show {
+  opacity: 1;
+  visibility: visible;
+}
+.progress-bar-container .pjax-progress-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1008;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 6px 0 0;
+  visibility: hidden;
+  font-size: 1.1rem;
+  color: var(--default-text-color);
+}
+@media (max-width: 780px) {
+  .progress-bar-container .pjax-progress-icon {
+    padding: 6px 5px 0 0;
+    font-size: 1rem;
+  }
+}
+.progress-bar-container .pjax-progress-icon.show {
+  visibility: visible;
+}
 .progress-bar-container .scroll-progress-bar {
   position: absolute;
   top: 0;
