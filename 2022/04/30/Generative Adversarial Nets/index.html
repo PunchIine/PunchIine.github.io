@@ -221,7 +221,8 @@ D_{KL}(p||q)=\sum_{x}p(x)\log\frac{p(x)}{q(x)}</script><p>又由定义可知：<
 </blockquote>
 <p>公式如下</p>
 <script type="math/tex; mode=display">
-JS(p||q)=\frac{1}{2}KL(p(x)||\frac{p(x)+q(x)}{2}+\frac{1}{2}KL(q(x)||\frac{p(x)+q(x)}{2})</script><h3 id="条件概率"><a href="#条件概率" class="headerlink" title="条件概率"></a>条件概率</h3><blockquote>
+JS(p||q)=\frac{1}{2}KL(p(x)||\frac{p(x)+q(x)}{2}+\frac{1}{2}KL(q(x)||\frac{p(x)+q(x)}{2})</script><p><img src="https://user-images.githubusercontent.com/93063038/166672229-e98e47df-8ca3-45c6-aa90-5f031e230d29.png" alt="jskl"></p>
+<h3 id="条件概率"><a href="#条件概率" class="headerlink" title="条件概率"></a>条件概率</h3><blockquote>
 <p>条件概率是指事件A在另外一个事件B已经发生条件下的发生概率。 条件概率表示为：P（A|B），读作”在B的条件下A的概率”。 条件概率可以用决策树进行计算。</p>
 </blockquote>
 <script type="math/tex; mode=display">
@@ -257,8 +258,9 @@ P(A|B)=\frac{P(B|A)P(A)}{P(B)}</script><p><img width="411" alt="image" src="http
 <p>        $data$→真实数据$（groundtruth）$<br>        $p_{data}$→真实数据的分布<br>        $z$→噪音（输入数据）<br>        $p_{z}$→原始噪音的分布<br>        $p_g$→经过生成器后的数据分布<br>        $G()$→生成映射函数<br>        $D()$→判别映射函数</p>
 </blockquote>
 <h3 id="对GAN训练过程的理解"><a href="#对GAN训练过程的理解" class="headerlink" title="对GAN训练过程的理解"></a><strong>对GAN训练过程的理解</strong></h3><p>将符合正态分布的随机噪声z输入生成器生成G(z)，经处理后与真实数据x一起交予判别器处理，判别器将G(z)是否为真实数据并给出一个概率值D(G(z))。我们的训练目标是：训练判别器D使D(x)最大，而D(G(z))最小，训练生成器G使D(G(z))最大。我们的训练策略是先训练k次判别器D使之具备一定的判别能力（在论文中k取1），之后训练一次生成器G，如此<strong>迭代训练</strong>以接近<strong>全局最优</strong>。</p>
+<p>在刚开始训练的时候，生成器G生成的数据显然与真实数据相差很大，此时判别器D将以高置信度拒绝生成器G生成的样本，这将导致$\log{(1-D(G(z)))}$饱和（很大），所以选择先对判别器进行训练。</p>
 <p><img width="616" alt="image" src="https://user-images.githubusercontent.com/93063038/165891999-3ac9fffa-6cd1-44c9-a77d-0019128df5bb.png"></p>
-<p>由于训练开始时，G性能较差，这将使得D(G(z))趋近于0，这将导致$\log{(1-G(D(z)))}$的梯度较小，而$\log{(G(D(x)))}$的梯度较大，因此，作者将G的训练目标改为最大化$\log{(G(D(x)))}$在训练初期提供了更大的梯度    </p>
+<p>由于训练开始时，G性能较差，这将使得D(G(z))趋近于0，这将导致$\log{(1-G(D(z)))}$的梯度较小，而$\log{(G(D(x)))}$的梯度较大，因此，将G的训练目标改为最大化$\log{(G(D(x)))}$在训练初期提供了更大的梯度    </p>
 <p>可以说生成对抗网络训练的过程就是生成器G与判别器D进行一个零和博弈的过程，G欲使目标函数最大化，D欲使目标函数最小化</p>
 <script type="math/tex; mode=display">
 \underset{G}{min}\underset{D}{max}V(D,G)=E_{x\backsim{p_{data}}}[\log{D(x)}]+E_{z\backsim{p_z(z)}}[\log{1-D(G(z)))}]</script><p> <u>A less formal, more pedagogical explanation of the approach.</u></p>
@@ -279,7 +281,18 @@ P(A|B)=\frac{P(B|A)P(A)}{P(B)}</script><p><img width="411" alt="image" src="http
 &={E_{x\backsim{p_{data}}}(\log{D(x)})+E_{x\backsim{p_{g}}}(\log{\frac{1}{D(x)}})}\\\\
 &\iff{E_{x\backsim{p_{data}}}(\log{D(x)})+E_{x\backsim{p_{g}}}(\log({1-D(x))})}\end{aligned}</script><p>可知，生成器G想要达到最优，与前一项无关，只需最小化后一项。判别器D想要达到最优，只需最大化判别真实数据为真的概率，最小化判别生成数据为真的概率，即最大化整个函数。因此我们可以得到目标函数：</p>
 <script type="math/tex; mode=display">
-\underset{G}{min}\underset{D}{max}V(D,G)=E_{x\backsim{p_{data}}}[\log{D(x)}]+E_{z\backsim{p_z(z)}}[\log{1-D(G(z)))}]</script><h3 id="何时达到全局最优？"><a href="#何时达到全局最优？" class="headerlink" title="何时达到全局最优？"></a><strong>何时达到全局最优？</strong></h3><script type="math/tex; mode=display">
+\underset{G}{min}\underset{D}{max}V(D,G)=E_{x\backsim{p_{data}}}[\log{D(x)}]+E_{z\backsim{p_z(z)}}[\log{1-D(G(z)))}]</script><p>从最大似然估计的角度来看。</p>
+<p>由于我们已知的数据是生成数据的分布与真实数据的分布，想要得到的是使生成器最优的模型概率参数$\theta$，因此我们可以设计一个似然函数：</p>
+<script type="math/tex; mode=display">
+p_g(X_{i}|\theta)</script><p>我们使用最大似然估计方法：</p>
+<script type="math/tex; mode=display">
+\theta_{bst}=arg\underset{\theta}max\prod_{i=1}^{n}p_g(x_i|\theta)</script><p>取对数可得</p>
+<script type="math/tex; mode=display">
+\begin{aligned}\theta_{bst}&=arg\underset{\theta}max\sum_{i=1}^{n}\log{p_g(x_i|\theta)}
+\\&\iff{arg\underset{\theta}maxE_{x\backsim{p_{g}}}\log{p_g(x_i|\theta)}}
+\end{aligned}</script><p>再考虑判别器，我们想要令判别器对于真实数据输出的值趋于1，对生成数据输出的值趋于0，因此，我们</p>
+<p>!!!!!!!&gt;&gt;&gt;?????????杀了我吧</p>
+<h3 id="何时达到全局最优？"><a href="#何时达到全局最优？" class="headerlink" title="何时达到全局最优？"></a><strong>何时达到全局最优？</strong></h3><script type="math/tex; mode=display">
 \begin{aligned}V(G,D)&=\int_xp_{data}(x)\log{(D(x))}dx+\int_zp_z(z)\log{(1-D(g(z)))}dz\\\\&=\int_xp_{data(x)}\log{(D(x))}+p_g(x)\log{(1-D(x))dx}\end{aligned}</script><p>要证上式，只需证</p>
 <script type="math/tex; mode=display">
 E_{z\backsim{p_z(z)}}\log{(1-D(G(z)))}=E_{x\backsim{p_g(x)}}\log{(1-D(x))}</script><h4 id="寻找最优的判别器D"><a href="#寻找最优的判别器D" class="headerlink" title="寻找最优的判别器D"></a>寻找最优的判别器D</h4><p>我们假定生成器G固定，来考虑最优判别器, 可将$p_{data}$和$p_g$看作常数a, b。</p>
@@ -289,7 +302,11 @@ V = a\log(D)+b\log(1-D)</script><p>求导求其极值：</p>
 <script type="math/tex; mode=display">
 \frac{dV}{dD}=a×\frac{1}{D}-b×\frac{1}{1-D}</script><p>令$\frac{dV}{dD}=0$，则易得<strong>最优判别器D</strong>为：</p>
 <script type="math/tex; mode=display">
-D^*_G(x)=\frac{p_{data}(x)}{p_{data}(x)+p_g(x)}</script><h4 id="寻找最优的生成器G"><a href="#寻找最优的生成器G" class="headerlink" title="寻找最优的生成器G"></a>寻找最优的生成器G</h4><p>于是，我们将$D^*$代入求$\underset{D}{max}V(G,D)$</p>
+D^*_G(x)=\frac{p_{data}(x)}{p_{data}(x)+p_g(x)}</script><blockquote>
+<p>Note that the training objective for <em>D</em> can be interpreted as maximizing the log-likelihood for estimating the conditional probability <em>P</em>(<em>Y</em> = <em>y<strong>|</strong></em>x<strong>), where <em>Y</em> indicates whether </strong>x comes from $p_{data}$(with <em>y</em> = 1) or from $p_g$(with <em>y</em> = 0). </p>
+</blockquote>
+<h4 id="寻找最优的生成器G"><a href="#寻找最优的生成器G" class="headerlink" title="寻找最优的生成器G"></a>寻找最优的生成器G</h4><p>于是，我们将$D^*$代入求$\underset{D}{max}V(G,D)$</p>
+<p>联系KL散度与JS散度的定义，我们可以得到：</p>
 <script type="math/tex; mode=display">
 \begin{aligned}\underset{D}{max}V(G,D^*)
 &=E_{x\backsim{p_{data}}}(\log{D^*(x)})+E_{x\backsim{p_{g}}}(\log({1-D^*(x))})\\
@@ -300,25 +317,14 @@ D^*_G(x)=\frac{p_{data}(x)}{p_{data}(x)+p_g(x)}</script><h4 id="寻找最优的�
 &=2\log{\frac{1}{2}}+2×[\frac{1}{2}KL(p_{data}||\frac{p_g+p_{data}}{2})+\frac{1}{2}KL(p_g||\frac{p_g+p_{data}}{2})]\\\\
 &=-\log{4}+2JSD(p_{data}||p_g)\end{aligned}</script><p>有JS散度的定义域可知，当且仅当$p_{data}=p_g$的时候JS散度取得最小值0。</p>
 <p>所以我们可以知道仅当$p_{data}=p_g$时取得全局最小值$-\log{4}$。</p>
-<p>即取得<strong>最优生成器G</strong>需要满足的条件是<strong>$p_{data}=p_g$</strong> </p>
-<p>注意训练判别器D的过程能够看作是使条件估计概率$P(Y = y|x)$的似然函数最大化的过程，Y表示x可能来自原始数据分布，也可能来自生成数据分布。当来自原始数据分布的时候y=1，当来自生成数据分布的时候y=0</p>
-<h3 id="为什么选择先训练判别器？"><a href="#为什么选择先训练判别器？" class="headerlink" title="为什么选择先训练判别器？"></a>为什么选择先训练判别器？</h3><p>在刚开始训练的时候，生成器G生成的数据显然与真实数据相差很大，此时判别器D将以高置信度拒绝生成器G生成的样本，这将导致$\log{(1-D(G(z)))}$饱和（很大）。</p>
-<h3 id="为什么不先将判别器训练得很好再训练生成器？"><a href="#为什么不先将判别器训练得很好再训练生成器？" class="headerlink" title="为什么不先将判别器训练得很好再训练生成器？"></a>为什么不先将判别器训练得很好再训练生成器？</h3><hr>
-<p>我们已知的是数据x，想要得到的是模型的参数$\theta$，因此，我们构造一个似然函数：</p>
-<script type="math/tex; mode=display">
-p_g(X_{i}|\theta)</script><p>我们使用最大似然估计方法：</p>
-<script type="math/tex; mode=display">
-\theta_{bst}=arg\underset{\theta}max\prod_{i=1}^{n}p_g(x_i|\theta)</script><p>取对数可得</p>
-<script type="math/tex; mode=display">
-\begin{aligned}\theta_{bst}&=arg\underset{\theta}max\sum_{i=1}^{n}\log{p_g(x_i|\theta)}
-\\&\iff{arg\underset{\theta}maxE_{x\backsim{p_{data}}}\log{p_g(x_i|\theta)}}
-\\&=arg\underset{\theta}max\int_xp_{data}(x)\log{p_g(x_i|\theta)}\end{aligned}</script><script type="math/tex; mode=display">
-D_{KL}(P_{data}||P_{g})=E_{x\backsim{p_{data}}}(\log{p_{data}(x)}-\log{p_{g}(x)})</script><p>易看出前一项只与真实数据分布有关，与生成器模型无关。因此我们可以忽略它，当训练模型最小化的时候，我们只需要最大化后一项，即：</p>
-<script type="math/tex; mode=display">
-E_{x\backsim{p_{data}}}\log{p_g(x)}</script><p>可转换为：</p>
-<script type="math/tex; mode=display">
-\int_x{p_{data(x)}}\log{p_g(x)}dx</script><p>据最大似然估计方法，阿巴阿巴阿巴</p>
+<p>即取得<strong>最优生成器G</strong>需要满足的条件是<strong>$p_{data}=p_g$</strong></p>
 <hr>
+<p><strong>在实际训练中，想要达到全局最优是不可能的，我们的训练目的是使GAN进入一个纳什平衡的状态。</strong></p>
+<p>在纳什均衡点，两者的参数到达一种“制衡”状态。在给定G的参数情况下，D当前的参数便对应了D损失函数的最小值，同样在给定D的参数情况下，G当前的参数便对应了G损失函数的最小值，也就是说在交替更新过程中，D和G均不可能单独做出任何改变。</p>
+<hr>
+<h3 id="为什么不先将判别器训练得很好再训练生成器？"><a href="#为什么不先将判别器训练得很好再训练生成器？" class="headerlink" title="为什么不先将判别器训练得很好再训练生成器？"></a>为什么不先将判别器训练得很好再训练生成器？</h3><p>我们已经知道，当假设判别器为最优的极端情况下，目标函数为：</p>
+<script type="math/tex; mode=display">
+-\log{4}+2JSD(p_{data}||p_g)</script><p>此时生成器效果还很差，因此$p_{data}$与$p_g$两个分布的重叠区域几乎为0，此时易证$JSD(p_{data}||p_g)=\log{2}$，因此，目标函数为一常数0。此时，对于梯度下降方法，<strong>梯度为0</strong>，因此训练无法进行。</p>
 
         </div>
 
@@ -569,7 +575,7 @@ E_{x\backsim{p_{data}}}\log{p_g(x)}</script><p>可转换为：</p>
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%85%E5%AD%A6%E4%B8%80%E4%BA%9B%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86"><span class="nav-text">浅学一些数学知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E9%87%8F"><span class="nav-text">信息量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E7%86%B5"><span class="nav-text">信息熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A4%E5%8F%89%E7%86%B5"><span class="nav-text">交叉熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KL%E6%95%A3%E5%BA%A6%EF%BC%88%E7%9B%B8%E5%AF%B9%E7%86%B5%EF%BC%89"><span class="nav-text">KL散度（相对熵）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS%E6%95%A3%E5%BA%A6"><span class="nav-text">JS散度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87"><span class="nav-text">条件概率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E6%A6%82%E7%8E%87%E5%85%AC%E5%BC%8F"><span class="nav-text">全概率公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%85%AC%E5%BC%8F"><span class="nav-text">贝叶斯公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%BC%E7%84%B6%E5%87%BD%E6%95%B0"><span class="nav-text">似然函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1"><span class="nav-text">最大似然估计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generative-Adversarial-Networks%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB"><span class="nav-text">Generative Adversarial Networks论文阅读</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9GAN%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-text">对GAN训练过程的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%99%E6%A0%B7%E8%AE%BE%E8%AE%A1%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0%EF%BC%9F"><span class="nav-text">为什么这样设计目标函数？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%95%E6%97%B6%E8%BE%BE%E5%88%B0%E5%85%A8%E5%B1%80%E6%9C%80%E4%BC%98%EF%BC%9F"><span class="nav-text">何时达到全局最优？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%BB%E6%89%BE%E6%9C%80%E4%BC%98%E7%9A%84%E5%88%A4%E5%88%AB%E5%99%A8D"><span class="nav-text">寻找最优的判别器D</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%BB%E6%89%BE%E6%9C%80%E4%BC%98%E7%9A%84%E7%94%9F%E6%88%90%E5%99%A8G"><span class="nav-text">寻找最优的生成器G</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9%E5%85%88%E8%AE%AD%E7%BB%83%E5%88%A4%E5%88%AB%E5%99%A8%EF%BC%9F"><span class="nav-text">为什么选择先训练判别器？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%85%88%E5%B0%86%E5%88%A4%E5%88%AB%E5%99%A8%E8%AE%AD%E7%BB%83%E5%BE%97%E5%BE%88%E5%A5%BD%E5%86%8D%E8%AE%AD%E7%BB%83%E7%94%9F%E6%88%90%E5%99%A8%EF%BC%9F"><span class="nav-text">为什么不先将判别器训练得很好再训练生成器？</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%85%E5%AD%A6%E4%B8%80%E4%BA%9B%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86"><span class="nav-text">浅学一些数学知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E9%87%8F"><span class="nav-text">信息量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E7%86%B5"><span class="nav-text">信息熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A4%E5%8F%89%E7%86%B5"><span class="nav-text">交叉熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KL%E6%95%A3%E5%BA%A6%EF%BC%88%E7%9B%B8%E5%AF%B9%E7%86%B5%EF%BC%89"><span class="nav-text">KL散度（相对熵）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS%E6%95%A3%E5%BA%A6"><span class="nav-text">JS散度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87"><span class="nav-text">条件概率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E6%A6%82%E7%8E%87%E5%85%AC%E5%BC%8F"><span class="nav-text">全概率公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%85%AC%E5%BC%8F"><span class="nav-text">贝叶斯公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%BC%E7%84%B6%E5%87%BD%E6%95%B0"><span class="nav-text">似然函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1"><span class="nav-text">最大似然估计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generative-Adversarial-Networks%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB"><span class="nav-text">Generative Adversarial Networks论文阅读</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9GAN%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-text">对GAN训练过程的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%99%E6%A0%B7%E8%AE%BE%E8%AE%A1%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0%EF%BC%9F"><span class="nav-text">为什么这样设计目标函数？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%95%E6%97%B6%E8%BE%BE%E5%88%B0%E5%85%A8%E5%B1%80%E6%9C%80%E4%BC%98%EF%BC%9F"><span class="nav-text">何时达到全局最优？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%BB%E6%89%BE%E6%9C%80%E4%BC%98%E7%9A%84%E5%88%A4%E5%88%AB%E5%99%A8D"><span class="nav-text">寻找最优的判别器D</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%BB%E6%89%BE%E6%9C%80%E4%BC%98%E7%9A%84%E7%94%9F%E6%88%90%E5%99%A8G"><span class="nav-text">寻找最优的生成器G</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%85%88%E5%B0%86%E5%88%A4%E5%88%AB%E5%99%A8%E8%AE%AD%E7%BB%83%E5%BE%97%E5%BE%88%E5%A5%BD%E5%86%8D%E8%AE%AD%E7%BB%83%E7%94%9F%E6%88%90%E5%99%A8%EF%BC%9F"><span class="nav-text">为什么不先将判别器训练得很好再训练生成器？</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
