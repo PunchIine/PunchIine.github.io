@@ -314,7 +314,7 @@ D^*_G(x)=\frac{p_{data}(x)}{p_{data}(x)+p_g(x)}</script><blockquote>
 &=E_{x\backsim{p_{data}}}(\log{\frac{p_{data}(x)}{p_{data}(x)+p_g(x)}})+E_{x\backsim{p_{g}}}(\log(\frac{p_{g}(x)}{p_{data}(x)+p_g(x)})\\
 &=\int_xp_{data}(x)\log{\frac{p_{data}(x)}{p_{data}(x)+p_g(x)}dx+\int_xp_g(x)\log{\frac{p_{g}(x)}{p_{data}(x)+p_g(x)}dx}}\\
 &=\int_xp_{data}(x)\log{\frac{\frac{1}{2}p_{data}(x)}{\frac{p_{data}(x)+p_g(x)}{2}}dx+\int_xp_g(x)\log{\frac{\frac{1}{2}p_{g}(x)}{\frac{p_{data}(x)+p_g(x)}{2}}dx}}\\
-&=\int_xp_{data}(x)\log{\frac{1}{2}}dx+\int_xp_{g}(x)\log{\frac{1}{2}}dx+\int_xp_{data}(x)\log{\frac{p_{data}(x)}{\frac{p_{data}(x)+p_g(x)}{2}}dx+\int_xp_g(x)\log{\frac{p_{g}(x)}{\frac{p_{data}(x)+p_g(x)}{2}}dx}}\\
+&=\int_xp_{data}(x)\log{\frac{1}{2}}dx+\int_xp_{g}(x)\log{\frac{1}{2}}dx\\&+\int_xp_{data}(x)\log{\frac{p_{data}(x)}{\frac{p_{data}(x)+p_g(x)}{2}}dx+\int_xp_g(x)\log{\frac{p_{g}(x)}{\frac{p_{data}(x)+p_g(x)}{2}}dx}}\\
 &=2\log{\frac{1}{2}}+2×[\frac{1}{2}KL(p_{data}||\frac{p_g+p_{data}}{2})+\frac{1}{2}KL(p_g||\frac{p_g+p_{data}}{2})]\\\\
 &=-\log{4}+2JSD(p_{data}||p_g)\end{aligned}</script><p>有JS散度的定义域可知，当且仅当$p_{data}=p_g$的时候JS散度取得最小值0。</p>
 <p>所以我们可以知道仅当$p_{data}=p_g$时取得全局最小值$-\log{4}$。</p>
@@ -323,11 +323,15 @@ D^*_G(x)=\frac{p_{data}(x)}{p_{data}(x)+p_g(x)}</script><blockquote>
 <p><strong>在实际训练中，想要达到全局最优是不可能的，我们的训练目的是使GAN进入一个纳什平衡的状态。</strong></p>
 <p>在纳什均衡点，两者的参数到达一种“制衡”状态。在给定G的参数情况下，D当前的参数便对应了D损失函数的最小值，同样在给定D的参数情况下，G当前的参数便对应了G损失函数的最小值，也就是说在交替更新过程中，D和G均不可能单独做出任何改变。</p>
 <hr>
-<h3 id="为什么不先将判别器训练得很好再训练生成器？"><a href="#为什么不先将判别器训练得很好再训练生成器？" class="headerlink" title="为什么不先将判别器训练得很好再训练生成器？"></a>为什么不先将判别器训练得很好再训练生成器？</h3><p>我们已经知道，当假设判别器为最优的极端情况下，目标函数为：</p>
+<h3 id="为什么不先将判别器训练得很好再训练生成器？"><a href="#为什么不先将判别器训练得很好再训练生成器？" class="headerlink" title="为什么不先将判别器训练得很好再训练生成器？"></a>为什么不先将判别器训练得很好再训练生成器？</h3><p>梯度消失</p>
+<p>我们已经知道，当假设判别器为最优的极端情况下，目标函数为：</p>
 <script type="math/tex; mode=display">
 -\log{4}+2JSD(p_{data}||p_g)</script><p>此时生成器效果还很差，因此$p_{data}$与$p_g$两个分布的重叠区域几乎为0，此时易证$JSD(p_{data}||p_g)=\log{2}$，因此，目标函数为一常数0。此时，对于梯度下降方法，<strong>梯度为0</strong>，因此训练无法进行。</p>
 <h3 id="证明收敛"><a href="#证明收敛" class="headerlink" title="证明收敛"></a>证明收敛</h3><p><img src="https://user-images.githubusercontent.com/93063038/166860404-3cfcf6c0-2940-4a4e-9a6a-e62077afbac8.png" alt></p>
 <p><img src="https://user-images.githubusercontent.com/93063038/166860504-d10fe2cd-22aa-4a17-beee-feb361ffffc8.png" alt></p>
+<blockquote>
+<p>The generator nets used a mixture of rectififier linear activations and sigmoid activations, while the discriminator net used maxout activations. Dropout was applied in training the discriminator net. While our theoretical framework permits the use of dropout and other noise at intermediate layers of the generator, we used noise as the input to only the bottommost layer of the generator network.</p>
+</blockquote>
 
         </div>
 
