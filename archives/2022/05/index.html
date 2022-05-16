@@ -10,7 +10,7 @@
     
     <title>
         
-            baseline |
+            Archive: 2022/5 |
         
         LAzy&#39;s Blog
     </title>
@@ -78,7 +78,7 @@
                         </li>
                     
                         <li class="menu-item">
-                            <a class=""
+                            <a class="active"
                                href="/archives"
                             >
                                 ARCHIVES
@@ -120,7 +120,7 @@
                 </li>
             
                 <li class="drawer-menu-item flex-center">
-                    <a class=""
+                    <a class="active"
                        href="/archives">ARCHIVES</a>
                 </li>
             
@@ -145,189 +145,94 @@
 
                 
                     <div class="fade-in-down-animation">
-    <div class="article-content-container">
-
-        <div class="article-title">
-            <span class="title-hover-animation">baseline</span>
-        </div>
-
+    <div class="archive-container ">
         
-            <div class="article-header">
-                <div class="avatar">
-                    <img src="https://user-images.githubusercontent.com/93063038/166112719-9e939286-9f8a-4f66-b019-9344ee5eec20.jpg">
-                </div>
-                <div class="info">
-                    <div class="author">
-                        <span class="name">LAzy</span>
-                        
-                            <span class="author-label">Lv2</span>
-                        
-                    </div>
-                    <div class="meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-04-27 16:35:09</span>
-        <span class="mobile">2022-04-27 16:35</span>
-    </span>
+<div class="archive-list-container">
     
-    
-
-    
-    
-    
-    
-        <span class="article-pv article-meta-item">
-            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
-        </span>
-    
-</div>
-
-                    </div>
-                </div>
+        <section class="archive-item">
+            <div class="archive-item-header">
+                <span class="archive-year">2022</span>
+                <span class="archive-year-post-count">[10]</span>
             </div>
-        
-
-        <div class="article-content markdown-body">
-            <h1 id="VGG"><a href="#VGG" class="headerlink" title="VGG"></a>VGG</h1><p><strong>VGG 网络结构</strong></p>
-<p><img width="513" alt="image" src="https://user-images.githubusercontent.com/93063038/163182863-493b6f2f-7755-48bd-93e3-63285d68b3d1.png"></p>
-<p>因为只使用了3x3卷积核， 尽管深度很大，网络中的权重数量相较具有更大卷积层宽度和感受野的网络并不大。</p>
-<p><img width="933" alt="image" src="https://user-images.githubusercontent.com/93063038/163183370-5d7274ee-7dd9-432e-b8a9-884dbd8f20dc.png"></p>
-<p><img src="https://user-images.githubusercontent.com/93063038/163183387-072af28e-a7d7-4f68-a4c5-7170e3a524f3.png" alt="image"></p>
-<p><strong>3×3卷积的使用</strong></p>
-<p><img src="https://user-images.githubusercontent.com/93063038/163291208-ddd9bef5-7734-42ce-978f-f3f98b2cd225.png" alt="image"></p>
-<p>图为两个3×3卷积核的堆叠</p>
-<p>1.可见两个3×3卷积核堆叠在原feature map中的感受野与一个5×5卷积核相同， 三个3x3的堆叠卷基层的感受野是7x7</p>
-<p>2.可以把三个3x3的filter看成是一个7x7filter的分解中间层有非线性的分解, 并且起到<strong>隐式正则化</strong>的作用。</p>
-<p>3.使用小卷积核减少了参数数量：</p>
-<p>假设该卷积层的卷积核为3×3，为了清晰明了假设卷积层的输入和输出的特征图（featuremap）大小（其实是channel通道数）分别为C1，C2。说明：卷积核的应该是一个多维的矩阵K×K×channels，其中channels是由输入的featuremap的通道数决定的，而卷积层中卷积核的个数是由输出的featuremap的通道数决定的。<br>所以该卷积层的参数量是：<br>（3×3×C1）× C2<br>说明:（3×3×C1） —— 是每一个卷积核的参数量（输入）<br>          × C2 —— 是总共C2个卷积核（输出的通道数）</p>
-
-        </div>
-
-        
-
-        
-
-        
-            <div class="article-nav">
+            <ul class="article-list">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2022/05/11/DCGAN/"
+                        >DCGAN</a>
+                        <span class="article-date">05-11</span>
+                    </li>
+                
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2022/05/07/%E5%8F%8D%E5%8D%B7%E7%A7%AF/"
+                        >反卷积</a>
+                        <span class="article-date">05-07</span>
+                    </li>
+                
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2022/04/30/Yolo/"
+                        >Yolo</a>
+                        <span class="article-date">04-30</span>
+                    </li>
+                
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2022/04/30/webcrawler/"
+                        >web crawler</a>
+                        <span class="article-date">04-30</span>
+                    </li>
+                
+                    <li class="article-item">
+                        <a class="article-title"
                            href="/2022/04/30/Generative%20Adversarial%20Networks/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">Generative Adversarial Networks</span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                        </a>
-                    </div>
+                        >Generative Adversarial Networks</a>
+                        <span class="article-date">04-30</span>
+                    </li>
                 
-                
-                    <div class="article-next">
-                        <a class="next"
-                           rel="next"
+                    <li class="article-item">
+                        <a class="article-title"
                            href="/2022/04/27/OpenMV%E5%AE%9E%E7%8E%B0%E9%9D%B6%E7%82%B9%E6%A3%80%E6%B5%8B/"
-                        >
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">OpenMV实现靶点检测</span>
-                                <span class="post-nav-item">Next posts</span>
-                            </span>
-                            <span class="right arrow-icon flex-center">
-                              <i class="fas fa-chevron-right"></i>
-                            </span>
-                        </a>
-                    </div>
+                        >OpenMV实现靶点检测</a>
+                        <span class="article-date">04-27</span>
+                    </li>
                 
-            </div>
-        
-
-        
-            <div class="comment-container">
-                <div class="comments-container">
-    <div id="comment-anchor"></div>
-    <div class="comment-area-title">
-        <i class="fas fa-comments">&nbsp;Comments</i>
-    </div>
-    
-
-        
-            
-    <div class="valine-container">
-        <script data-pjax
-                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
-        <div id="vcomments"></div>
-        <script data-pjax>
-            function loadValine() {
-                new Valine({
-                    el: '#vcomments',
-                    appId: 'CcuyF9RKQi3JUBUojdmwYROs-gzGzoHsz',
-                    appKey: 'c1x77tnTNwXqbXXHL8bx1XCd',
-                    meta: ['nick', 'mail', 'link'],
-                    avatar: 'wavatar',
-                    enableQQ: true,
-                    placeholder: '😜 尽情吐槽吧bro~',
-                    lang: 'en'.toLowerCase()
-                });
-
-                function getAuthor(language) {
-                    switch (language) {
-                        case 'en':
-                            return 'Author';
-                        case 'zh-CN':
-                            return '博主';
-                        default:
-                            return 'Master';
-                    }
-                }
-
-                // Add "Author" identify
-                const getValineDomTimer = setInterval(() => {
-                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
-                    if (vcards.length > 0) {
-                        let author = 'LAzy';
-
-                        if (author) {
-                            for (let vcard of vcards) {
-                                const vnick_dom = vcard.querySelector('.vhead .vnick');
-                                const vnick = vnick_dom.innerHTML;
-                                if (vnick === author) {
-                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
-                                }
-                            }
-                        }
-                        clearInterval(getValineDomTimer);
-                    } else {
-                        clearInterval(getValineDomTimer);
-                    }
-                }, 2000);
-            }
-
-            if ('true') {
-                const loadValineTimeout = setTimeout(() => {
-                    loadValine();
-                    clearTimeout(loadValineTimeout);
-                }, 1000);
-            } else {
-                window.addEventListener('DOMContentLoaded', loadValine);
-            }
-        </script>
-    </div>
-
-
-
-        
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2022/04/24/pytorch%E7%AC%94%E8%AE%B0/"
+                        >pytorch笔记</a>
+                        <span class="article-date">04-24</span>
+                    </li>
+                
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2022/04/16/jetson%E9%85%8D%E7%BD%AE%E6%97%A5%E5%BF%97/"
+                        >jetson配置日志</a>
+                        <span class="article-date">04-16</span>
+                    </li>
+                
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2022/04/10/Json%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+                        >Json学习笔记</a>
+                        <span class="article-date">04-10</span>
+                    </li>
+                
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2022/04/10/Git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+                        >Git学习笔记</a>
+                        <span class="article-date">04-10</span>
+                    </li>
+                
+            </ul>
+        </section>
     
 </div>
 
-            </div>
-        
     </div>
 </div>
-
 
                 
             </div>
@@ -371,27 +276,6 @@
         </div>
     </div>
 
-    
-        <div class="post-tools">
-            <div class="post-tools-container">
-    <ul class="tools-list">
-        <!-- TOC aside toggle -->
-        
-            <li class="tools-item page-aside-toggle">
-                <i class="fas fa-outdent"></i>
-            </li>
-        
-
-        <!-- go comment -->
-        
-            <li class="go-comment">
-                <i class="fas fa-comment"></i>
-            </li>
-        
-    </ul>
-</div>
-
-        </div>
     
 
     <div class="right-bottom-side-tools">
@@ -448,14 +332,6 @@
     </div>
 
     
-        <aside class="page-aside">
-            <div class="post-toc-wrap">
-    <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#VGG"><span class="nav-text">VGG</span></a></li></ol>
-    </div>
-</div>
-        </aside>
-    
 
     <div class="image-viewer-container">
     <img src="">
@@ -508,8 +384,6 @@
 
 
 <div class="post-scripts pjax">
-    
-        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
     
 </div>
 

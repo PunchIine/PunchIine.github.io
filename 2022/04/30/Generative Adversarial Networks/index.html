@@ -270,14 +270,18 @@ P(A|B)=\frac{P(B|A)P(A)}{P(B)}</script><p><img width="411" alt="image" src="http
 <li>红线 生成分布 $p_{g}$</li>
 <li>黑线 真实数据分布 $p_{x}$</li>
 </ul>
+<blockquote>
+<p>The generator nets used <strong>a mixture of rectififier linear activations and sigmoid activations</strong>, while the discriminator net used <strong>maxout activations</strong>. <strong>Dropout was applied in training the discriminator net</strong>. While our theoretical framework permits the use of dropout and other noise at intermediate layers of the generator, we used noise as the input to only the bottommost layer of the generator network.</p>
+</blockquote>
 <h3 id="为什么这样设计目标函数？"><a href="#为什么这样设计目标函数？" class="headerlink" title="为什么这样设计目标函数？"></a>为什么这样设计目标函数？</h3><p><strong>我们知道KL散度可以描述两个分布之间的差异程度，即用理论分布去拟合真实分布时产生的信息损耗。我们可以将生成器G的训练过程看作是令生成数据的分布不断接近、拟合真实数据分布的过程，因此，我们可以将它看作一个将二者KL散度最小化的过程。再结合GAN的训练过程是生成器G与判别器D进行零和博弈的过程，我们可以得到：</strong>                                                                                                                                                             </p>
 <script type="math/tex; mode=display">
 \begin{aligned}D_{KL}(p_{data}||p_{g})&=H(p_{data},p_g)-H(p_{data})\\\\
 &=-\sum_xp_{data}(x)(\log{p_g(x)}-\log{p_{data}(x)})\\
 &=-\sum_x{p_{data}(x)\log{\frac{p_g(x)}{p_{data}(x)}}}\\\\
 &\iff{E_{x\backsim{p_{data}}}(\log{p_{data}(x)}-\log{p_g(x)}})\\\\
-&=E_{x\backsim{p_{data}}}(\log{p_{data}(x)})-E_{x\backsim{p_{data}}}(\log{p_g}(x))\\
-&结合GAN生成器和鉴别器零和博弈的思想。则我们将真实数据与生成数据\\&的概率分布替换为判别器D对数据分布是否为真实数据的概率分布。\\&={E_{x\backsim{p_{data}}}(\log{D(x)})-E_{x\backsim{p_{g}}}(\log{D(x)})}\\\\
+&=E_{x\backsim{p_{data}}}(\log{p_{data}(x)})-E_{x\backsim{p_{data}}}(\log{p_g}(x))\\\\
+&\iff{E_{x\backsim{p_{data}}}(\log{D(x)})-E_{x\backsim{p_{data}}}(\log{D(G(x))})}\\\\
+&={E_{x\backsim{p_{data}}}(\log{D(x)})-E_{x\backsim{p_{g}}}(\log{D(x)})}\\\\
 &={E_{x\backsim{p_{data}}}(\log{D(x)})+E_{x\backsim{p_{g}}}(\log{\frac{1}{D(x)}})}\\\\
 &\iff{E_{x\backsim{p_{data}}}(\log{D(x)})+E_{x\backsim{p_{g}}}(\log({1-D(x))})}\end{aligned}</script><p>可知，生成器G想要达到最优，与前一项无关，只需最小化后一项。判别器D想要达到最优，只需最大化判别真实数据为真的概率，最小化判别生成数据为真的概率，即最大化整个函数。因此我们可以得到目标函数：</p>
 <script type="math/tex; mode=display">
@@ -290,8 +294,7 @@ p_g(X_{i}|\theta)</script><p>我们使用最大似然估计方法：</p>
 <script type="math/tex; mode=display">
 \begin{aligned}\theta_{bst}&=arg\underset{\theta}max\sum_{i=1}^{n}\log{p_g(x_i|\theta)}
 \\&\iff{arg\underset{\theta}maxE_{x\backsim{p_{g}}}\log{p_g(x_i|\theta)}}
-\end{aligned}</script><p>再考虑判别器，我们想要令判别器对于真实数据输出的值趋于1，对生成数据输出的值趋于0，因此，我们</p>
-<p>!!!!!!!&gt;&gt;&gt;?????????杀了我吧</p>
+\end{aligned}</script><p>再考虑判别器，我们想要令判别器对于真实数据输出的值趋于1，对生成数据输出的值趋于0</p>
 <h3 id="何时达到全局最优？"><a href="#何时达到全局最优？" class="headerlink" title="何时达到全局最优？"></a><strong>何时达到全局最优？</strong></h3><script type="math/tex; mode=display">
 \begin{aligned}V(G,D)&=\int_xp_{data}(x)\log{(D(x))}dx+\int_zp_z(z)\log{(1-D(g(z)))}dz\\\\&=\int_xp_{data(x)}\log{(D(x))}+p_g(x)\log{(1-D(x))dx}\end{aligned}</script><p>要证上式，只需证</p>
 <script type="math/tex; mode=display">
@@ -329,9 +332,6 @@ D^*_G(x)=\frac{p_{data}(x)}{p_{data}(x)+p_g(x)}</script><blockquote>
 -\log{4}+2JSD(p_{data}||p_g)</script><p>此时生成器效果还很差，因此$p_{data}$与$p_g$两个分布的重叠区域几乎为0，此时易证$JSD(p_{data}||p_g)=\log{2}$，因此，目标函数为一常数0。此时，对于梯度下降方法，<strong>梯度为0</strong>，因此训练无法进行。</p>
 <h3 id="证明收敛"><a href="#证明收敛" class="headerlink" title="证明收敛"></a>证明收敛</h3><p><img src="https://user-images.githubusercontent.com/93063038/166860404-3cfcf6c0-2940-4a4e-9a6a-e62077afbac8.png" alt></p>
 <p><img src="https://user-images.githubusercontent.com/93063038/166860504-d10fe2cd-22aa-4a17-beee-feb361ffffc8.png" alt></p>
-<blockquote>
-<p>The generator nets used a mixture of rectififier linear activations and sigmoid activations, while the discriminator net used maxout activations. Dropout was applied in training the discriminator net. While our theoretical framework permits the use of dropout and other noise at intermediate layers of the generator, we used noise as the input to only the bottommost layer of the generator network.</p>
-</blockquote>
 
         </div>
 
@@ -361,10 +361,10 @@ D^*_G(x)=\frac{p_{data}(x)}{p_{data}(x)+p_g(x)}</script><blockquote>
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/04/27/baseline/"
+                           href="/2022/04/27/OpenMV%E5%AE%9E%E7%8E%B0%E9%9D%B6%E7%82%B9%E6%A3%80%E6%B5%8B/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">baseline</span>
+                                <span class="post-nav-title-item">OpenMV实现靶点检测</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
