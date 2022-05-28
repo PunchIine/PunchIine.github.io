@@ -10,7 +10,7 @@
     
     <title>
         
-            Archive: 2022 |
+            余弦相似度 |
         
         LAzy&#39;s Blog
     </title>
@@ -25,7 +25,119 @@
     KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://user-images.githubusercontent.com/93063038/166112719-9e939286-9f8a-4f66-b019-9344ee5eec20.jpg","favicon":"https://user-images.githubusercontent.com/93063038/166112719-9e939286-9f8a-4f66-b019-9344ee5eec20.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"https://user-images.githubusercontent.com/93063038/166112575-1e98e9cc-dfe3-456a-b1ca-790a17fca4d1.png","description":"Learning right now is always the best solution."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
-<meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="LAzy" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.1.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/atom.xml" title="LAzy" type="application/atom+xml">
 </head>
 
 
@@ -78,7 +190,7 @@
                         </li>
                     
                         <li class="menu-item">
-                            <a class="active"
+                            <a class=""
                                href="/archives"
                             >
                                 ARCHIVES
@@ -120,7 +232,7 @@
                 </li>
             
                 <li class="drawer-menu-item flex-center">
-                    <a class="active"
+                    <a class=""
                        href="/archives">ARCHIVES</a>
                 </li>
             
@@ -145,108 +257,171 @@
 
                 
                     <div class="fade-in-down-animation">
-    <div class="archive-container ">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">余弦相似度</span>
+        </div>
+
         
-<div class="archive-list-container">
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="https://user-images.githubusercontent.com/93063038/166112719-9e939286-9f8a-4f66-b019-9344ee5eec20.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">LAzy</span>
+                        
+                            <span class="author-label">Lv2</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-05-28 13:14:57</span>
+        <span class="mobile">2022-05-28 13:14</span>
+    </span>
     
-        <section class="archive-item">
-            <div class="archive-item-header">
-                <span class="archive-year">2022</span>
-                <span class="archive-year-post-count">[12]</span>
-            </div>
-            <ul class="article-list">
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2022/05/28/%E4%BD%99%E5%BC%A6%E7%9B%B8%E4%BC%BC%E5%BA%A6/"
-                        >余弦相似度</a>
-                        <span class="article-date">05-28</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2022/05/28/%E9%97%B5%E5%8F%AF%E5%A4%AB%E6%96%AF%E5%9F%BA%E8%B7%9D%E7%A6%BB/"
-                        >闵可夫斯基距离（Minkowski距离）</a>
-                        <span class="article-date">05-28</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2022/05/11/DCGAN/"
-                        >DCGAN</a>
-                        <span class="article-date">05-11</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2022/05/07/%E5%8F%8D%E5%8D%B7%E7%A7%AF/"
-                        >反卷积</a>
-                        <span class="article-date">05-07</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2022/04/30/Yolo/"
-                        >Yolo</a>
-                        <span class="article-date">04-30</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2022/04/30/webcrawler/"
-                        >web crawler</a>
-                        <span class="article-date">04-30</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2022/04/30/Generative%20Adversarial%20Networks/"
-                        >Generative Adversarial Networks</a>
-                        <span class="article-date">04-30</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2022/04/27/OpenMV%E5%AE%9E%E7%8E%B0%E9%9D%B6%E7%82%B9%E6%A3%80%E6%B5%8B/"
-                        >OpenMV实现靶点检测</a>
-                        <span class="article-date">04-27</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2022/04/24/pytorch%E7%AC%94%E8%AE%B0/"
-                        >pytorch笔记</a>
-                        <span class="article-date">04-24</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2022/04/16/jetson%E9%85%8D%E7%BD%AE%E6%97%A5%E5%BF%97/"
-                        >jetson配置日志</a>
-                        <span class="article-date">04-16</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2022/04/10/Json%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
-                        >Json学习笔记</a>
-                        <span class="article-date">04-10</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2022/04/10/Git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
-                        >Git学习笔记</a>
-                        <span class="article-date">04-10</span>
-                    </li>
-                
-            </ul>
-        </section>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
     
 </div>
 
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h4 id="余弦相似度"><a href="#余弦相似度" class="headerlink" title="余弦相似度"></a>余弦相似度</h4><blockquote>
+<p>余弦距离，也称为余弦相似度，是用向量空间中两个向量夹角的余弦值作为衡量两个个体间差异的大小的度量。</p>
+<p>余弦值越接近1，就表明夹角越接近0度，也就是两个向量越相似，这就叫”余弦相似性”。</p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/93063038/162578539-67412ca6-c6aa-4951-837c-adaa55e3d030.png" alt="image"></p>
+<p>二维</p>
+<p><img width="134" alt="image" src="https://user-images.githubusercontent.com/93063038/162966424-5d4f3786-951a-4ffc-8edb-70e6564fb16f.png"></p>
+<p>拓展至n维</p>
+<p><img width="440" alt="image" src="https://user-images.githubusercontent.com/93063038/162967016-6333698f-2c08-40bb-bf7e-f372da08c461.png"></p>
+
+        </div>
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/05/28/%E9%97%B5%E5%8F%AF%E5%A4%AB%E6%96%AF%E5%9F%BA%E8%B7%9D%E7%A6%BB/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">闵可夫斯基距离（Minkowski距离）</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;Comments</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script data-pjax>
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'CcuyF9RKQi3JUBUojdmwYROs-gzGzoHsz',
+                    appKey: 'c1x77tnTNwXqbXXHL8bx1XCd',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '😜 尽情吐槽吧bro~',
+                    lang: 'en'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'LAzy';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('true') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
     </div>
 </div>
+
 
                 
             </div>
@@ -290,6 +465,27 @@
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-bottom-side-tools">
@@ -346,6 +542,14 @@
     </div>
 
     
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%99%E5%BC%A6%E7%9B%B8%E4%BC%BC%E5%BA%A6"><span class="nav-text">余弦相似度</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
 
     <div class="image-viewer-container">
     <img src="">
@@ -398,6 +602,8 @@
 
 
 <div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
     
 </div>
 
