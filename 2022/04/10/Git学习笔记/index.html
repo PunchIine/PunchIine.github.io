@@ -5,25 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="keywords" content="Hexo Theme Keep">
     <meta name="description" content="Hexo Theme Keep">
-    <meta name="author" content="Keep Team">
+    <meta name="author" content="LAzy">
+    <meta name="referrer" content="no-referrer" />
     
     <title>
         
             Git学习笔记 |
         
-        Keep Theme
+        LAzy&#39;s Blog
     </title>
     
 <link rel="stylesheet" href="/css/style.css">
 
-    <link rel="shortcut icon" href="/images/logo.svg">
-    
-<link rel="stylesheet" href="/css/font-awesome.min.css">
-
+    <link rel="shortcut icon" href="https://user-images.githubusercontent.com/93063038/166112719-9e939286-9f8a-4f66-b019-9344ee5eec20.jpg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
     KEEP.hexo_config = {"hostname":"lazy.github.io","root":"/","language":"en","path":"search.json"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://user-images.githubusercontent.com/93063038/166112719-9e939286-9f8a-4f66-b019-9344ee5eec20.jpg","favicon":"https://user-images.githubusercontent.com/93063038/166112719-9e939286-9f8a-4f66-b019-9344ee5eec20.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"https://user-images.githubusercontent.com/93063038/166112575-1e98e9cc-dfe3-456a-b1ca-790a17fca4d1.png","description":"Learning right now is always the best solution."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 6.1.0"><style>mjx-container[jax="SVG"] {
@@ -145,7 +144,14 @@ mjx-container[display="true"] + br {
 <body>
 <div class="progress-bar-container">
     
+        <span class="scroll-progress-bar"></span>
+    
 
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
     
 </div>
 
@@ -162,8 +168,12 @@ mjx-container[display="true"] + br {
     <div class="header-content">
         <div class="left">
             
+                <a class="logo-image" href="/">
+                    <img src="https://user-images.githubusercontent.com/93063038/166112719-9e939286-9f8a-4f66-b019-9344ee5eec20.jpg">
+                </a>
+            
             <a class="logo-title" href="/">
-                Keep Theme
+                LAzy&#39;s Blog
             </a>
         </div>
 
@@ -187,10 +197,24 @@ mjx-container[display="true"] + br {
                             </a>
                         </li>
                     
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
                     
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -210,6 +234,11 @@ mjx-container[display="true"] + br {
                 <li class="drawer-menu-item flex-center">
                     <a class=""
                        href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">CATEGORIES</a>
                 </li>
             
         </ul>
@@ -237,11 +266,11 @@ mjx-container[display="true"] + br {
         
             <div class="article-header">
                 <div class="avatar">
-                    <img src="/images/avatar.svg">
+                    <img src="https://user-images.githubusercontent.com/93063038/166112719-9e939286-9f8a-4f66-b019-9344ee5eec20.jpg">
                 </div>
                 <div class="info">
                     <div class="author">
-                        <span class="name">Keep Team</span>
+                        <span class="name">LAzy</span>
                         
                             <span class="author-label">Lv2</span>
                         
@@ -260,6 +289,10 @@ mjx-container[display="true"] + br {
     
     
     
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
 </div>
 
                     </div>
@@ -271,14 +304,14 @@ mjx-container[display="true"] + br {
             <p><img src="https://user-images.githubusercontent.com/93063038/161943887-0d855334-36d8-43e0-a11c-1af252d2f1a5.png" alt="image"></p>
 <p><img src="https://user-images.githubusercontent.com/93063038/161944097-2f6073fb-e205-47e5-a548-e2400cb085b3.png" alt="image"></p>
 <p><img src="https://user-images.githubusercontent.com/93063038/161944157-eba89533-9328-4993-842e-926ec57bb7d0.png" alt="image"></p>
-<h4><span id="git-init-初始化一个git仓库">git init —— 初始化一个Git仓库</span></h4><p> 执行后会生成一个.git目录， 该目录包含了资源的所有元数据</p>
+<h4 id="git-init-——-初始化一个Git仓库"><a href="#git-init-——-初始化一个Git仓库" class="headerlink" title="git init —— 初始化一个Git仓库"></a>git init —— 初始化一个Git仓库</h4><p> 执行后会生成一个.git目录， 该目录包含了资源的所有元数据</p>
 <p><strong>使用指定目录作为git仓库</strong>  ——git init newrepo</p>
 <p>执行后会在newrepo目录下生成.git目录</p>
 <p><code>将文件纳入版本控制</code></p>
-<h4><span id="git-add-添至暂存区">git add —— 添至暂存区</span></h4><p>git add . —— 将当前目录下所有未纳入的文件添加到暂存区</p>
+<h4 id="git-add-——-添至暂存区"><a href="#git-add-——-添至暂存区" class="headerlink" title="git add —— 添至暂存区"></a>git add —— 添至暂存区</h4><p>git add . —— 将当前目录下所有未纳入的文件添加到暂存区</p>
 <p>git add {文件名} —— 将指定文件添加到暂存区</p>
-<h4><span id="git-commit-提交">git commit —— 提交</span></h4><p>git commit -m ‘提交说明’ —— 对暂存区中的文件进行提交（添加到仓库中）</p>
-<h4><span id="git-push-上传远程代码并合并">git push —— 上传远程代码并合并</span></h4><p><strong>git push</strong> 命用于从将本地的分支版本上传到远程并合并。</p>
+<h4 id="git-commit-——-提交"><a href="#git-commit-——-提交" class="headerlink" title="git commit —— 提交"></a>git commit —— 提交</h4><p>git commit -m ‘提交说明’ —— 对暂存区中的文件进行提交（添加到仓库中）</p>
+<h4 id="git-push-——-上传远程代码并合并"><a href="#git-push-——-上传远程代码并合并" class="headerlink" title="git push —— 上传远程代码并合并"></a>git push —— 上传远程代码并合并</h4><p><strong>git push</strong> 命用于从将本地的分支版本上传到远程并合并。</p>
 <p>命令格式如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</span><br></pre></td></tr></table></figure>
 <p>若远程分支名与本地分支名相同则可以省略：及之后部分</p>
@@ -286,27 +319,27 @@ mjx-container[display="true"] + br {
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --force &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</span><br></pre></td></tr></table></figure>
 <p>若要删除主机的分支</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --delete master # 表示删除origin主机的master分支</span><br></pre></td></tr></table></figure>
-<h4><span id="git-pull-下载远程代码并合并">git pull —— 下载远程代码并合并</span></h4><p><strong>git pull</strong> 命令用于从远程获取代码并合并本地的版本。</p>
+<h4 id="git-pull-——-下载远程代码并合并"><a href="#git-pull-——-下载远程代码并合并" class="headerlink" title="git pull —— 下载远程代码并合并"></a>git pull —— 下载远程代码并合并</h4><p><strong>git pull</strong> 命令用于从远程获取代码并合并本地的版本。</p>
 <p><strong>git pull</strong> 其实就是 <strong>git fetch</strong> 和 <strong>git merge FETCH_HEAD</strong> 的简写。 命令格式如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</span><br></pre></td></tr></table></figure>
-<h4><span id="git-clone-从现有git仓库中拷贝项目">git clone —— 从现有Git仓库中拷贝项目</span></h4><p><strong>git clone <repo></repo></strong></p>
+<h4 id="git-clone-——-从现有Git仓库中拷贝项目"><a href="#git-clone-——-从现有Git仓库中拷贝项目" class="headerlink" title="git clone —— 从现有Git仓库中拷贝项目"></a>git clone —— 从现有Git仓库中拷贝项目</h4><p><strong>git clone <repo></repo></strong></p>
 <p>or</p>
 <p><strong>git clone <repo> <directory></directory></repo></strong> ——克隆到指定目录</p>
 <p>如果要自己定义要新建的项目目录名称，可以在上面的命令末尾指定新的名字</p>
 <p>git commit -a 跳过git add，直接添加至暂存区后提交</p>
-<h4><span id="git-config-配置信息">git config —— 配置信息</span></h4><p><strong>git config —list</strong> —— 显示当前的git配置信息</p>
+<h4 id="git-config-——-配置信息"><a href="#git-config-——-配置信息" class="headerlink" title="git config —— 配置信息"></a>git config —— 配置信息</h4><p><strong>git config —list</strong> —— 显示当前的git配置信息</p>
 <p><strong>git config -e</strong>  —— 针对当前仓库编辑git配置文件</p>
 <p><strong>git config -e —global</strong> —— 针对系统上所有仓库</p>
 <p>设置提交代码时的用户信息：</p>
 <p><strong>git config —global user.name {YOURGITHUBNAME}</strong><br><strong>git config —global user.email {YOUREMAIL}</strong></p>
-<h4><span id="git-status-查看仓库当前的状态-显示有变更的文件">git status —— 查看仓库当前的状态    显示有变更的文件</span></h4><p>git status -s 获得更简短的输出结果</p>
-<h4><span id="git-diff-比较文件的不同即暂存区和工作区的差异">git diff  —— 比较文件的不同，即暂存区和工作区的差异</span></h4><ul>
+<h4 id="git-status-——-查看仓库当前的状态-显示有变更的文件"><a href="#git-status-——-查看仓库当前的状态-显示有变更的文件" class="headerlink" title="git status —— 查看仓库当前的状态    显示有变更的文件"></a>git status —— 查看仓库当前的状态    显示有变更的文件</h4><p>git status -s 获得更简短的输出结果</p>
+<h4 id="git-diff-——-比较文件的不同，即暂存区和工作区的差异"><a href="#git-diff-——-比较文件的不同，即暂存区和工作区的差异" class="headerlink" title="git diff  —— 比较文件的不同，即暂存区和工作区的差异"></a>git diff  —— 比较文件的不同，即暂存区和工作区的差异</h4><ul>
 <li>尚未缓存的改动：<strong>git diff</strong></li>
 <li>查看已缓存的改动： <strong>git diff —cached</strong></li>
 <li>查看已缓存的与未缓存的所有改动：<strong>git diff HEAD</strong></li>
 <li>显示摘要而非整个 diff：<strong>git diff —stat</strong></li>
 </ul>
-<h4><span id="git-reset-用于回退版本-可以制定退回某一次提交的版本">git reset —— 用于回退版本， 可以制定退回某一次提交的版本</span></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset [--soft | --mixed | --hard] [HEAD]</span><br></pre></td></tr></table></figure>
+<h4 id="git-reset-——-用于回退版本，-可以制定退回某一次提交的版本"><a href="#git-reset-——-用于回退版本，-可以制定退回某一次提交的版本" class="headerlink" title="git reset —— 用于回退版本， 可以制定退回某一次提交的版本"></a>git reset —— 用于回退版本， 可以制定退回某一次提交的版本</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset [--soft | --mixed | --hard] [HEAD]</span><br></pre></td></tr></table></figure>
 <p><strong>git reset HEAD^</strong> - 回退所有内容到上一个版本</p>
 <p><strong>git reset HEAD^ {filename}</strong> - 回退指定文件到上一个版本</p>
 <p><strong>git reset {版本号}</strong> - 回退到指定版本</p>
@@ -338,15 +371,15 @@ mjx-container[display="true"] + br {
 <li>以此类推…</li>
 </ul>
 <p><strong>git reset HEAD</strong> 命令用于取消已缓存的内容。</p>
-<h4><span id="git-rm-将文件从暂存区和工作区中删除">git rm <file> —— 将文件从暂存区和工作区中删除</file></span></h4><p>如果删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项 <strong>-f</strong></p>
+<h4 id="git-rm-——-将文件从暂存区和工作区中删除"><a href="#git-rm-——-将文件从暂存区和工作区中删除" class="headerlink" title="git rm  —— 将文件从暂存区和工作区中删除"></a>git rm <file> —— 将文件从暂存区和工作区中删除</file></h4><p>如果删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项 <strong>-f</strong></p>
 <p>git rm -f <file></file></p>
 <p>如果想把文件从暂存区域移除，但仍然希望保留在当前工作目录中，换句话说，仅是从跟踪清单中删除，使用 <strong>—cached</strong> 选项即可：</p>
 <p>git rm —cached <file></file></p>
-<h4><span id="git-mv-用于移动或重命名一个文件目录或软连接">git mv  —— 用于移动或重命名一个文件,目录或软连接。</span></h4><p>git mv [file] [newfile]</p>
-<h4><span id="git-log-查看历史提交记录">git log —— 查看历史提交记录</span></h4><p>用 —online 选项来查看历史记录的简洁版本。</p>
+<h4 id="git-mv-——-用于移动或重命名一个文件-目录或软连接。"><a href="#git-mv-——-用于移动或重命名一个文件-目录或软连接。" class="headerlink" title="git mv  —— 用于移动或重命名一个文件,目录或软连接。"></a>git mv  —— 用于移动或重命名一个文件,目录或软连接。</h4><p>git mv [file] [newfile]</p>
+<h4 id="git-log-——-查看历史提交记录"><a href="#git-log-——-查看历史提交记录" class="headerlink" title="git log —— 查看历史提交记录"></a>git log —— 查看历史提交记录</h4><p>用 —online 选项来查看历史记录的简洁版本。</p>
 <p><strong>git log —online</strong></p>
 <p><strong>git blame <file></file></strong> - 以列表形式查看指定文件的历史修改记录</p>
-<h4><span id="git-remote-远程仓库操作">git remote —— 远程仓库操作</span></h4><p><strong>git remote -v</strong> —— 显示所有远程仓库</p>
+<h4 id="git-remote-——-远程仓库操作"><a href="#git-remote-——-远程仓库操作" class="headerlink" title="git remote —— 远程仓库操作"></a>git remote —— 远程仓库操作</h4><p><strong>git remote -v</strong> —— 显示所有远程仓库</p>
 <p><strong>git remote show [remote]</strong> —— 显示某个远程仓库的信息</p>
 <p><code>remote为远程仓库地址</code></p>
 <p>git remote set-url [shortname] [url]</p>
@@ -355,19 +388,19 @@ mjx-container[display="true"] + br {
 <p><strong>git remote add [shortname] [url]</strong></p>
 <p>shortname 为本地的版本库</p>
 <p><strong>git remote rm name  # 删除远程仓库</strong><br><strong>git remote rename old_name new_name  # 修改仓库名</strong></p>
-<h4><span id="git-branch-branchname-创建新分支">git branch (branchname) —— 创建新分支</span></h4><p><strong>git branch</strong> —— 列出本地的分支</p>
-<h4><span id="git-checkout-branchname-切换分支命令">git checkout (branchname) —— 切换分支命令</span></h4><p>当切换分支的时候，Git 会用该分支的最后提交的快照替换你的工作目录的内容， 所以多个分支不需要多个目录。</p>
+<h4 id="git-branch-branchname-——-创建新分支"><a href="#git-branch-branchname-——-创建新分支" class="headerlink" title="git branch (branchname) —— 创建新分支"></a>git branch (branchname) —— 创建新分支</h4><p><strong>git branch</strong> —— 列出本地的分支</p>
+<h4 id="git-checkout-branchname-——-切换分支命令"><a href="#git-checkout-branchname-——-切换分支命令" class="headerlink" title="git checkout (branchname) —— 切换分支命令"></a>git checkout (branchname) —— 切换分支命令</h4><p>当切换分支的时候，Git 会用该分支的最后提交的快照替换你的工作目录的内容， 所以多个分支不需要多个目录。</p>
 <p>也可以使用 <strong>git checkout -b (branchname)</strong> —— <strong>创建新分支并立即切换到该分支下</strong>，从而在该分支中操作。</p>
-<h4><span id="git-merge-合并分支命令">git merge —— 合并分支命令</span></h4><p><strong>git merge [branchname]</strong> —— 将指定分支与当前所在分支合并 </p>
-<h4><span id="git-fetch-从远程获取代码库">git fetch —— 从远程获取代码库</span></h4><p>执行完后执行<strong>git merge</strong>合并远程分支到你所在的分支</p>
+<h4 id="git-merge-——-合并分支命令"><a href="#git-merge-——-合并分支命令" class="headerlink" title="git merge —— 合并分支命令"></a>git merge —— 合并分支命令</h4><p><strong>git merge [branchname]</strong> —— 将指定分支与当前所在分支合并 </p>
+<h4 id="git-fetch-——-从远程获取代码库"><a href="#git-fetch-——-从远程获取代码库" class="headerlink" title="git fetch —— 从远程获取代码库"></a>git fetch —— 从远程获取代码库</h4><p>执行完后执行<strong>git merge</strong>合并远程分支到你所在的分支</p>
 <p><img src="https://user-images.githubusercontent.com/93063038/161936610-0ae3d485-71f2-45bb-ad8a-7120f28d8b55.png" alt="image"></p>
-<h4><span id="git-tag-tagname-为提交快照打上标签">git tag [tagname]—— 为提交快照打上标签</span></h4><p>例：</p>
+<h4 id="git-tag-tagname-——-为提交快照打上标签"><a href="#git-tag-tagname-——-为提交快照打上标签" class="headerlink" title="git tag [tagname]—— 为提交快照打上标签"></a>git tag [tagname]—— 为提交快照打上标签</h4><p>例：</p>
 <p>我们可以用 <strong>git tag -a v1.0</strong> 命令给最新一次提交打上（HEAD）”v1.0”的标签</p>
 <p><strong>git tag</strong> <strong>—— 查看所有标签</strong></p>
 <p>-a 选项意为”创建一个带注解的标签”。 不用 -a 选项也可以执行的，但它不会记录这标签是啥时候打的，谁打的，也不会让你添加个标签的注解。</p>
 <p><strong>git log —decorate —— 查看标签</strong></p>
 <p><img src="https://user-images.githubusercontent.com/93063038/161943622-a1ef7d03-42da-448f-95be-6999dc6b773c.png" alt="image"></p>
-<h4><span id="生成ssh密钥">生成ssh密钥</span></h4><p>执行：</p>
+<h4 id="生成ssh密钥"><a href="#生成ssh密钥" class="headerlink" title="生成ssh密钥"></a>生成ssh密钥</h4><p>执行：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &lt;your email&gt;</span><br></pre></td></tr></table></figure>
 <p>会生成一个.ssh文件</p>
 <p>找到其中的id_rsa.pub将其中内容复制</p>
@@ -403,6 +436,85 @@ mjx-container[display="true"] + br {
         
 
         
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;Comments</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script data-pjax>
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'CcuyF9RKQi3JUBUojdmwYROs-gzGzoHsz',
+                    appKey: 'c1x77tnTNwXqbXXHL8bx1XCd',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '😜 尽情吐槽吧bro~',
+                    lang: 'en'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'LAzy';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('true') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
     </div>
 </div>
 
@@ -418,11 +530,25 @@ mjx-container[display="true"] + br {
         <div class="copyright-info info-item">
             &copy;
             
-              <span>2020</span>
+              <span>2022</span>
               -
             
-            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Keep Team</a>
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">LAzy</a>
         </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        Totalview&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
         
         <div class="theme-info info-item">
             Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
@@ -441,8 +567,16 @@ mjx-container[display="true"] + br {
     <ul class="tools-list">
         <!-- TOC aside toggle -->
         
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
 
         <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
         
     </ul>
 </div>
@@ -471,11 +605,16 @@ mjx-container[display="true"] + br {
 
         <!-- rss -->
         
-
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="fas fa-arrow-up"></i>
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
             </li>
+        
+
         
 
         <li class="tools-item tool-scroll-to-bottom flex-center">
@@ -488,11 +627,24 @@ mjx-container[display="true"] + br {
             <i class="fas fa-cog fa-spin"></i>
         </li>
         
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
     </ul>
 </div>
 
     </div>
 
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#git-init-%E2%80%94%E2%80%94-%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%80%E4%B8%AAGit%E4%BB%93%E5%BA%93"><span class="nav-text">git init —— 初始化一个Git仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-add-%E2%80%94%E2%80%94-%E6%B7%BB%E8%87%B3%E6%9A%82%E5%AD%98%E5%8C%BA"><span class="nav-text">git add —— 添至暂存区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-commit-%E2%80%94%E2%80%94-%E6%8F%90%E4%BA%A4"><span class="nav-text">git commit —— 提交</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-push-%E2%80%94%E2%80%94-%E4%B8%8A%E4%BC%A0%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%B9%B6%E5%90%88%E5%B9%B6"><span class="nav-text">git push —— 上传远程代码并合并</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-pull-%E2%80%94%E2%80%94-%E4%B8%8B%E8%BD%BD%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%B9%B6%E5%90%88%E5%B9%B6"><span class="nav-text">git pull —— 下载远程代码并合并</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-clone-%E2%80%94%E2%80%94-%E4%BB%8E%E7%8E%B0%E6%9C%89Git%E4%BB%93%E5%BA%93%E4%B8%AD%E6%8B%B7%E8%B4%9D%E9%A1%B9%E7%9B%AE"><span class="nav-text">git clone —— 从现有Git仓库中拷贝项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-config-%E2%80%94%E2%80%94-%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="nav-text">git config —— 配置信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-status-%E2%80%94%E2%80%94-%E6%9F%A5%E7%9C%8B%E4%BB%93%E5%BA%93%E5%BD%93%E5%89%8D%E7%9A%84%E7%8A%B6%E6%80%81-%E6%98%BE%E7%A4%BA%E6%9C%89%E5%8F%98%E6%9B%B4%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-text">git status —— 查看仓库当前的状态    显示有变更的文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-diff-%E2%80%94%E2%80%94-%E6%AF%94%E8%BE%83%E6%96%87%E4%BB%B6%E7%9A%84%E4%B8%8D%E5%90%8C%EF%BC%8C%E5%8D%B3%E6%9A%82%E5%AD%98%E5%8C%BA%E5%92%8C%E5%B7%A5%E4%BD%9C%E5%8C%BA%E7%9A%84%E5%B7%AE%E5%BC%82"><span class="nav-text">git diff  —— 比较文件的不同，即暂存区和工作区的差异</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-reset-%E2%80%94%E2%80%94-%E7%94%A8%E4%BA%8E%E5%9B%9E%E9%80%80%E7%89%88%E6%9C%AC%EF%BC%8C-%E5%8F%AF%E4%BB%A5%E5%88%B6%E5%AE%9A%E9%80%80%E5%9B%9E%E6%9F%90%E4%B8%80%E6%AC%A1%E6%8F%90%E4%BA%A4%E7%9A%84%E7%89%88%E6%9C%AC"><span class="nav-text">git reset —— 用于回退版本， 可以制定退回某一次提交的版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-rm-%E2%80%94%E2%80%94-%E5%B0%86%E6%96%87%E4%BB%B6%E4%BB%8E%E6%9A%82%E5%AD%98%E5%8C%BA%E5%92%8C%E5%B7%A5%E4%BD%9C%E5%8C%BA%E4%B8%AD%E5%88%A0%E9%99%A4"><span class="nav-text">git rm  —— 将文件从暂存区和工作区中删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-mv-%E2%80%94%E2%80%94-%E7%94%A8%E4%BA%8E%E7%A7%BB%E5%8A%A8%E6%88%96%E9%87%8D%E5%91%BD%E5%90%8D%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6-%E7%9B%AE%E5%BD%95%E6%88%96%E8%BD%AF%E8%BF%9E%E6%8E%A5%E3%80%82"><span class="nav-text">git mv  —— 用于移动或重命名一个文件,目录或软连接。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-log-%E2%80%94%E2%80%94-%E6%9F%A5%E7%9C%8B%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4%E8%AE%B0%E5%BD%95"><span class="nav-text">git log —— 查看历史提交记录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-remote-%E2%80%94%E2%80%94-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="nav-text">git remote —— 远程仓库操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-branch-branchname-%E2%80%94%E2%80%94-%E5%88%9B%E5%BB%BA%E6%96%B0%E5%88%86%E6%94%AF"><span class="nav-text">git branch (branchname) —— 创建新分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-checkout-branchname-%E2%80%94%E2%80%94-%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF%E5%91%BD%E4%BB%A4"><span class="nav-text">git checkout (branchname) —— 切换分支命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-merge-%E2%80%94%E2%80%94-%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF%E5%91%BD%E4%BB%A4"><span class="nav-text">git merge —— 合并分支命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-fetch-%E2%80%94%E2%80%94-%E4%BB%8E%E8%BF%9C%E7%A8%8B%E8%8E%B7%E5%8F%96%E4%BB%A3%E7%A0%81%E5%BA%93"><span class="nav-text">git fetch —— 从远程获取代码库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-tag-tagname-%E2%80%94%E2%80%94-%E4%B8%BA%E6%8F%90%E4%BA%A4%E5%BF%AB%E7%85%A7%E6%89%93%E4%B8%8A%E6%A0%87%E7%AD%BE"><span class="nav-text">git tag [tagname]—— 为提交快照打上标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E6%88%90ssh%E5%AF%86%E9%92%A5"><span class="nav-text">生成ssh密钥</span></a></li></ol>
+    </div>
+</div>
+        </aside>
     
 
     <div class="image-viewer-container">
@@ -501,32 +653,87 @@ mjx-container[display="true"] + br {
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
 
 
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
 
-<script src="/js/utils.js"></script>
 
-<script src="/js/main.js"></script>
-
-<script src="/js/header-shrink.js"></script>
-
-<script src="/js/back2top.js"></script>
-
-<script src="/js/dark-light-toggle.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/local-search.js"></script>
 
 
 
 
 
 
-
-
-<div class="post-scripts">
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
     
 </div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
 
 
 
@@ -544,6 +751,7 @@ mjx-container[display="true"] + br {
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 </body>
 </html>

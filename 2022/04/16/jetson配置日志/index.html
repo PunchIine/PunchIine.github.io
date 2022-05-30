@@ -5,25 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="keywords" content="Hexo Theme Keep">
     <meta name="description" content="Hexo Theme Keep">
-    <meta name="author" content="Keep Team">
+    <meta name="author" content="LAzy">
+    <meta name="referrer" content="no-referrer" />
     
     <title>
         
             jetson配置日志 |
         
-        Keep Theme
+        LAzy&#39;s Blog
     </title>
     
 <link rel="stylesheet" href="/css/style.css">
 
-    <link rel="shortcut icon" href="/images/logo.svg">
-    
-<link rel="stylesheet" href="/css/font-awesome.min.css">
-
+    <link rel="shortcut icon" href="https://user-images.githubusercontent.com/93063038/166112719-9e939286-9f8a-4f66-b019-9344ee5eec20.jpg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
     KEEP.hexo_config = {"hostname":"lazy.github.io","root":"/","language":"en","path":"search.json"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"https://user-images.githubusercontent.com/93063038/166112719-9e939286-9f8a-4f66-b019-9344ee5eec20.jpg","favicon":"https://user-images.githubusercontent.com/93063038/166112719-9e939286-9f8a-4f66-b019-9344ee5eec20.jpg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"https://user-images.githubusercontent.com/93063038/166112575-1e98e9cc-dfe3-456a-b1ca-790a17fca4d1.png","description":"Learning right now is always the best solution."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
 <meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="LAzy" type="application/atom+xml">
@@ -33,7 +32,14 @@
 <body>
 <div class="progress-bar-container">
     
+        <span class="scroll-progress-bar"></span>
+    
 
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
     
 </div>
 
@@ -50,8 +56,12 @@
     <div class="header-content">
         <div class="left">
             
+                <a class="logo-image" href="/">
+                    <img src="https://user-images.githubusercontent.com/93063038/166112719-9e939286-9f8a-4f66-b019-9344ee5eec20.jpg">
+                </a>
+            
             <a class="logo-title" href="/">
-                Keep Theme
+                LAzy&#39;s Blog
             </a>
         </div>
 
@@ -75,10 +85,24 @@
                             </a>
                         </li>
                     
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
                     
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -98,6 +122,11 @@
                 <li class="drawer-menu-item flex-center">
                     <a class=""
                        href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">CATEGORIES</a>
                 </li>
             
         </ul>
@@ -125,11 +154,11 @@
         
             <div class="article-header">
                 <div class="avatar">
-                    <img src="/images/avatar.svg">
+                    <img src="https://user-images.githubusercontent.com/93063038/166112719-9e939286-9f8a-4f66-b019-9344ee5eec20.jpg">
                 </div>
                 <div class="info">
                     <div class="author">
-                        <span class="name">Keep Team</span>
+                        <span class="name">LAzy</span>
                         
                             <span class="author-label">Lv2</span>
                         
@@ -148,6 +177,10 @@
     
     
     
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
 </div>
 
                     </div>
@@ -156,7 +189,7 @@
         
 
         <div class="article-content markdown-body">
-            <h4><span id="jetson-nano-apt更换国内源">jetson nano apt更换国内源</span></h4><p>备份source.list文件</p>
+            <h4 id="jetson-nano-apt更换国内源"><a href="#jetson-nano-apt更换国内源" class="headerlink" title="jetson nano apt更换国内源"></a>jetson nano apt更换国内源</h4><p>备份source.list文件</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak  </span><br></pre></td></tr></table></figure>
 <p>修改source.list文件</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
@@ -165,12 +198,12 @@
 <p><strong>注意arm架构下的apt源与普通的ubuntu不相同</strong></p>
 <p>then</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
-<h4><span id="jtop安装">jtop安装</span></h4><p>先安装pip</p>
+<h4 id="jtop安装"><a href="#jtop安装" class="headerlink" title="jtop安装"></a>jtop安装</h4><p>先安装pip</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python3-pip</span><br></pre></td></tr></table></figure>
 <p>then</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip3 install jetson-stats -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo jtop # 打开jtop</span><br></pre></td></tr></table></figure>
-<h4><span id="zerotier安装使用内网穿透">zerotier安装使用（内网穿透）</span></h4><p>安装命令</p>
+<h4 id="zerotier安装使用（内网穿透）"><a href="#zerotier安装使用（内网穿透）" class="headerlink" title="zerotier安装使用（内网穿透）"></a>zerotier安装使用（内网穿透）</h4><p>安装命令</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -s  https://install.zerotier.com  | sudo bash</span><br></pre></td></tr></table></figure>
 <p>加入网络</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo zerotier-cli join xxxxxxxxxxxxxxxx</span><br></pre></td></tr></table></figure>
@@ -180,7 +213,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start zerotier-one.service</span><br></pre></td></tr></table></figure>
 <p>设置开机自启</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable zerotier-one.service</span><br></pre></td></tr></table></figure>
-<h4><span id="minifoege-安装">minifoege 安装</span></h4><p><a class="link" target="_blank" rel="noopener" href="https://github.com/conda-forge/miniforge">https://github.com/conda-forge/miniforge<i class="fas fa-external-link-alt"></i></a></p>
+<h4 id="minifoege-安装"><a href="#minifoege-安装" class="headerlink" title="minifoege 安装"></a>minifoege 安装</h4><p><a class="link" target="_blank" rel="noopener" href="https://github.com/conda-forge/miniforge">https://github.com/conda-forge/miniforge<i class="fas fa-external-link-alt"></i></a></p>
 <p>在jetson nano中选择Mambaforge时 出现了pip 无法使用 illegal instruction(core dumped) 的问题</p>
 <p>安装miniforge后在虚拟环境中出现同样问题， 但能在base环境下正常使用pip</p>
 <p>所以选择使用它</p>
@@ -189,36 +222,36 @@
 <p>执行</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash Miniforge-Linux-aarch64.sh</span><br></pre></td></tr></table></figure>
 <p>全yes即可</p>
-<h4><span id="conda更换国内镜像源">conda更换国内镜像源</span></h4><p>配置清华源：</p>
+<h4 id="conda更换国内镜像源"><a href="#conda更换国内镜像源" class="headerlink" title="conda更换国内镜像源"></a>conda更换国内镜像源</h4><p>配置清华源：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">#设置搜索时显示通道地址</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
 <p>可执行conda config —show channels显示已添加的源</p>
-<h4><span id="pip更换国内镜像源">pip更换国内镜像源</span></h4><p>编辑pip配置文件：</p>
+<h4 id="pip更换国内镜像源"><a href="#pip更换国内镜像源" class="headerlink" title="pip更换国内镜像源"></a>pip更换国内镜像源</h4><p>编辑pip配置文件：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/.pip</span><br><span class="line">vim ~/.pip/pip.conf</span><br></pre></td></tr></table></figure>
 <p>添加内容为：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">[install]</span><br><span class="line">trusted-host = https://pypi.tuna.tsinghua.edu.cn</span><br></pre></td></tr></table></figure>
-<h4><span id="conda更改base环境下python版本">conda更改base环境下python版本</span></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install python=&lt;版本号&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="conda更改base环境下python版本"><a href="#conda更改base环境下python版本" class="headerlink" title="conda更改base环境下python版本"></a>conda更改base环境下python版本</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install python=&lt;版本号&gt;</span><br></pre></td></tr></table></figure>
 <p>（看网上都是这么干的， 但由于我们想换版本时已经无意中在base环境下下载了很多包， 所以由于依赖问题这样会报错）</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda clean -a # 删除所有包</span><br></pre></td></tr></table></figure>
-<h4><span id="jetson-nano-和-jetson-nx-配置-cuda">jetson nano 和 jetson nx 配置 cuda</span></h4><p>jetson nano 与 nx 已经内置好了cuda， 但需要配置环境变量才能使用</p>
+<h4 id="jetson-nano-和-jetson-nx-配置-cuda"><a href="#jetson-nano-和-jetson-nx-配置-cuda" class="headerlink" title="jetson nano 和 jetson nx 配置 cuda"></a>jetson nano 和 jetson nx 配置 cuda</h4><p>jetson nano 与 nx 已经内置好了cuda， 但需要配置环境变量才能使用</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc</span><br></pre></td></tr></table></figure>
 <p>在.bashrc文件中添加：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/usr/local/cuda-10.2/bin:$PATH</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH</span><br><span class="line">export CUDA_HOME=/usr/local/cuda-10.2</span><br><span class="line">export OPENBLAS_CORETYPE=ARMV8			# 据说不加的话，运行相关的项目会内核崩掉（but在我配置nano环境时即使加上也无济于事）</span><br></pre></td></tr></table></figure>
 <p>再次执行：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
 <p>最后输入nvcc -V 测试环境变量是否设置正确</p>
-<h4><span id="cv2-torch等由于numpy问题报错illegal-instructioncore-dumped">cv2, torch等由于numpy问题报错illegal instruction(core dumped)</span></h4><p>我们下载的numpy版本是1.19.5</p>
+<h4 id="cv2-torch等由于numpy问题报错illegal-instruction-core-dumped"><a href="#cv2-torch等由于numpy问题报错illegal-instruction-core-dumped" class="headerlink" title="cv2, torch等由于numpy问题报错illegal instruction(core dumped)"></a>cv2, torch等由于numpy问题报错illegal instruction(core dumped)</h4><p>我们下载的numpy版本是1.19.5</p>
 <p>在base环境中测试了几个版本发现都没有问题</p>
 <p>于是换了个numpy版本就解决了（大概是1.19.5版本的numpy在arm架构下出了点问题）</p>
-<h4><span id="在linux下使用opencv无法打开摄像头问题-warn0-global-ioopencvmodulesvideoiosrccap_v4lcpp-893-open-videoiov4l2devvideo0-cant-open-camera-by-index">在linux下使用opencv无法打开摄像头问题[ WARN:0] global /io/opencv/modules/videoio/src/cap_v4l.cpp (893) open VIDEOIO(V4L2:/dev/video0): can’t open camera by index</span></h4><p>发现是重复调用摄像头导致的：</p>
+<h4 id="在linux下使用opencv无法打开摄像头问题-WARN-0-global-io-opencv-modules-videoio-src-cap-v4l-cpp-893-open-VIDEOIO-V4L2-dev-video0-can’t-open-camera-by-index"><a href="#在linux下使用opencv无法打开摄像头问题-WARN-0-global-io-opencv-modules-videoio-src-cap-v4l-cpp-893-open-VIDEOIO-V4L2-dev-video0-can’t-open-camera-by-index" class="headerlink" title="在linux下使用opencv无法打开摄像头问题[ WARN:0] global /io/opencv/modules/videoio/src/cap_v4l.cpp (893) open VIDEOIO(V4L2:/dev/video0): can’t open camera by index"></a>在linux下使用opencv无法打开摄像头问题[ WARN:0] global /io/opencv/modules/videoio/src/cap_v4l.cpp (893) open VIDEOIO(V4L2:/dev/video0): can’t open camera by index</h4><p>发现是重复调用摄像头导致的：</p>
 <p>两次使用了<strong>cv2.VideoCapture(0)</strong></p>
 <p>删去一个就可以了</p>
 <p>除此之外还遇到了另一个报错令代码无法运行（忘记记录了），原因是opencv版本太高， 降了几个版本就解决了</p>
-<h4><span id="报错this-plugin-does-not-support-propagatesizehints-图形界面控件消失">报错This plugin does not support propagateSizeHints()， 图形界面控件消失</span></h4><p>网上的解决方案都奇奇怪怪的（我看不明白）</p>
+<h4 id="报错This-plugin-does-not-support-propagateSizeHints-，-图形界面控件消失"><a href="#报错This-plugin-does-not-support-propagateSizeHints-，-图形界面控件消失" class="headerlink" title="报错This plugin does not support propagateSizeHints()， 图形界面控件消失"></a>报错This plugin does not support propagateSizeHints()， 图形界面控件消失</h4><p>网上的解决方案都奇奇怪怪的（我看不明白）</p>
 <p>在使用管理员权限运行代码后神奇的成功了</p>
 <p>sudo python main.py</p>
-<h4><span id="pyside2的安装">pyside2的安装</span></h4><p>在网上没有找到支持arm架构的pyside2 whl安装包</p>
+<h4 id="pyside2的安装"><a href="#pyside2的安装" class="headerlink" title="pyside2的安装"></a>pyside2的安装</h4><p>在网上没有找到支持arm架构的pyside2 whl安装包</p>
 <p>所以我们自己编译了pyside2</p>
-<h4><span id="dlib安装">dlib安装</span></h4><h4><span id="torch和torchvision的安装">torch和torchvision的安装</span></h4>
+<h4 id="dlib安装"><a href="#dlib安装" class="headerlink" title="dlib安装"></a>dlib安装</h4><h4 id="torch和torchvision的安装"><a href="#torch和torchvision的安装" class="headerlink" title="torch和torchvision的安装"></a>torch和torchvision的安装</h4>
         </div>
 
         
@@ -263,6 +296,85 @@
         
 
         
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;Comments</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script data-pjax>
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'CcuyF9RKQi3JUBUojdmwYROs-gzGzoHsz',
+                    appKey: 'c1x77tnTNwXqbXXHL8bx1XCd',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '😜 尽情吐槽吧bro~',
+                    lang: 'en'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'LAzy';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('true') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
     </div>
 </div>
 
@@ -278,11 +390,25 @@
         <div class="copyright-info info-item">
             &copy;
             
-              <span>2020</span>
+              <span>2022</span>
               -
             
-            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Keep Team</a>
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">LAzy</a>
         </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        Totalview&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
         
         <div class="theme-info info-item">
             Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
@@ -301,8 +427,16 @@
     <ul class="tools-list">
         <!-- TOC aside toggle -->
         
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
 
         <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
         
     </ul>
 </div>
@@ -331,11 +465,16 @@
 
         <!-- rss -->
         
-
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="fas fa-arrow-up"></i>
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
             </li>
+        
+
         
 
         <li class="tools-item tool-scroll-to-bottom flex-center">
@@ -348,11 +487,24 @@
             <i class="fas fa-cog fa-spin"></i>
         </li>
         
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
     </ul>
 </div>
 
     </div>
 
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#jetson-nano-apt%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90"><span class="nav-text">jetson nano apt更换国内源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jtop%E5%AE%89%E8%A3%85"><span class="nav-text">jtop安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#zerotier%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%EF%BC%88%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%EF%BC%89"><span class="nav-text">zerotier安装使用（内网穿透）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#minifoege-%E5%AE%89%E8%A3%85"><span class="nav-text">minifoege 安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#conda%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90"><span class="nav-text">conda更换国内镜像源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pip%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90"><span class="nav-text">pip更换国内镜像源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#conda%E6%9B%B4%E6%94%B9base%E7%8E%AF%E5%A2%83%E4%B8%8Bpython%E7%89%88%E6%9C%AC"><span class="nav-text">conda更改base环境下python版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jetson-nano-%E5%92%8C-jetson-nx-%E9%85%8D%E7%BD%AE-cuda"><span class="nav-text">jetson nano 和 jetson nx 配置 cuda</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cv2-torch%E7%AD%89%E7%94%B1%E4%BA%8Enumpy%E9%97%AE%E9%A2%98%E6%8A%A5%E9%94%99illegal-instruction-core-dumped"><span class="nav-text">cv2, torch等由于numpy问题报错illegal instruction(core dumped)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8linux%E4%B8%8B%E4%BD%BF%E7%94%A8opencv%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E6%91%84%E5%83%8F%E5%A4%B4%E9%97%AE%E9%A2%98-WARN-0-global-io-opencv-modules-videoio-src-cap-v4l-cpp-893-open-VIDEOIO-V4L2-dev-video0-can%E2%80%99t-open-camera-by-index"><span class="nav-text">在linux下使用opencv无法打开摄像头问题[ WARN:0] global &#x2F;io&#x2F;opencv&#x2F;modules&#x2F;videoio&#x2F;src&#x2F;cap_v4l.cpp (893) open VIDEOIO(V4L2:&#x2F;dev&#x2F;video0): can’t open camera by index</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%A5%E9%94%99This-plugin-does-not-support-propagateSizeHints-%EF%BC%8C-%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E6%8E%A7%E4%BB%B6%E6%B6%88%E5%A4%B1"><span class="nav-text">报错This plugin does not support propagateSizeHints()， 图形界面控件消失</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pyside2%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-text">pyside2的安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dlib%E5%AE%89%E8%A3%85"><span class="nav-text">dlib安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#torch%E5%92%8Ctorchvision%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-text">torch和torchvision的安装</span></a></li></ol>
+    </div>
+</div>
+        </aside>
     
 
     <div class="image-viewer-container">
@@ -361,32 +513,87 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
 
 
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
 
-<script src="/js/utils.js"></script>
 
-<script src="/js/main.js"></script>
-
-<script src="/js/header-shrink.js"></script>
-
-<script src="/js/back2top.js"></script>
-
-<script src="/js/dark-light-toggle.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/local-search.js"></script>
 
 
 
 
 
 
-
-
-<div class="post-scripts">
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
     
 </div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
 
 
 
@@ -404,6 +611,7 @@
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 </body>
 </html>
