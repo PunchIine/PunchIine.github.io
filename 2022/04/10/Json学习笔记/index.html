@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Keep Team">
+    
+    <title>
+        
+            Json学习笔记 |
+        
+        Keep Theme
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"lazy.github.io","root":"/","language":"en","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="LAzy" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Keep Theme
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Json学习笔记</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Keep Team</span>
+                        
+                            <span class="author-label">Lv2</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-04-10 21:50:24</span>
+        <span class="mobile">2022-04-10 21:50</span>
+    </span>
+    
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <!-- toc -->
+<ul>
+<li><a href="#json">JSON</a><ul>
+<li><a href="#json-语法规则">JSON 语法规则</a></li>
+<li><a href="#json-名称值对">JSON 名称/值对</a></li>
+<li><a href="#json-值">JSON 值</a></li>
+<li><a href="#json-文件">JSON 文件</a></li>
+<li><a href="#json对象">JSON对象</a><ul>
+<li><a href="#使用点号访问对象值">使用点号访问对象值</a></li>
+<li><a href="#使用点号-或者中括号-来访问嵌套的json对象">使用点号. 或者中括号 [] 来访问嵌套的JSON对象。</a></li>
+<li><a href="#修改json值">修改JSON值</a></li>
+<li><a href="#修改对象属性">修改对象属性</a></li>
+</ul>
+</li>
+<li><a href="#json数组">JSON数组</a><ul>
+<li><a href="#数组可以作为json对象">数组可以作为JSON对象</a></li>
+<li><a href="#json对象中的数组">JSON对象中的数组</a></li>
+<li><a href="#嵌套-json-对象中的数组">嵌套 JSON 对象中的数组</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#python-json">Python json</a><ul>
+<li><a href="#jsondumps">json.dumps</a></li>
+<li><a href="#jsonloads">json.loads</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h3><span id="json">JSON</span></h3><p>JSON: <strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation(JavaScript 对象表示法)</p>
+<h4><span id="json-语法规则">JSON 语法规则</span></h4><p>JSON 语法是 JavaScript 对象表示语法的子集。</p>
+<ul>
+<li>数据在名称/值对中</li>
+<li>数据由逗号分隔</li>
+<li>大括号 <strong>{}</strong> 保存对象</li>
+<li>中括号 <strong>[]</strong> 保存数组，数组可以包含多个对象</li>
+</ul>
+<h4><span id="json-名称值对">JSON 名称/值对</span></h4><p>JSON 数据的书写格式是：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">key <span class="punctuation">:</span> value</span><br></pre></td></tr></table></figure>
+<p>名称/值对包括字段名称（在双引号中），后面写一个冒号，然后是值：</p>
+<p>“name” : “菜鸟教程”</p>
+<h4><span id="json-值">JSON 值</span></h4><p>JSON 值可以是：</p>
+<ul>
+<li>数字（整数或浮点数）</li>
+<li>字符串（在双引号中）</li>
+<li>逻辑值（true 或 false）</li>
+<li>数组（在中括号中）</li>
+<li>对象（在大括号中）</li>
+<li>null</li>
+</ul>
+<h4><span id="json-文件">JSON 文件</span></h4><ul>
+<li>JSON 文件的文件类型是 <strong>.json</strong></li>
+<li>JSON 文本的 MIME 类型是 <strong>application/json</strong></li>
+</ul>
+<p>MINE类型：媒体类型（通常称为 Multipurpose Internet Mail Extensions 或 MIME 类型 ）是一种标准，用来表示文档、文件或字节流的性质和格式。 它在IETF RFC 6838中进行了定义和标准化。</p>
+<h4><span id="json对象">JSON对象</span></h4><p>必须在大括号{}中书写，</p>
+<p>key必须是字符串，value可以是合法的JSON数据类型（见JSON值）</p>
+<h5><span id="使用点号访问对象值">使用点号访问对象值</span></h5><p>例：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var myobj<span class="punctuation">,</span> x;</span><br><span class="line">myobj = <span class="punctuation">&#123;</span><span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;runoob&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;alexa&quot;</span><span class="punctuation">:</span><span class="number">10000</span><span class="punctuation">,</span> <span class="attr">&quot;site&quot;</span><span class="punctuation">:</span><span class="keyword">null</span><span class="punctuation">&#125;</span>;</span><br><span class="line">x = myobj<span class="punctuation">[</span><span class="string">&quot;name&quot;</span><span class="punctuation">]</span>;</span><br></pre></td></tr></table></figure>
+<h5><span id="使用点号-或者中括号-来访问嵌套的json对象">使用点号. 或者中括号 [] 来访问嵌套的JSON对象。</span></h5><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = myobj.sites.site1;</span><br><span class="line">x = myobj.sites<span class="punctuation">[</span><span class="string">&quot;site1&quot;</span><span class="punctuation">]</span>;</span><br></pre></td></tr></table></figure>
+<h5><span id="修改json值">修改JSON值</span></h5><p>使用点号访问并修改</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myobj.sites.site1 = <span class="string">&quot;sxasxaxa&quot;</span></span><br></pre></td></tr></table></figure>
+<p>使用中括号访问并修改</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myobj.sites.<span class="punctuation">[</span><span class="string">&quot;site1&quot;</span><span class="punctuation">]</span> = <span class="string">&quot;sadadsad&quot;</span></span><br></pre></td></tr></table></figure>
+<h5><span id="修改对象属性">修改对象属性</span></h5><p>使用delete关键字来删除JSON对象的属性：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete myobj.sites.site1</span><br></pre></td></tr></table></figure>
+<h4><span id="json数组">JSON数组</span></h4><h5><span id="数组可以作为json对象">数组可以作为JSON对象</span></h5><p>例：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">[</span> <span class="string">&quot;Google&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Runoob&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Taobao&quot;</span> <span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
+<h5><span id="json对象中的数组">JSON对象中的数组</span></h5><p>例：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line"><span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;网站&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;num&quot;</span><span class="punctuation">:</span><span class="number">3</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;sites&quot;</span><span class="punctuation">:</span><span class="punctuation">[</span> <span class="string">&quot;Google&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Runoob&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Taobao&quot;</span> <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<h5><span id="嵌套-json-对象中的数组">嵌套 JSON 对象中的数组</span></h5><p>JSON 对象中数组可以包含另外一个数组，或者另外一个 JSON 对象：</p>
+<p>例：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">myObj = <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;网站&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;num&quot;</span><span class="punctuation">:</span><span class="number">3</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;sites&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span> <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;Google&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;info&quot;</span><span class="punctuation">:</span><span class="punctuation">[</span> <span class="string">&quot;Android&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Google 搜索&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Google 翻译&quot;</span> <span class="punctuation">]</span> <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span> <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;Runoob&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;info&quot;</span><span class="punctuation">:</span><span class="punctuation">[</span> <span class="string">&quot;菜鸟教程&quot;</span><span class="punctuation">,</span> <span class="string">&quot;菜鸟工具&quot;</span><span class="punctuation">,</span> <span class="string">&quot;菜鸟微信&quot;</span> <span class="punctuation">]</span> <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span> <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;Taobao&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;info&quot;</span><span class="punctuation">:</span><span class="punctuation">[</span> <span class="string">&quot;淘宝&quot;</span><span class="punctuation">,</span> <span class="string">&quot;网购&quot;</span> <span class="punctuation">]</span> <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p><strong>————JSON数组和对象都可以使用for-in循环来访问</strong></p>
+<h3><span id="python-json">Python json</span></h3><h4><span id="jsondumps">json.dumps</span></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">json.dumps(obj, skipkeys=<span class="literal">False</span>, ensure_ascii=<span class="literal">True</span>, check_circular=<span class="literal">True</span>, allow_nan=<span class="literal">True</span>, cls=<span class="literal">None</span>, indent=<span class="literal">None</span>, separators=<span class="literal">None</span>, encoding=<span class="string">&quot;utf-8&quot;</span>, default=<span class="literal">None</span>, sort_keys=<span class="literal">False</span>, **kw)</span><br></pre></td></tr></table></figure>
+<p>——将python对象编码成JSON字符串</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">data = [ &#123; <span class="string">&#x27;a&#x27;</span> : <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span> : <span class="number">2</span>, <span class="string">&#x27;c&#x27;</span> : <span class="number">3</span>, <span class="string">&#x27;d&#x27;</span> : <span class="number">4</span>, <span class="string">&#x27;e&#x27;</span> : <span class="number">5</span> &#125; ]</span><br><span class="line"></span><br><span class="line">data2 = json.dumps(&#123;<span class="string">&#x27;a&#x27;</span>: <span class="string">&#x27;Runoob&#x27;</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">7</span>&#125;, sort_keys=<span class="literal">True</span>, indent=<span class="number">4</span>, separators=(<span class="string">&#x27;,&#x27;</span>, <span class="string">&#x27;: &#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(data2)</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/93063038/161693786-a97c5355-01c0-404d-a141-c77e6e17bec7.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/93063038/161694246-a1c8cc40-8b14-4b9f-b713-af9490964fa2.png" alt="image"></p>
+<h4><span id="jsonloads">json.loads</span></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">json.loads(s[, encoding[, cls[, object_hook[, parse_float[, parse_int[, parse_constant[, object_pairs_hook[, **kw]]]]]]]])</span><br></pre></td></tr></table></figure>
+<p>——json.loads 用于解码 JSON 数据。该函数返回 Python 字段的数据类型。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">jsonData = <span class="string">&#x27;&#123;&quot;a&quot;:1,&quot;b&quot;:2,&quot;c&quot;:3,&quot;d&quot;:4,&quot;e&quot;:5&#125;&#x27;</span>;</span><br><span class="line"></span><br><span class="line">text = json.loads(jsonData)</span><br><span class="line"><span class="built_in">print</span>(text)</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/93063038/161694484-b860f557-4849-4255-809b-eaa5ee033d41.png" alt="image"></p>
+
+        </div>
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/04/16/jetson%E9%85%8D%E7%BD%AE%E6%97%A5%E5%BF%97/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">jetson配置日志</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/04/10/Git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Git学习笔记</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Keep Team</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
