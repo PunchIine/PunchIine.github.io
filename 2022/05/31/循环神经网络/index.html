@@ -302,43 +302,38 @@ mjx-container[display="true"] + br {
 
         <div class="article-content markdown-body">
             <h2 id="循环神经网络-RNN"><a href="#循环神经网络-RNN" class="headerlink" title="循环神经网络(RNN)"></a>循环神经网络(RNN)</h2><blockquote>
-<p><strong>RNN</strong>是针对序列数据而生成的神经网络结构,核心在于循环使用网络层 参数.避免时间步增大带来的参数激增,<br> 并引入<strong>隐藏状态(Hidden State)</strong>用于记录历史信息,有效的处理数据的前后关联性</p>
+<p><strong>RNN</strong>是针对序列数据而生成的神经网络结构,核心在于循环使用网络层 参数.避免时间步增大带来的参数激增,并引入<strong>隐藏状态(Hidden State)</strong>用于记录历史信息,有效的处理数据的前后关联性</p>
 </blockquote>
-<p> <strong>循环神经网络示意图</strong></p>
-<p> <img src="https://user-images.githubusercontent.com/93063038/169677732-0a67307b-326f-4e1c-b88c-
- 590c7d3841fe.png" alt="image"></p>
-<p> 隐藏状态(Hidden State)用于记录历史信息,有效处理数据的前后关联性,激活函数采用Tanh,将输出值域限制在(-1,1),<br> 防止数值呈指数级变化</p>
-<p> <img src="https://user-images.githubusercontent.com/93063038/169677772-637a0e48-0192-4d75-aeef-
- 67de87da4c51.png" alt="image"></p>
-<p> <img src="https://user-images.githubusercontent.com/93063038/169678543-c4f420e9-b46a-46be-99cd-
- 518d8b2e06b9.png" alt="image"><br> <strong>RNN特性:</strong></p>
+<p><strong>循环神经网络示意图</strong></p>
+<p><img src="https://user-images.githubusercontent.com/93063038/169677732-0a67307b-326f-4e1c-b88c-590c7d3841fe.png" alt="image"></p>
+<p>隐藏状态(Hidden State)用于记录历史信息,有效处理数据的前后关联性,激活函数采用Tanh,将输出值域限制在(-1,1),防止数值呈指数级变化</p>
+<p><img src="https://user-images.githubusercontent.com/93063038/169677772-637a0e48-0192-4d75-aeef-67de87da4c51.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/93063038/169678543-c4f420e9-b46a-46be-99cd-518d8b2e06b9.png" alt="image"></p>
+<p><strong>RNN特性:</strong></p>
 <ol>
 <li>循环神经网络的<strong>隐藏状态</strong>可以捕捉截至当前时间步的序列的历史信息</li>
 <li>循环神经网络模型参数的数量不随时间步的增加而增长</li>
 </ol>
-<p> <strong>RNN的通过时间反向传播(穿越时间反向传播) (backpropagation through time)</strong></p>
-<p> <img src="https://user-images.githubusercontent.com/93063038/169678904-088719ab-5ecb-46cb-8bd2-
- 177f8ebb6f79.png" alt="image"></p>
-<p> <img src="https://user-images.githubusercontent.com/93063038/169678619-38500f1c-af45-4b78-b260-
- 91d7c6bae747.png" alt="image"></p>
+<p><strong>RNN的通过时间反向传播(穿越时间反向传播) (backpropagation through time)</strong> </p>
+<p><img src="https://user-images.githubusercontent.com/93063038/169678904-088719ab-5ecb-46cb-8bd2-177f8ebb6f79.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/93063038/169678619-38500f1c-af45-4b78-b260-91d7c6bae747.png" alt="image"></p>
 <h2 id="门控循环单元-GRU"><a href="#门控循环单元-GRU" class="headerlink" title="门控循环单元(GRU)"></a>门控循环单元(GRU)</h2><blockquote>
 <p>引入门概念,来控制信息流动,使模型更好的记住长远时期的信息,并缓解梯度消失问题</p>
 </blockquote>
-<p> 重置门 : 哪些信息需要遗忘</p>
-<p> 更新门 : 哪些信息需要注意</p>
-<p> <img src="/home/lazy/.config/Typora/typora-user-images/image-20220522130303476.png" alt="image-20220522130303476"></p>
-<p> 激活函数 : sigmoid  值域为(0,1),0表示遗忘,1表示保留</p>
-<p> <strong>GRU候选隐藏状态</strong></p>
-<p> 输入与上一时间步隐藏状态共同计算得到候选隐藏状态,用于隐藏状态的计算.通过重置门,<br> 对上一时间隐藏状态进行选择性遗忘,对历史信息更好的选择.</p>
-<p> <img src="/home/lazy/.config/Typora/typora-user-images/image-20220522125316689.png" alt="image-20220522125316689"></p>
-<p> <strong>GRU隐藏状态</strong></p>
+<p>重置门 : 哪些信息需要遗忘</p>
+<p>更新门 : 哪些信息需要注意</p>
+<p><img src="/home/lazy/.config/Typora/typora-user-images/image-20220522130303476.png" alt="image-20220522130303476"></p>
+<p>激活函数 : sigmoid  值域为(0,1),0表示遗忘,1表示保留</p>
+<p><strong>GRU候选隐藏状态</strong></p>
+<p>输入与上一时间步隐藏状态共同计算得到候选隐藏状态,用于隐藏状态的计算.通过重置门,对上一时间隐藏状态进行选择性遗忘,对历史信息更好的选择.</p>
+<p><img src="/home/lazy/.config/Typora/typora-user-images/image-20220522125316689.png" alt="image-20220522125316689"></p>
+<p><strong>GRU隐藏状态</strong></p>
 <blockquote>
 <p> GRU的隐藏装态由候选隐藏状态及上一时间步隐藏状态组合得来</p>
 </blockquote>
-<p> <img src="/home/lazy/.config/Typora/typora-user-images/image-20220522125647832.png" alt="image-20220522125647832"></p>
-<p> <img src="https://user-images.githubusercontent.com/93063038/169679443-736ac06e-cd30-42f2-863d-
- 345adb43e948.png" alt="image"></p>
-<p> <strong>GRU特点</strong>:</p>
+<p><img src="/home/lazy/.config/Typora/typora-user-images/image-20220522125647832.png" alt="image-20220522125647832"></p>
+<p><img src="https://user-images.githubusercontent.com/93063038/169679443-736ac06e-cd30-42f2-863d-345adb43e948.png" alt="image"></p>
+<p><strong>GRU特点</strong>:</p>
 <ul>
 <li>门机制采用Sigmoid激活函数,使门值为(0,1),0表示遗忘,1表示保留</li>
 <li>若更新门自第一个时间步到t-1时间步的过程中一直保持为1,则信息可有效传递到当前时间步.</li>
@@ -346,20 +341,17 @@ mjx-container[display="true"] + br {
 <h2 id="长短期记忆网络-LSTM"><a href="#长短期记忆网络-LSTM" class="headerlink" title="长短期记忆网络(LSTM)"></a>长短期记忆网络(LSTM)</h2><blockquote>
 <p>引入三个门和记忆细胞,控制信息传递</p>
 </blockquote>
-<p> 遗忘门 : 哪些信息需要遗忘</p>
-<p> 输入门 : 哪些信息需要流入当前记忆细胞</p>
-<p> 输出门 : 哪些记忆信息流入隐藏状态</p>
-<p> 记忆细胞 : 特殊的隐藏状态, 记忆历史信息</p>
-<p> <strong>候选记忆细胞</strong></p>
-<p> <img src="https://user-images.githubusercontent.com/93063038/169679758-22c91985-c742-427e-973f-
- b28decfaab92.png" alt="image"></p>
-<p> <strong>记忆细胞与隐藏状态</strong></p>
-<p> 记忆细胞可以理解为特殊的隐藏状态,由候选记忆细胞及上一时间步记忆细胞组合的来</p>
-<p> <img src="https://user-images.githubusercontent.com/93063038/169679733-90085937-efd4-41ed-891e-
- 7ceb8564d29e.png" alt="image"></p>
-<p> 由输出门控制记忆细胞信息流入隐藏状态</p>
-<p> <img src="https://user-images.githubusercontent.com/93063038/169679780-861a44a5-4ef4-4465-8fe3-
- 6f885f4d917b.png" alt="image"></p>
+<p>遗忘门 : 哪些信息需要遗忘</p>
+<p>输入门 : 哪些信息需要流入当前记忆细胞</p>
+<p>输出门 : 哪些记忆信息流入隐藏状态</p>
+<p>记忆细胞 : 特殊的隐藏状态, 记忆历史信息</p>
+<p><strong>候选记忆细胞</strong></p>
+<p><img src="https://user-images.githubusercontent.com/93063038/169679758-22c91985-c742-427e-973f-b28decfaab92.png" alt="image"></p>
+<p><strong>记忆细胞与隐藏状态</strong></p>
+<p>记忆细胞可以理解为特殊的隐藏状态,由候选记忆细胞及上一时间步记忆细胞组合的来</p>
+<p><img src="https://user-images.githubusercontent.com/93063038/169679733-90085937-efd4-41ed-891e-7ceb8564d29e.png" alt="image"></p>
+<p>由输出门控制记忆细胞信息流入隐藏状态</p>
+<p><img src="https://user-images.githubusercontent.com/93063038/169679780-861a44a5-4ef4-4465-8fe3-6f885f4d917b.png" alt="image"></p>
 
         </div>
 
